@@ -1,6 +1,0 @@
-instruction_memory(.[31:0]addr(),%[31:0]instr());
-control_unit(.[6:0]opcode(),.[2:0]funct3(),.[6:0]funct7(),%regreg_write(),//writeregisterornot@output@regalu_src(),//haveimmediateoperandornot@output@regmem_read(),//readfrommemoryornot@output@regmem_write(),//writetomemoryornot@output@regmem_to_reg(),//writetoregisterornot@output@regbranch(),//branchornot@output@regjump(),//jumpornot@output@regcsr_write(),//CSRornot@output@reg[3:0]alu_op//ALUoperands());
-register_file(.clk(),.we(),.[4:0]rs1(),rs2(),rd(),.[31:0]wd(),%[31:0]rd1(),rd2());
-//ALUmodulealu(.[31:0]a(),b(),.[3:0]alu_op(),%reg[31:0]result());
-memory(.clk(),.[31:0]addr(),.we(),re(),.[31:0]wd(),%reg[31:0]rd());
-csr_registers(.clk(),.we(),.[11:0]addr(),.[31:0]wd(),%reg[31:0]rd());
