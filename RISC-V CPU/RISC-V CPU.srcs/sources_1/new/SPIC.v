@@ -21,6 +21,8 @@ module SPIC (
     wire [3:0] alu_op;
     wire [31:0] alu_result, reg_rs1, reg_rs2, imm, mem_data, csr_data;
     
+
+
     instruction_memory IMEM(
         .addr(pc),
         .instr(instr)
@@ -41,7 +43,12 @@ module SPIC (
         .alu_op(alu_op)
     );
 
-    
+    immediate_gen IG(
+        .instr(instr),
+        .imm_type(imm_type),
+        .imm(imm)
+    );
+
     register_file RF(
         .clk(clk), 
         .we(reg_write), 
@@ -91,6 +98,20 @@ module SPIC (
     assign pc_out = pc;
 endmodule
 
+module immediate_gen(
+    input [31:0] instr,
+    input [2:0] imm_type,  // 000:I, 001:S, 010:B, 011:U, 100:J
+    output reg [31:0] imm
+);
+    always @(*) begin
+        case(imm_type)
+            3'b000: imm = {{20{instr[31]}}, instr[31:20]}; // I-type
+            default: imm = 32'b0;
+        endcase
+    end
+endmodule
+
+
 module instruction_memory(
     input [31:0] addr,
     output [31:0] instr
@@ -111,7 +132,8 @@ module control_unit(
     output reg branch,         // branch or not
     output reg jump,           // jump or not
     output reg csr_write,      // CSR or not
-    output reg [3:0] alu_op    // ALU operands
+    output reg [3:0] alu_op,    // ALU operands
+    output reg [2:0] imm_type    // 添加imm_type输出
 );
 
     always @(*) begin
@@ -124,6 +146,7 @@ module control_unit(
         jump       = 0;
         csr_write  = 0;
         alu_op     = 4'b0000;
+        imm_type   = 3'b000;
 
         case (opcode)
             // R type (add, sub, and, or, xor, sll, srl, sra)
@@ -143,6 +166,7 @@ module control_unit(
             7'b0010011: begin
                 reg_write = 1;
                 alu_src = 1;
+                imm_type = 3'b000;
                 case (funct3)
                     3'b000: alu_op = 4'b0010; // addi
                     3'b111: alu_op = 4'b0000; // andi
@@ -160,6 +184,7 @@ module control_unit(
                 mem_read = 1;
                 mem_to_reg = 1;
                 alu_op = 4'b0010; // calculate address
+                imm_type = 3'b000;
             end
 
             // Store (SW)
@@ -167,11 +192,13 @@ module control_unit(
                 mem_write = 1;
                 alu_src = 1;
                 alu_op = 4'b0010; // calculate address
+                imm_type = 3'b001;
             end
 
             // Branch (BEQ, BNE)
             7'b1100011: begin
                 branch = 1;
+                imm_type = 3'b010;
                 case (funct3)
                     3'b000: alu_op = 4'b1000; // BEQ
                     3'b001: alu_op = 4'b1001; // BNE
@@ -182,12 +209,14 @@ module control_unit(
             7'b1101111: begin
                 reg_write = 1;
                 jump = 1;
+                imm_type = 3'b100;
             end
 
             // JALR
             7'b1100111: begin
                 reg_write = 1;
                 jump = 1;
+                imm_type = 3'b000;
             end
 
             // CSR (ECALL, EBREAK)
@@ -241,21 +270,64 @@ module alu(
     end
 endmodule
 
+// 内存分区常量定义
+`define MEM_SIZE        32'h0000_FFFF  // 64KB 总内存
+`define TEXT_START      32'h0000_0000  // 代码段起始
+`define TEXT_END        32'h0000_3FFF  // 16KB
+`define DATA_START      32'h0000_4000  // 数据段起始
+`define DATA_END        32'h0000_7FFF  // 16KB
+`define HEAP_START      32'h0000_8000  // 堆起始
+`define HEAP_END        32'h0000_BFFF  // 16KB
+`define STACK_START     32'h0000_C000  // 栈起始
+`define STACK_END       32'h0000_FFFF  // 16KB
+
 module memory(
     input clk,
     input [31:0] addr,
     input we, re,
     input [31:0] wd,
-    output reg [31:0] rd
+    output reg [31:0] rd,
+    output reg error
 );
-    reg [31:0] mem [0:255];
-    always @(posedge clk) if (we) mem[addr[9:2]] <= wd;
-    always @(*) begin
-        if (re)
-            rd = mem[addr[9:2]];
-        else
-            rd = 0;
+    // 扩展内存大小到64KB
+    reg [31:0] mem [0:`MEM_SIZE];
+    
+    // 内存访问控制
+    always @(posedge clk) begin
+        error <= 0;
+        
+        if (we) begin
+            case (1'b1)
+                // 数据段写入
+                (addr >= `DATA_START && addr <= `DATA_END): 
+                    mem[addr] <= wd;
+                // 堆区写入
+                (addr >= `HEAP_START && addr <= `HEAP_END):
+                    mem[addr] <= wd;
+                // 栈区写入
+                (addr >= `STACK_START && addr <= `STACK_END):
+                    mem[addr] <= wd;
+                // 代码段写保护
+                (addr >= `TEXT_START && addr <= `TEXT_END):
+                    error <= 1;
+                default: error <= 1;
+            endcase
+        end
     end
+
+    // 读取逻辑
+    always @(*) begin
+        if (re) begin
+            if (addr <= `MEM_SIZE)
+                rd = mem[addr];
+            else begin
+                rd = 32'h0;
+                error = 1;
+            end
+        end else
+            rd = 32'h0;
+    end
+
 endmodule
 
 module csr_registers(
