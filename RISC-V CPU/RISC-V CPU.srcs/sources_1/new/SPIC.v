@@ -301,16 +301,19 @@ module memory(
         error <= 0;
         
         if (we) begin
+            if (addr % 4 != 0) begin
+                error <= 1;
+            end else begin
             case (1'b1)
                 // 数据段写入
                 (addr >= `DATA_START && addr <= `DATA_END): 
-                    mem[addr] <= wd;
+                    mem[addr >> 2] <= wd;
                 // 堆区写入
                 (addr >= `HEAP_START && addr <= `HEAP_END):
-                    mem[addr] <= wd;
+                    mem[addr >> 2] <= wd;
                 // 栈区写入
                 (addr >= `STACK_START && addr <= `STACK_END):
-                    mem[addr] <= wd;
+                    mem[addr >> 2] <= wd;
                 // 代码段写保护
                 (addr >= `TEXT_START && addr <= `TEXT_END):
                     error <= 1;
@@ -321,15 +324,20 @@ module memory(
 
     // 读取逻辑
     always @(*) begin
+        error <= 0;
         if (re) begin
-            if (addr <= `MEM_SIZE)
-                rd = mem[addr];
-            else begin
+            if (addr % 4 != 0) begin
+                rd = 32'h0;
+                error = 1;
+            end else if (addr <= `MEM_SIZE) begin
+                rd = mem[addr >> 2];
+            end else begin
                 rd = 32'h0;
                 error = 1;
             end
-        end else
+        end else begin
             rd = 32'h0;
+        end
     end
 
 endmodule
