@@ -299,7 +299,6 @@ module memory(
     // 内存访问控制
     always @(posedge clk) begin
         error <= 0;
-        
         if (we) begin
             if (addr % 4 != 0) begin
                 error <= 1;
@@ -321,6 +320,7 @@ module memory(
             endcase
         end
     end
+end
 
     // 读取逻辑
     always @(*) begin
