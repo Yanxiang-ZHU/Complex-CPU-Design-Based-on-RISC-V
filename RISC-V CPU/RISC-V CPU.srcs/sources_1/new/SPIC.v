@@ -265,6 +265,10 @@ module alu(
             4'b0000: result = a & b; // AND
             4'b0001: result = a | b; // OR
             4'b0011: result = a ^ b; // XOR
+            4'b0101: result = a >> b[4:0]; // SRL
+            4'b0111: result = a >>> b[4:0]; // SRA
+            4'b0100: result = a << b[4:0]; // SLL
+
             default: result = 0;
         endcase
     end
