@@ -85,7 +85,13 @@ module SPIC (
     
     always @(posedge clk or posedge rst) begin
         if (rst) pc <= 0;
-        else if (branch & (alu_result == 0)) pc <= pc + imm;
+        else if (branch) begin
+            case (alu_op)
+                4'b1000: if (alu_result == 0) pc <= pc + imm; // BEQ
+                4'b1001: if (alu_result != 0) pc <= pc + imm; // BNE
+                default: pc <= pc + 4;
+            endcase
+        end
         else if (opcode == 7'b1101111) pc <= pc + imm; // JAL
         else if (opcode == 7'b1100111) pc <= reg_rs1 + imm; // JALR
         else if (opcode == 7'b1110011 && funct3 == 3'b000) begin // ECALL / EBREAK
@@ -106,6 +112,10 @@ module immediate_gen(
     always @(*) begin
         case(imm_type)
             3'b000: imm = {{20{instr[31]}}, instr[31:20]}; // I-type
+            3'b001: imm = {{20{instr[31]}}, instr[31:25], instr[11:7]}; // S-type
+            3'b010: imm = {{19{instr[31]}}, instr[31], instr[7], instr[30:25], instr[11:8], 1'b0}; // B-type
+            3'b011: imm = {instr[31:12], 12'b0}; // U-type
+            3'b100: imm = {{11{instr[31]}}, instr[31], instr[19:12], instr[20], instr[30:21], 1'b0}; // J-type
             default: imm = 32'b0;
         endcase
     end
@@ -269,7 +279,7 @@ module alu(
             4'b0111: result = a >>> b[4:0]; // SRA
             4'b0100: result = a << b[4:0]; // SLL
 
-            default: result = 0;
+            default: result = 32'0;
         endcase
     end
 endmodule
