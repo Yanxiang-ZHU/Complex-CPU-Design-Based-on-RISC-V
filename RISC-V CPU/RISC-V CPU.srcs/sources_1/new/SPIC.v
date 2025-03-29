@@ -91,7 +91,7 @@ module SPIC (
     always @(posedge clk or posedge rst) begin
         if (rst)
             pc <= 0;
-        // 在PC更新逻辑中添加其他分支指令
+        // 在PC更新逻辑中添加其他分支指�?
         else if (branch) begin
             case (funct3)
                 3'b000:
@@ -157,12 +157,33 @@ module immediate_gen(
 endmodule
 
 
-// 修改指令内存大小或调整寻址方式
+// 修改指令内存大小或调整寻�?方式
 module instruction_memory(
         input [31:0] addr,
         output [31:0] instr
     );
     reg [31:0] memory [0:1023];
+    integer index;
+    integer file;
+    integer r;
+    reg [31:0] temp_data;
+    
+    initial begin
+        file = $fopen("instructions.mem", "r");
+        if (file) begin
+            index = 0;
+            while (!$feof(file)) begin
+                r = $fscanf(file, "%x", temp_data);
+                memory[index] = temp_data;
+                index = index + 1;
+            end
+            $fclose(file);
+            $display("Instruction memory loaded successfully.");
+        end else begin
+            $display("Error: Unable to open instrument.mem");
+        end
+    end
+    
     assign instr = memory[addr[11:2]];
 endmodule
 
@@ -388,10 +409,28 @@ module memory(
 
     reg [31:0] mem [0:`MEM_SIZE];
 
-    initial begin
-        $readmemh("instrument.mem", mem, `TEXT_START >> 2, `TEXT_END >> 2);
-        $readmemh("data.mem", mem, `DATA_START >> 2, `DATA_END >> 2);
+    integer file, r, index;
+    reg [31:0] temp_data;
+
+
+    initial 
+    begin
+        // ��ȡ data.mem
+        file = $fopen("data.mem", "r");
+        if (file) begin
+            index = `DATA_START >> 2;
+            while (!$feof(file)) begin
+                r = $fscanf(file, "%x", temp_data);
+                mem[index] = temp_data;
+                index = index + 1;
+            end
+            $fclose(file);
+            $display("Data memory loaded successfully.");
+        end else begin
+            $display("Error: Unable to open data.mem");
+        end
     end
+    
     always @(posedge clk) begin
         error <= 0;
         if (we) begin
@@ -452,7 +491,7 @@ module csr_registers(
     );
     reg [31:0] csr_mem [0:4095];
 
-    // 初始化重要CSR寄存器
+    // 初始化重要CSR寄存�?
     initial begin
         csr_mem[12'h305] = 32'h0; // mtvec - 异常处理地址
         // 其他CSR寄存器初始化
