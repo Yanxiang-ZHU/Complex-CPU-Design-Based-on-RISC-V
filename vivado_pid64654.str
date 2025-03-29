@@ -553,3 +553,20 @@ dismissDialog("Starting Design Runs"); // bq (Starting Design Runs Progress)
 // TclEventType: RUN_STEP_COMPLETED
 // Elapsed time: 31 seconds
 dismissDialog("Synthesis Completed"); // Q.a (dialog9)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 38m:16s
+// Elapsed Time for: 'L.f': 38m:18s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 38m:42s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,860 MB. GUI used memory: 77 MB. Current time: 3/29/25, 8:54:46 PM CST
+// Elapsed Time for: 'L.f': 38m:44s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 39m:20s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 39m:22s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,897 MB. GUI used memory: 77 MB. Current time: 3/29/25, 8:55:26 PM CST
+// Elapsed Time for: 'L.f': 39m:24s

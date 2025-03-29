@@ -388,6 +388,10 @@ module memory(
 
     reg [31:0] mem [0:`MEM_SIZE];
 
+    initial begin
+        $readmemh("instrument.mem", mem, `TEXT_START >> 2, `TEXT_END >> 2);
+        $readmemh("data.mem", mem, `DATA_START >> 2, `DATA_END >> 2);
+    end
     always @(posedge clk) begin
         error <= 0;
         if (we) begin
