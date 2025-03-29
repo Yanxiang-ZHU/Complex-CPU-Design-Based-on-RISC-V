@@ -319,22 +319,35 @@ module alu(
                 result = a >>> b[4:0]; // SRA
             4'b0100:
                 result = a << b[4:0]; // SLL
+            4'b1000:
+                result = (a == b) ? 1 : 0; // BEQ
+            4'b1001:
+                result = (a != b) ? 1 : 0; // BNE
+            4'b1010:
+                result = ($signed(a) < $signed(b)) ? 1 : 0; // BLT
+            4'b1011:
+                result = ($signed(a) >= $signed(b)) ? 1 : 0; // BGE
+            4'b1100:
+                result = (a < b) ? 1 : 0; // BLTU
+            4'b1101:
+                result = (a >= b) ? 1 : 0; // BGEU
+
             default:
                 result = 32'h00000000;
         endcase
     end
 endmodule
 
-// 内存分区常量定义
-`define MEM_SIZE        32'h0000_FFFF  // 64KB 总内存
-`define TEXT_START      32'h0000_0000  // 代码段起始
-`define TEXT_END        32'h0000_3FFF  // 16KB
-`define DATA_START      32'h0000_4000  // 数据段起始
-`define DATA_END        32'h0000_7FFF  // 16KB
-`define HEAP_START      32'h0000_8000  // 堆起始
-`define HEAP_END        32'h0000_BFFF  // 16KB
-`define STACK_START     32'h0000_C000  // 栈起始
-`define STACK_END       32'h0000_FFFF  // 16KB
+
+`define MEM_SIZE        32'h0000_FFFF
+`define TEXT_START      32'h0000_0000
+`define TEXT_END        32'h0000_3FFF
+`define DATA_START      32'h0000_4000
+`define DATA_END        32'h0000_7FFF
+`define HEAP_START      32'h0000_8000
+`define HEAP_END        32'h0000_BFFF
+`define STACK_START     32'h0000_C000
+`define STACK_END       32'h0000_FFFF
 
 module memory(
         input clk,
@@ -344,10 +357,10 @@ module memory(
         output reg [31:0] rd,
         output reg error
     );
-    // 扩展内存大小到64KB
+
     reg [31:0] mem [0:`MEM_SIZE];
 
-    // 内存访问控制
+
     always @(posedge clk) begin
         error <= 0;
         if (we) begin
@@ -356,16 +369,16 @@ module memory(
             end
             else begin
                 case (1'b1)
-                    // 数据段写入
+
                     (addr >= `DATA_START && addr <= `DATA_END):
                         mem[addr >> 2] <= wd;
-                    // 堆区写入
+
                     (addr >= `HEAP_START && addr <= `HEAP_END):
                         mem[addr >> 2] <= wd;
-                    // 栈区写入
+
                     (addr >= `STACK_START && addr <= `STACK_END):
                         mem[addr >> 2] <= wd;
-                    // 代码段写保护
+
                     (addr >= `TEXT_START && addr <= `TEXT_END):
                         error <= 1;
                     default:
@@ -375,7 +388,7 @@ module memory(
         end
     end
 
-    // 读取逻辑
+
     always @(*) begin
         error <= 0;
         if (re) begin
