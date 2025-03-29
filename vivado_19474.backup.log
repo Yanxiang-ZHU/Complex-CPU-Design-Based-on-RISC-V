@@ -3,13 +3,13 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Sat Mar 29 20:15:50 2025
-# Process ID: 64654
+# Start of session at: Sat Mar 29 19:25:33 2025
+# Process ID: 19474
 # Current directory: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V
 # Command line: vivado
 # Log file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/vivado.log
 # Journal file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/vivado.jou
-# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 2298.737 MHz, CPU Physical cores: 14, Host memory: 16445 MB
+# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 2420.617 MHz, CPU Physical cores: 14, Host memory: 16445 MB
 #-----------------------------------------------------------
 start_gui
 open_project {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.xpr}
@@ -76,29 +76,12 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/mingzhenjia/Xilinx/Vivado/2023.2/data/ip'.
-open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:06 . Memory (MB): peak = 7855.539 ; gain = 365.445 ; free physical = 1338 ; free virtual = 22421
+open_project: Time (s): cpu = 00:00:20 ; elapsed = 00:00:07 . Memory (MB): peak = 7891.883 ; gain = 338.633 ; free physical = 2705 ; free virtual = 24496
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/utils_1/imports/synth_1/SPIC.dcp with file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC.dcp
 update_compile_order -fileset sources_1
-reset_run synth_1
-INFO: [Project 1-1161] Replacing file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/utils_1/imports/synth_1/SPIC.dcp with file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC.dcp
 launch_runs synth_1 -jobs 10
-[Sat Mar 29 20:16:10 2025] Launched synth_1...
+[Sat Mar 29 19:25:54 2025] Launched synth_1...
 Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
-reset_run synth_1
-INFO: [Project 1-1161] Replacing file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/utils_1/imports/synth_1/SPIC.dcp with file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC.dcp
-launch_runs synth_1 -jobs 10
-[Sat Mar 29 20:21:36 2025] Launched synth_1...
-Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
-reset_run synth_1
-INFO: [Project 1-1161] Replacing file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/utils_1/imports/synth_1/SPIC.dcp with file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC.dcp
-launch_runs synth_1 -jobs 10
-[Sat Mar 29 20:23:58 2025] Launched synth_1...
-Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
-reset_run synth_1
-launch_runs synth_1 -jobs 10
-[Sat Mar 29 20:27:48 2025] Launched synth_1...
-Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
-reset_run synth_1
-INFO: [Project 1-1161] Replacing file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/utils_1/imports/synth_1/SPIC.dcp with file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC.dcp
-launch_runs synth_1 -jobs 10
-[Sat Mar 29 20:52:38 2025] Launched synth_1...
-Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Mar 29 20:15:43 2025...

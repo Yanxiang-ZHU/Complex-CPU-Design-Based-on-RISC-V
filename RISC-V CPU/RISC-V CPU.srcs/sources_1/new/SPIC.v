@@ -17,9 +17,11 @@ module SPIC (
     wire [4:0] rs2 = instr[24:20];
     wire [4:0] rd = instr[11:7];
 
-    wire reg_write, alu_src, mem_read, mem_write, mem_to_reg, branch, csr_write;
+    wire reg_write, alu_src, mem_read, mem_write, mem_to_reg, branch, csr_write,jump,error;
     wire [3:0] alu_op;
     wire [31:0] alu_result, reg_rs1, reg_rs2, imm, mem_data, csr_data;
+    wire [2:0] imm_type;
+
 
 
 
@@ -40,7 +42,8 @@ module SPIC (
                      .branch(branch),
                      .jump(jump),
                      .csr_write(csr_write),
-                     .alu_op(alu_op)
+                     .alu_op(alu_op),
+                     .imm_type(imm_type)
                  );
 
     immediate_gen IG(
@@ -55,7 +58,8 @@ module SPIC (
                       .rs1(rs1),
                       .rs2(rs2),
                       .rd(rd),
-                      .wd(mem_to_reg ? mem_data : alu_result),
+                      .wd(mem_to_reg ? mem_data :
+                          (opcode == 7'b1101111 || opcode == 7'b1100111) ? pc + 4 : alu_result),
                       .rd1(reg_rs1),
                       .rd2(reg_rs2)
                   );
@@ -72,7 +76,8 @@ module SPIC (
                .we(mem_write),
                .re(mem_read),
                .wd(reg_rs2),
-               .rd(mem_data)
+               .rd(mem_data),
+               .error(error)
            );
 
     csr_registers CSR(
@@ -86,14 +91,27 @@ module SPIC (
     always @(posedge clk or posedge rst) begin
         if (rst)
             pc <= 0;
+        // 在PC更新逻辑中添加其他分支指令
         else if (branch) begin
-            case (alu_op)
-                4'b1000:
-                    if (alu_result == 0)
+            case (funct3)
+                3'b000:
+                    if (alu_result == 1)
                         pc <= pc + imm; // BEQ
-                4'b1001:
-                    if (alu_result != 0)
+                3'b001:
+                    if (alu_result == 1)
                         pc <= pc + imm; // BNE
+                3'b100:
+                    if (alu_result == 1)
+                        pc <= pc + imm; // BLT
+                3'b101:
+                    if (alu_result == 1)
+                        pc <= pc + imm; // BGE
+                3'b110:
+                    if (alu_result == 1)
+                        pc <= pc + imm; // BLTU
+                3'b111:
+                    if (alu_result == 1)
+                        pc <= pc + imm; // BGEU
                 default:
                     pc <= pc + 4;
             endcase
@@ -139,12 +157,13 @@ module immediate_gen(
 endmodule
 
 
+// 修改指令内存大小或调整寻址方式
 module instruction_memory(
         input [31:0] addr,
         output [31:0] instr
     );
-    reg [31:0] memory [0:255];             // instructions are stored in ROM !!
-    assign instr = memory[addr[9:2]];
+    reg [31:0] memory [0:1023];
+    assign instr = memory[addr[11:2]];
 endmodule
 
 module control_unit(
@@ -235,6 +254,7 @@ module control_unit(
             end
 
             // Branch (BEQ, BNE)
+            // Branch (BEQ, BNE, BLT, BGE, BLTU, BGEU)
             7'b1100011: begin
                 branch = 1;
                 imm_type = 3'b010;
@@ -243,6 +263,14 @@ module control_unit(
                         alu_op = 4'b1000; // BEQ
                     3'b001:
                         alu_op = 4'b1001; // BNE
+                    3'b100:
+                        alu_op = 4'b1010; // BLT
+                    3'b101:
+                        alu_op = 4'b1011; // BGE
+                    3'b110:
+                        alu_op = 4'b1100; // BLTU
+                    3'b111:
+                        alu_op = 4'b1101; // BGEU
                 endcase
             end
 
@@ -319,21 +347,21 @@ module alu(
                 result = a >>> b[4:0]; // SRA
             4'b0100:
                 result = a << b[4:0]; // SLL
-            4'b1000:
-                result = (a == b) ? 1 : 0; // BEQ
-            4'b1001:
-                result = (a != b) ? 1 : 0; // BNE
-            4'b1010:
-                result = ($signed(a) < $signed(b)) ? 1 : 0; // BLT
-            4'b1011:
-                result = ($signed(a) >= $signed(b)) ? 1 : 0; // BGE
-            4'b1100:
-                result = (a < b) ? 1 : 0; // BLTU
-            4'b1101:
-                result = (a >= b) ? 1 : 0; // BGEU
 
+            4'b1000:
+                result = (a == b) ? 32'd1 : 32'd0; // BEQ
+            4'b1001:
+                result = (a != b) ? 32'd1 : 32'd0; // BNE
+            4'b1010:
+                result = ($signed(a) < $signed(b)) ? 32'd1 : 32'd0; // BLT
+            4'b1011:
+                result = ($signed(a) >= $signed(b)) ? 32'd1 : 32'd0; // BGE
+            4'b1100:
+                result = (a < b) ? 32'd1 : 32'd0; // BLTU
+            4'b1101:
+                result = (a >= b) ? 32'd1 : 32'd0; // BGEU
             default:
-                result = 32'h00000000;
+                result = 32'b0;
         endcase
     end
 endmodule
@@ -359,7 +387,6 @@ module memory(
     );
 
     reg [31:0] mem [0:`MEM_SIZE];
-
 
     always @(posedge clk) begin
         error <= 0;
@@ -388,9 +415,7 @@ module memory(
         end
     end
 
-
     always @(*) begin
-        error <= 0;
         if (re) begin
             if (addr % 4 != 0) begin
                 rd = 32'h0;
@@ -398,6 +423,7 @@ module memory(
             end
             else if (addr <= `MEM_SIZE) begin
                 rd = mem[addr >> 2];
+                error = 0;
             end
             else begin
                 rd = 32'h0;
@@ -406,11 +432,13 @@ module memory(
         end
         else begin
             rd = 32'h0;
+            error = 0;
         end
     end
 
 endmodule
 
+// 完善CSR逻辑
 module csr_registers(
         input clk,
         input we,
@@ -419,8 +447,16 @@ module csr_registers(
         output reg [31:0] rd
     );
     reg [31:0] csr_mem [0:4095];
+
+    // 初始化重要CSR寄存器
+    initial begin
+        csr_mem[12'h305] = 32'h0; // mtvec - 异常处理地址
+        // 其他CSR寄存器初始化
+    end
+
     always @(posedge clk) if (we)
             csr_mem[addr] <= wd;
+
     always @(*) begin
         rd = csr_mem[addr];
     end

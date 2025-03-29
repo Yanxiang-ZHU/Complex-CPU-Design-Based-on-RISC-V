@@ -3,29 +3,17 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Sat Mar 29 20:15:50 2025
-# Process ID: 64654
+# Start of session at: Sat Mar 29 19:25:33 2025
+# Process ID: 19474
 # Current directory: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V
 # Command line: vivado
 # Log file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/vivado.log
 # Journal file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/vivado.jou
-# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 2298.737 MHz, CPU Physical cores: 14, Host memory: 16445 MB
+# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 2420.617 MHz, CPU Physical cores: 14, Host memory: 16445 MB
 #-----------------------------------------------------------
 start_gui
 open_project {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.xpr}
+reset_run synth_1
 update_compile_order -fileset sources_1
-reset_run synth_1
-launch_runs synth_1 -jobs 10
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 10
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 10
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 10
-wait_on_run synth_1
-reset_run synth_1
 launch_runs synth_1 -jobs 10
 wait_on_run synth_1
