@@ -3,12 +3,12 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Sat Mar 29 20:52:40 2025
-# Process ID: 94168
+# Start of session at: Tue Apr  1 12:39:07 2025
+# Process ID: 28158
 # Current directory: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1
 # Command line: vivado -log SPIC.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SPIC.tcl
 # Log file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC.vds
 # Journal file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/vivado.jou
-# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 3259.332 MHz, CPU Physical cores: 14, Host memory: 16445 MB
+# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 800.341 MHz, CPU Physical cores: 14, Host memory: 16445 MB
 #-----------------------------------------------------------
 source SPIC.tcl -notrace

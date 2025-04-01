@@ -20,7 +20,7 @@ module SPIC (
     wire reg_write, alu_src, mem_read, mem_write, mem_to_reg, branch, csr_write,jump,error;
     wire [3:0] alu_op;
     wire [31:0] alu_result, reg_rs1, reg_rs2, imm, mem_data, csr_data;
-    wire [2:0] imm_type;
+    wire [2:0] imm_type,mem_size;
 
 
 
@@ -43,7 +43,8 @@ module SPIC (
                      .jump(jump),
                      .csr_write(csr_write),
                      .alu_op(alu_op),
-                     .imm_type(imm_type)
+                     .imm_type(imm_type),
+                     .mem_size(mem_size)
                  );
 
     immediate_gen IG(
@@ -59,14 +60,17 @@ module SPIC (
                       .rs2(rs2),
                       .rd(rd),
                       .wd(mem_to_reg ? mem_data :
-                          (opcode == 7'b1101111 || opcode == 7'b1100111) ? pc + 4 : alu_result),
+                          (opcode == 7'b1101111 || opcode == 7'b1100111) ? pc + 4 :
+                          (opcode == 7'b1110011 && funct3 != 3'b000) ? csr_data : alu_result),
                       .rd1(reg_rs1),
                       .rd2(reg_rs2)
                   );
 
     alu ALU(
             .a(reg_rs1),
-            .b(alu_src ? imm : reg_rs2), .alu_op(alu_op),
+            .b(alu_src ? imm : reg_rs2),
+            .alu_op(alu_op),
+            .pc(pc),
             .result(alu_result)
         );
 
@@ -77,41 +81,38 @@ module SPIC (
                .re(mem_read),
                .wd(reg_rs2),
                .rd(mem_data),
+               .mem_size(mem_size),
                .error(error)
            );
 
     csr_registers CSR(
                       .clk(clk),
+                      .rst(rst),
                       .we(csr_write),
                       .addr(instr[31:20]),
                       .wd(reg_rs1),
+                      .funct3(funct3),
                       .rd(csr_data)
                   );
 
     always @(posedge clk or posedge rst) begin
         if (rst)
             pc <= 0;
-        // 在PC更新逻辑中添加其他分支指�?
+        // 在PC更新逻辑中添加其他分支指�?
         else if (branch) begin
             case (funct3)
                 3'b000:
-                    if (alu_result == 1)
-                        pc <= pc + imm; // BEQ
+                    pc <= (alu_result == 1) ? pc + imm : pc + 4; // BEQ
                 3'b001:
-                    if (alu_result == 1)
-                        pc <= pc + imm; // BNE
+                    pc <= (alu_result == 1) ? pc + imm : pc + 4; // BNE
                 3'b100:
-                    if (alu_result == 1)
-                        pc <= pc + imm; // BLT
+                    pc <= (alu_result == 1) ? pc + imm : pc + 4; // BLT
                 3'b101:
-                    if (alu_result == 1)
-                        pc <= pc + imm; // BGE
+                    pc <= (alu_result == 1) ? pc + imm : pc + 4; // BGE
                 3'b110:
-                    if (alu_result == 1)
-                        pc <= pc + imm; // BLTU
+                    pc <= (alu_result == 1) ? pc + imm : pc + 4; // BLTU
                 3'b111:
-                    if (alu_result == 1)
-                        pc <= pc + imm; // BGEU
+                    pc <= (alu_result == 1) ? pc + imm : pc + 4; // BGEU
                 default:
                     pc <= pc + 4;
             endcase
@@ -157,7 +158,7 @@ module immediate_gen(
 endmodule
 
 
-// 修改指令内存大小或调整寻�?方式
+// 修改指令内存大小或调整寻�?方式
 module instruction_memory(
         input [31:0] addr,
         output [31:0] instr
@@ -167,7 +168,7 @@ module instruction_memory(
     integer file;
     integer r;
     reg [31:0] temp_data;
-    
+
     initial begin
         file = $fopen("instructions.mem", "r");
         if (file) begin
@@ -179,11 +180,12 @@ module instruction_memory(
             end
             $fclose(file);
             $display("Instruction memory loaded successfully.");
-        end else begin
+        end
+        else begin
             $display("Error: Unable to open instrument.mem");
         end
     end
-    
+
     assign instr = memory[addr[11:2]];
 endmodule
 
@@ -200,7 +202,8 @@ module control_unit(
         output reg jump,           // jump or not
         output reg csr_write,      // CSR or not
         output reg [3:0] alu_op,    // ALU operands
-        output reg [2:0] imm_type    // 添加imm_type输出
+        output reg [2:0] imm_type,    // add imm_type as output
+        output reg [2:0] mem_size
     );
 
     always @(*) begin
@@ -214,6 +217,7 @@ module control_unit(
         csr_write  = 0;
         alu_op     = 4'b0000;
         imm_type   = 3'b000;
+        mem_size   = 3'b010; //default lw
 
         case (opcode)
             // R type (add, sub, and, or, xor, sll, srl, sra)
@@ -256,7 +260,7 @@ module control_unit(
                 endcase
             end
 
-            // Load (LW)
+            // Load (LB,LH,LW,LBU,LHU)
             7'b0000011: begin
                 reg_write = 1;
                 alu_src = 1;
@@ -264,14 +268,35 @@ module control_unit(
                 mem_to_reg = 1;
                 alu_op = 4'b0010; // calculate address
                 imm_type = 3'b000;
+                case(funct3)
+                    3'b000:
+                        mem_size = 3'b000; // LB
+                    3'b001:
+                        mem_size = 3'b001; // LH
+                    3'b010:
+                        mem_size = 3'b010; // LW
+                    3'b100:
+                        mem_size = 3'b100; // LBU
+                    3'b101:
+                        mem_size = 3'b101; // LHU
+                endcase
             end
 
-            // Store (SW)
+            // Store (SB,SH,SW)
             7'b0100011: begin
                 mem_write = 1;
                 alu_src = 1;
                 alu_op = 4'b0010; // calculate address
                 imm_type = 3'b001;
+                case(funct3)
+                    3'b000:
+                        mem_size = 3'b000; // SB
+                    3'b001:
+                        mem_size = 3'b001; // SH
+                    3'b010:
+                        mem_size = 3'b010; // SW
+
+                endcase
             end
 
             // Branch (BEQ, BNE)
@@ -306,22 +331,61 @@ module control_unit(
             7'b1100111: begin
                 reg_write = 1;
                 jump = 1;
+                alu_src=1;
                 imm_type = 3'b000;
             end
 
-            // CSR (ECALL, EBREAK)
+            //LUI
+            7'b0110111: begin
+                reg_write = 1;
+                alu_src = 1;
+                imm_type = 3'b011;
+                alu_op = 4'b1110;
+            end
+            //AUIPC
+            7'b0010111: begin
+                reg_write = 1;
+                alu_src = 1;
+                imm_type = 3'b011;
+                alu_op = 4'b1111;
+            end
+
+            // CSR (ECALL, EBREAK, CSRRW, CSRRS, CSRRC, etc.)
             7'b1110011: begin
-                csr_write = 1;
                 case (funct3)
                     3'b000: begin
-                        if (funct7 == 7'b0000000) begin
-                            // ECALL
-                            alu_op = 4'b1110;
-                        end
-                        else if (funct7 == 7'b0000001) begin
-                            // EBREAK
-                            alu_op = 4'b1111;
-                        end
+                        csr_write = 1;
+                        // ECALL, EBREAK
+                    end
+                    3'b001: begin  // CSRRW
+                        reg_write = 1;
+                        csr_write = 1;
+                    end
+                    3'b010: begin  // CSRRS
+                        reg_write = 1;
+                        csr_write = 1;
+                    end
+                    3'b011: begin  // CSRRC
+                        reg_write = 1;
+                        csr_write = 1;
+                    end
+                    3'b101: begin  // CSRRWI
+                        reg_write = 1;
+                        csr_write = 1;
+                        alu_src = 1;
+                        imm_type = 3'b000;
+                    end
+                    3'b110: begin  // CSRRSI
+                        reg_write = 1;
+                        csr_write = 1;
+                        alu_src = 1;
+                        imm_type = 3'b000;
+                    end
+                    3'b111: begin  // CSRRCI
+                        reg_write = 1;
+                        csr_write = 1;
+                        alu_src = 1;
+                        imm_type = 3'b000;
                     end
                 endcase
             end
@@ -343,11 +407,10 @@ module register_file(
     always @(posedge clk) if (we)
             registers[rd] <= wd;
 endmodule
-
-// ALU
 module alu(
         input [31:0] a, b,
         input [3:0] alu_op,
+        input [31:0] pc,
         output reg [31:0] result
     );
     always @(*) begin
@@ -381,6 +444,10 @@ module alu(
                 result = (a < b) ? 32'd1 : 32'd0; // BLTU
             4'b1101:
                 result = (a >= b) ? 32'd1 : 32'd0; // BGEU
+            4'b1110:
+                result = b; // LUI
+            4'b1111:
+                result = pc+b; //auipc
             default:
                 result = 32'b0;
         endcase
@@ -403,6 +470,7 @@ module memory(
         input [31:0] addr,
         input we, re,
         input [31:0] wd,
+        input [2:0] mem_size, //000(byte) 001(halfword) 010(word) 100(unsigned byte) 101(unsigned halfword)
         output reg [31:0] rd,
         output reg error
     );
@@ -411,11 +479,12 @@ module memory(
 
     integer file, r, index;
     reg [31:0] temp_data;
+    reg [31:0] word_data;
+    reg [15:0] half_data;
+    reg [7:0] byte_data;
 
-
-    initial 
-    begin
-        // ��ȡ data.mem
+    initial begin
+        // Load data.mem
         file = $fopen("data.mem", "r");
         if (file) begin
             index = `DATA_START >> 2;
@@ -426,52 +495,147 @@ module memory(
             end
             $fclose(file);
             $display("Data memory loaded successfully.");
-        end else begin
+        end
+        else begin
             $display("Error: Unable to open data.mem");
         end
     end
-    
+
     always @(posedge clk) begin
         error <= 0;
         if (we) begin
-            if (addr % 4 != 0) begin
-                error <= 1;
-            end
-            else begin
-                case (1'b1)
-
-                    (addr >= `DATA_START && addr <= `DATA_END):
-                        mem[addr >> 2] <= wd;
-
-                    (addr >= `HEAP_START && addr <= `HEAP_END):
-                        mem[addr >> 2] <= wd;
-
-                    (addr >= `STACK_START && addr <= `STACK_END):
-                        mem[addr >> 2] <= wd;
-
-                    (addr >= `TEXT_START && addr <= `TEXT_END):
-                        error <= 1;
-                    default:
-                        error <= 1;
-                endcase
-            end
+            case (1'b1)
+                (addr >= `DATA_START && addr <= `DATA_END),
+                (addr >= `HEAP_START && addr <= `HEAP_END),
+                (addr >= `STACK_START && addr <= `STACK_END): begin
+                    case (mem_size)
+                        3'b000: begin  // SB (存储字节)
+                            case (addr[1:0])
+                                2'b00:
+                                    mem[addr >> 2][7:0] <= wd[7:0];
+                                2'b01:
+                                    mem[addr >> 2][15:8] <= wd[7:0];
+                                2'b10:
+                                    mem[addr >> 2][23:16] <= wd[7:0];
+                                2'b11:
+                                    mem[addr >> 2][31:24] <= wd[7:0];
+                            endcase
+                        end
+                        3'b001: begin  // SH (存储半字)
+                            if (addr[0] != 0) begin
+                                error <= 1;  // 半字地址必须对齐到2字节边界
+                            end
+                            else begin
+                                case (addr[1])
+                                    1'b0:
+                                        mem[addr >> 2][15:0] <= wd[15:0];
+                                    1'b1:
+                                        mem[addr >> 2][31:16] <= wd[15:0];
+                                endcase
+                            end
+                        end
+                        3'b010: begin  // SW (存储字)
+                            if (addr[1:0] != 2'b00) begin
+                                error <= 1;  // 字地址必须对齐到4字节边界
+                            end
+                            else begin
+                                mem[addr >> 2] <= wd;
+                            end
+                        end
+                        default:
+                            error <= 1;
+                    endcase
+                end
+                (addr >= `TEXT_START && addr <= `TEXT_END): error <= 1;
+                default:
+                    error <= 1;
+            endcase
         end
     end
 
     always @(*) begin
         if (re) begin
-            if (addr % 4 != 0) begin
-                rd = 32'h0;
-                error = 1;
-            end
-            else if (addr <= `MEM_SIZE) begin
-                rd = mem[addr >> 2];
-                error = 0;
-            end
-            else begin
-                rd = 32'h0;
-                error = 1;
-            end
+            word_data = mem[addr >> 2];
+            case (mem_size)
+                3'b000: begin  // LB (加载有符号字节)
+                    case (addr[1:0])
+                        2'b00:
+                            byte_data = word_data[7:0];
+                        2'b01:
+                            byte_data = word_data[15:8];
+                        2'b10:
+                            byte_data = word_data[23:16];
+                        2'b11:
+                            byte_data = word_data[31:24];
+                    endcase
+                    rd = {{24{byte_data[7]}}, byte_data};  // 符号扩展
+                    error = 0;
+                end
+                3'b001: begin  // LH (加载有符号半字)
+                    if (addr[0] != 0) begin
+                        rd = 32'h0;
+                        error = 1;  // 半字地址必须对齐到2字节边界
+                    end
+                    else begin
+                        case (addr[1])
+                            1'b0:
+                                half_data = word_data[15:0];
+                            1'b1:
+                                half_data = word_data[31:16];
+                        endcase
+                        rd = {{16{half_data[15]}}, half_data};  // 符号扩展
+                        error = 0;
+                    end
+                end
+                3'b010: begin  // LW (加载字)
+                    if (addr[1:0] != 2'b00) begin
+                        rd = 32'h0;
+                        error = 1;  // 字地址必须对齐到4字节边界
+                    end
+                    else if (addr <= `MEM_SIZE) begin
+                        rd = word_data;
+                        error = 0;
+                    end
+                    else begin
+                        rd = 32'h0;
+                        error = 1;
+                    end
+                end
+                3'b100: begin  // LBU (加载无符号字节)
+                    case (addr[1:0])
+                        2'b00:
+                            byte_data = word_data[7:0];
+                        2'b01:
+                            byte_data = word_data[15:8];
+                        2'b10:
+                            byte_data = word_data[23:16];
+                        2'b11:
+                            byte_data = word_data[31:24];
+                    endcase
+                    rd = {24'b0, byte_data};  // 零扩展
+                    error = 0;
+                end
+                3'b101: begin  // LHU (加载无符号半字)
+                    if (addr[0] != 0) begin
+                        rd = 32'h0;
+                        error = 1;  // 半字地址必须对齐到2字节边界
+                    end
+                    else begin
+                        case (addr[1])
+                            1'b0:
+                                half_data = word_data[15:0];
+                            1'b1:
+                                half_data = word_data[31:16];
+                        endcase
+                        rd = {16'b0, half_data};  // 零扩展
+                        error = 0;
+                    end
+                end
+                default: begin
+                    rd = 32'h0;
+                    error = 1;
+                end
+            endcase
         end
         else begin
             rd = 32'h0;
@@ -481,25 +645,83 @@ module memory(
 
 endmodule
 
-// 完善CSR逻辑
+// Properly structured CSR module
 module csr_registers(
         input clk,
-        input we,
-        input [11:0] addr,
-        input [31:0] wd,
-        output reg [31:0] rd
+        input rst,          // Reset signal
+        input we,           // Write enable
+        input [11:0] addr,  // CSR address
+        input [31:0] wd,    // Write data
+        input [2:0] funct3, // Function code for operation type
+        output reg [31:0] rd // Read data
     );
+
+    // CSR registers storage
     reg [31:0] csr_mem [0:4095];
 
-    // 初始化重要CSR寄存�?
+    // CSR address constants
+    localparam CSR_MTVEC    = 12'h305; // Exception handler address
+    localparam CSR_MSTATUS  = 12'h300; // Machine status
+    localparam CSR_MIE      = 12'h304; // Machine interrupt enable
+    localparam CSR_MSCRATCH = 12'h340; // Scratch register
+    localparam CSR_MEPC     = 12'h341; // Exception PC save
+    localparam CSR_MCAUSE   = 12'h342; // Exception cause
+    localparam CSR_MTVAL    = 12'h343; // Exception value
+    localparam CSR_MIP      = 12'h344; // Machine interrupt pending
+
+    // Initialize CSR registers
     initial begin
-        csr_mem[12'h305] = 32'h0; // mtvec - 异常处理地址
-        // 其他CSR寄存器初始化
+        csr_mem[CSR_MTVEC]    = 32'h0;
+        csr_mem[CSR_MSTATUS]  = 32'h0;
+        csr_mem[CSR_MIE]      = 32'h0;
+        csr_mem[CSR_MSCRATCH] = 32'h0;
+        csr_mem[CSR_MEPC]     = 32'h0;
+        csr_mem[CSR_MCAUSE]   = 32'h0;
+        csr_mem[CSR_MTVAL]    = 32'h0;
+        csr_mem[CSR_MIP]      = 32'h0;
     end
 
-    always @(posedge clk) if (we)
-            csr_mem[addr] <= wd;
+    // CSR write logic (synchronous)
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            // Reset critical CSR registers
+            csr_mem[CSR_MTVEC]    <= 32'h0;
+            csr_mem[CSR_MSTATUS]  <= 32'h0;
+            csr_mem[CSR_MIE]      <= 32'h0;
+            csr_mem[CSR_MSCRATCH] <= 32'h0;
+            csr_mem[CSR_MEPC]     <= 32'h0;
+            csr_mem[CSR_MCAUSE]   <= 32'h0;
+            csr_mem[CSR_MTVAL]    <= 32'h0;
+            csr_mem[CSR_MIP]      <= 32'h0;
+        end
+        else if (we) begin
+            case (funct3)
+                3'b001: begin // CSRRW - Atomic swap
+                    csr_mem[addr] <= wd;
+                end
+                3'b010: begin // CSRRS - Read and set bits
+                    csr_mem[addr] <= csr_mem[addr] | wd;
+                end
+                3'b011: begin // CSRRC - Read and clear bits
+                    csr_mem[addr] <= csr_mem[addr] & ~wd;
+                end
+                3'b101: begin // CSRRWI - Immediate swap
+                    csr_mem[addr] <= {27'b0, wd[4:0]};
+                end
+                3'b110: begin // CSRRSI - Immediate set bits
+                    csr_mem[addr] <= csr_mem[addr] | {27'b0, wd[4:0]};
+                end
+                3'b111: begin // CSRRCI - Immediate clear bits
+                    csr_mem[addr] <= csr_mem[addr] & ~{27'b0, wd[4:0]};
+                end
+                default: begin
+                    // No change to CSR register
+                end
+            endcase
+        end
+    end
 
+    // CSR read logic (combinational)
     always @(*) begin
         rd = csr_mem[addr];
     end

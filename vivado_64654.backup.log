@@ -3,13 +3,13 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Tue Apr  1 12:16:52 2025
-# Process ID: 14523
+# Start of session at: Sat Mar 29 20:15:50 2025
+# Process ID: 64654
 # Current directory: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V
 # Command line: vivado
 # Log file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/vivado.log
 # Journal file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/vivado.jou
-# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 800.601 MHz, CPU Physical cores: 14, Host memory: 16445 MB
+# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 2298.737 MHz, CPU Physical cores: 14, Host memory: 16445 MB
 #-----------------------------------------------------------
 start_gui
 open_project {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.xpr}
@@ -69,22 +69,36 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 availab
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
-INFO: [Project 1-313] Project file moved from 'C:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU' since last save.
 INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.gen/sources_1'.
+WARNING: [filemgmt 56-3] IPUserFilesDir: Could not find the directory '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.ip_user_files'.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/mingzhenjia/Xilinx/Vivado/2023.2/data/ip'.
-open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:06 . Memory (MB): peak = 7881.246 ; gain = 391.477 ; free physical = 5256 ; free virtual = 25868
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:06 . Memory (MB): peak = 7855.539 ; gain = 365.445 ; free physical = 1338 ; free virtual = 22421
 update_compile_order -fileset sources_1
 reset_run synth_1
 INFO: [Project 1-1161] Replacing file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/utils_1/imports/synth_1/SPIC.dcp with file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC.dcp
 launch_runs synth_1 -jobs 10
-[Tue Apr  1 12:17:12 2025] Launched synth_1...
+[Sat Mar 29 20:16:10 2025] Launched synth_1...
 Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
 reset_run synth_1
 INFO: [Project 1-1161] Replacing file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/utils_1/imports/synth_1/SPIC.dcp with file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC.dcp
 launch_runs synth_1 -jobs 10
-[Tue Apr  1 12:39:06 2025] Launched synth_1...
+[Sat Mar 29 20:21:36 2025] Launched synth_1...
+Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/utils_1/imports/synth_1/SPIC.dcp with file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC.dcp
+launch_runs synth_1 -jobs 10
+[Sat Mar 29 20:23:58 2025] Launched synth_1...
+Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 10
+[Sat Mar 29 20:27:48 2025] Launched synth_1...
+Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/utils_1/imports/synth_1/SPIC.dcp with file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC.dcp
+launch_runs synth_1 -jobs 10
+[Sat Mar 29 20:52:38 2025] Launched synth_1...
 Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log

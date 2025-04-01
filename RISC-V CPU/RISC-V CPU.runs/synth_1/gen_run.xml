@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tfbg484-1" LaunchTime="1743247554" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/SPIC.dcp">
-  <File Type="PA-TCL" Name="SPIC.tcl"/>
-  <File Type="REPORTS-TCL" Name="SPIC_reports.tcl"/>
-  <File Type="RDS-RDS" Name="SPIC.vds"/>
-  <File Type="RDS-UTIL" Name="SPIC_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="SPIC_utilization_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a200tfbg484-1" LaunchTime="1743482346" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/SPIC.dcp">
+  <File Type="VDS-TIMING-PB" Name="SPIC_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="SPIC_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="SPIC.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="SPIC_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="SPIC_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="SPIC_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="SPIC.vds"/>
+  <File Type="REPORTS-TCL" Name="SPIC_reports.tcl"/>
+  <File Type="PA-TCL" Name="SPIC.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/SPIC.v">
