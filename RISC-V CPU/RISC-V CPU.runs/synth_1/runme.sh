@@ -37,4 +37,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log SPIC.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SPIC.tcl
+EAStep vivado -log SPIC_Pipeline.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SPIC_Pipeline.tcl

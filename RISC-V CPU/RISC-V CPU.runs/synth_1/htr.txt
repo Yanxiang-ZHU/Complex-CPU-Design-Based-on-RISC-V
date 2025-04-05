@@ -7,4 +7,4 @@
 # Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 #
 
-vivado -log SPIC.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SPIC.tcl
+vivado -log SPIC_Pipeline.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SPIC_Pipeline.tcl

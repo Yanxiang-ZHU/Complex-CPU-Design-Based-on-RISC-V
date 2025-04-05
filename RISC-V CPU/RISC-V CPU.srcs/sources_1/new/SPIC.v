@@ -1,34 +1,51 @@
-// The Basic CPU Design
-
-`timescale 1ns / 1ps
-
-module SPIC (
+module SPIC_Pipeline (
         input clk,
         input rst,
         output [31:0] pc_out
     );
-
+    // Pipeline registers
     reg [31:0] pc;
+    wire [31:0] next_pc;
+    reg [31:0] IF_ID_PC, IF_ID_INSTR;
+    reg [31:0] ID_EX_PC, ID_EX_RS1, ID_EX_RS2, ID_EX_IMM;
+    reg [4:0]  ID_EX_RD, ID_EX_RS1_ADDR, ID_EX_RS2_ADDR;
+    reg [3:0]  ID_EX_ALU_OP;
+    reg        ID_EX_REG_WRITE, ID_EX_ALU_SRC, ID_EX_MEM_READ, ID_EX_MEM_WRITE;
+    reg        ID_EX_MEM_TO_REG, ID_EX_BRANCH, ID_EX_JUMP, ID_EX_CSR_WRITE;
+    reg [2:0]  ID_EX_MEM_SIZE;
+    reg [31:0] EX_MEM_PC, EX_MEM_ALU_RESULT, EX_MEM_RS2;
+    reg [4:0]  EX_MEM_RD;
+    reg        EX_MEM_REG_WRITE, EX_MEM_MEM_READ, EX_MEM_MEM_WRITE;
+    reg        EX_MEM_MEM_TO_REG, EX_MEM_BRANCH, EX_MEM_JUMP, EX_MEM_BRANCH_TAKEN;
+    reg [2:0]  EX_MEM_MEM_SIZE;
+    reg [31:0] MEM_WB_PC, MEM_WB_ALU_RESULT, MEM_WB_MEM_DATA;
+    reg [4:0]  MEM_WB_RD;
+    reg        MEM_WB_REG_WRITE, MEM_WB_MEM_TO_REG, MEM_WB_JUMP;
+
+    // Data paths
+    wire [31:0] pc_plus_4 = pc + 4;
+    wire [31:0] branch_target = EX_MEM_PC + EX_MEM_ALU_RESULT;
+    wire [31:0] jump_target = ID_EX_PC + ID_EX_IMM;
+    assign next_pc = (EX_MEM_BRANCH_TAKEN) ? branch_target :
+           (ID_EX_JUMP) ? jump_target :
+           pc_plus_4;
+
+    // Instruction memory interface
     wire [31:0] instr;
-    wire [6:0] opcode = instr[6:0];
-    wire [2:0] funct3 = instr[14:12];
-    wire [6:0] funct7 = instr[31:25];
-    wire [4:0] rs1 = instr[19:15];
-    wire [4:0] rs2 = instr[24:20];
-    wire [4:0] rd = instr[11:7];
+    instruction_memory IMEM(.addr(pc), .instr(instr));
 
-    wire reg_write, alu_src, mem_read, mem_write, mem_to_reg, branch, csr_write,jump,error;
+    // ID stage signals
+    wire [6:0] opcode = IF_ID_INSTR[6:0];
+    wire [2:0] funct3 = IF_ID_INSTR[14:12];
+    wire [6:0] funct7 = IF_ID_INSTR[31:25];
+    wire [4:0] rs1 = IF_ID_INSTR[19:15];
+    wire [4:0] rs2 = IF_ID_INSTR[24:20];
+    wire [4:0] rd = IF_ID_INSTR[11:7];
+
+    // Control signals
+    wire reg_write, alu_src, mem_read, mem_write, mem_to_reg, branch, jump, csr_write;
     wire [3:0] alu_op;
-    wire [31:0] alu_result, reg_rs1, reg_rs2, imm, mem_data, csr_data;
-    wire [2:0] imm_type,mem_size;
-
-
-
-
-    instruction_memory IMEM(
-                           .addr(pc),
-                           .instr(instr)
-                       );
+    wire [2:0] imm_type, mem_size;
 
     control_unit CU(
                      .opcode(opcode),
@@ -47,91 +64,247 @@ module SPIC (
                      .mem_size(mem_size)
                  );
 
+    // Immediate generator
+    wire [31:0] imm;
     immediate_gen IG(
-                      .instr(instr),
+                      .instr(IF_ID_INSTR),
                       .imm_type(imm_type),
                       .imm(imm)
                   );
 
+    // Register file
+    wire [31:0] reg_rs1, reg_rs2;
     register_file RF(
                       .clk(clk),
-                      .we(reg_write),
+                      .we(MEM_WB_REG_WRITE),
                       .rs1(rs1),
                       .rs2(rs2),
-                      .rd(rd),
-                      .wd(mem_to_reg ? mem_data :
-                          (opcode == 7'b1101111 || opcode == 7'b1100111) ? pc + 4 :
-                          (opcode == 7'b1110011 && funct3 != 3'b000) ? csr_data : alu_result),
+                      .rd(MEM_WB_RD),
+                      .wd(MEM_WB_MEM_TO_REG ? MEM_WB_MEM_DATA : MEM_WB_ALU_RESULT),
                       .rd1(reg_rs1),
                       .rd2(reg_rs2)
                   );
 
+    // Hazard detection
+    wire stall, flush;
+    hazard_detection_unit HDU(
+                              .ID_EX_MEM_READ(ID_EX_MEM_READ),
+                              .ID_EX_RD(ID_EX_RD),
+                              .IF_ID_RS1(rs1),
+                              .IF_ID_RS2(rs2),
+                              .EX_MEM_BRANCH_TAKEN(EX_MEM_BRANCH_TAKEN),
+                              .ID_EX_JUMP(ID_EX_JUMP),
+                              .stall(stall),
+                              .flush(flush)
+                          );
+
+    // Forwarding unit
+    wire [1:0] forward_a, forward_b;
+
+    forwarding_unit FU(
+                        .ID_EX_RS1_ADDR(ID_EX_RS1_ADDR),
+                        .ID_EX_RS2_ADDR(ID_EX_RS2_ADDR),
+                        .EX_MEM_RD(EX_MEM_RD),
+                        .MEM_WB_RD(MEM_WB_RD),
+                        .EX_MEM_REG_WRITE(EX_MEM_REG_WRITE),
+                        .MEM_WB_REG_WRITE(MEM_WB_REG_WRITE),
+                        .forward_a(forward_a),
+                        .forward_b(forward_b)
+                    );
+
+    // ALU inputs with forwarding
+    wire [31:0] alu_in1 = (forward_a == 2'b00) ? ID_EX_RS1 :
+         (forward_a == 2'b01) ? (MEM_WB_MEM_TO_REG ? MEM_WB_MEM_DATA : MEM_WB_ALU_RESULT) :
+         (forward_a == 2'b10) ? EX_MEM_ALU_RESULT : ID_EX_RS1;
+
+    wire [31:0] alu_in2 = (forward_b == 2'b00) ? (ID_EX_ALU_SRC ? ID_EX_IMM : ID_EX_RS2) :
+         (forward_b == 2'b01) ? (MEM_WB_MEM_TO_REG ? MEM_WB_MEM_DATA : MEM_WB_ALU_RESULT) :
+         (forward_b == 2'b10) ? EX_MEM_ALU_RESULT :
+         (ID_EX_ALU_SRC ? ID_EX_IMM : ID_EX_RS2);
+
+    // ALU
+    wire [31:0] alu_result;
+    wire branch_taken;
     alu ALU(
-            .a(reg_rs1),
-            .b(alu_src ? imm : reg_rs2),
-            .alu_op(alu_op),
-            .pc(pc),
-            .result(alu_result)
+            .a(alu_in1),
+            .b(alu_in2),
+            .alu_op(ID_EX_ALU_OP),
+            .pc(ID_EX_PC),
+            .result(alu_result),
+            .branch_taken(branch_taken)
         );
 
+    // Data memory
+    wire [31:0] mem_data;
+    wire error;
     memory MEM(
                .clk(clk),
-               .addr(alu_result),
-               .we(mem_write),
-               .re(mem_read),
-               .wd(reg_rs2),
+               .addr(EX_MEM_ALU_RESULT),
+               .we(EX_MEM_MEM_WRITE),
+               .re(EX_MEM_MEM_READ),
+               .wd(EX_MEM_RS2),
                .rd(mem_data),
-               .mem_size(mem_size),
+               .mem_size(EX_MEM_MEM_SIZE),
                .error(error)
            );
 
-    csr_registers CSR(
-                      .clk(clk),
-                      .rst(rst),
-                      .we(csr_write),
-                      .addr(instr[31:20]),
-                      .wd(reg_rs1),
-                      .funct3(funct3),
-                      .rd(csr_data)
-                  );
-
+    // Pipeline update
     always @(posedge clk or posedge rst) begin
-        if (rst)
-            pc <= 0;
-        // 在PC更新逻辑中添加其他分支指�?
-        else if (branch) begin
-            case (funct3)
-                3'b000:
-                    pc <= (alu_result == 1) ? pc + imm : pc + 4; // BEQ
-                3'b001:
-                    pc <= (alu_result == 1) ? pc + imm : pc + 4; // BNE
-                3'b100:
-                    pc <= (alu_result == 1) ? pc + imm : pc + 4; // BLT
-                3'b101:
-                    pc <= (alu_result == 1) ? pc + imm : pc + 4; // BGE
-                3'b110:
-                    pc <= (alu_result == 1) ? pc + imm : pc + 4; // BLTU
-                3'b111:
-                    pc <= (alu_result == 1) ? pc + imm : pc + 4; // BGEU
-                default:
-                    pc <= pc + 4;
-            endcase
+        if (rst) begin
+            // Reset all pipeline registers
+            pc <= 32'b0;
+            IF_ID_PC <= 32'b0;
+            IF_ID_INSTR <= 32'b0;
+
+            ID_EX_PC <= 32'b0;
+            ID_EX_RS1 <= 32'b0;
+            ID_EX_RS2 <= 32'b0;
+            ID_EX_IMM <= 32'b0;
+            ID_EX_RD <= 5'b0;
+            ID_EX_RS1_ADDR <= 5'b0;
+            ID_EX_RS2_ADDR <= 5'b0;
+            ID_EX_ALU_OP <= 4'b0;
+            ID_EX_REG_WRITE <= 1'b0;
+            ID_EX_ALU_SRC <= 1'b0;
+            ID_EX_MEM_READ <= 1'b0;
+            ID_EX_MEM_WRITE <= 1'b0;
+            ID_EX_MEM_TO_REG <= 1'b0;
+            ID_EX_BRANCH <= 1'b0;
+            ID_EX_JUMP <= 1'b0;
+            ID_EX_CSR_WRITE <= 1'b0;
+            ID_EX_MEM_SIZE <= 3'b0;
+
+            EX_MEM_PC <= 32'b0;
+            EX_MEM_ALU_RESULT <= 32'b0;
+            EX_MEM_RS2 <= 32'b0;
+            EX_MEM_RD <= 5'b0;
+            EX_MEM_REG_WRITE <= 1'b0;
+            EX_MEM_MEM_READ <= 1'b0;
+            EX_MEM_MEM_WRITE <= 1'b0;
+            EX_MEM_MEM_TO_REG <= 1'b0;
+            EX_MEM_BRANCH <= 1'b0;
+            EX_MEM_JUMP <= 1'b0;
+            EX_MEM_BRANCH_TAKEN <= 1'b0;
+            EX_MEM_MEM_SIZE <= 3'b0;
+
+            MEM_WB_PC <= 32'b0;
+            MEM_WB_ALU_RESULT <= 32'b0;
+            MEM_WB_MEM_DATA <= 32'b0;
+            MEM_WB_RD <= 5'b0;
+            MEM_WB_REG_WRITE <= 1'b0;
+            MEM_WB_MEM_TO_REG <= 1'b0;
+            MEM_WB_JUMP <= 1'b0;
         end
-        else if (opcode == 7'b1101111)
-            pc <= pc + imm; // JAL
-        else if (opcode == 7'b1100111)
-            pc <= reg_rs1 + imm; // JALR
-        else if (opcode == 7'b1110011 && funct3 == 3'b000) begin // ECALL / EBREAK
-            if (instr[31:20] == 12'h000)
-                pc <= csr_data; // ECALL
-            else if (instr[31:20] == 12'h001)
-                pc <= csr_data; // EBREAK
+        else begin
+            // PC update
+            pc <= next_pc;
+
+            // IF/ID stage
+            if (!stall) begin
+                IF_ID_PC <= pc;
+                IF_ID_INSTR <= (flush || EX_MEM_BRANCH_TAKEN || ID_EX_JUMP) ? 32'h00000013 : instr; // NOP on flush/branch/jump
+            end
+
+            // ID/EX stage
+            if (!stall) begin
+                ID_EX_PC <= IF_ID_PC;
+                ID_EX_RS1 <= reg_rs1;
+                ID_EX_RS2 <= reg_rs2;
+                ID_EX_IMM <= imm;
+                ID_EX_RD <= rd;
+                ID_EX_RS1_ADDR <= rs1;
+                ID_EX_RS2_ADDR <= rs2;
+                ID_EX_ALU_OP <= alu_op;
+                ID_EX_REG_WRITE <= reg_write;
+                ID_EX_ALU_SRC <= alu_src;
+                ID_EX_MEM_READ <= mem_read;
+                ID_EX_MEM_WRITE <= mem_write;
+                ID_EX_MEM_TO_REG <= mem_to_reg;
+                ID_EX_BRANCH <= branch;
+                ID_EX_JUMP <= jump;
+                ID_EX_CSR_WRITE <= csr_write;
+                ID_EX_MEM_SIZE <= mem_size;
+            end
+            else begin
+                // Insert bubble (NOP)
+                ID_EX_REG_WRITE <= 1'b0;
+                ID_EX_MEM_READ <= 1'b0;
+                ID_EX_MEM_WRITE <= 1'b0;
+                ID_EX_BRANCH <= 1'b0;
+                ID_EX_JUMP <= 1'b0;
+                ID_EX_CSR_WRITE <= 1'b0;
+            end
+
+            // EX/MEM stage
+            EX_MEM_PC <= ID_EX_PC;
+            EX_MEM_ALU_RESULT <= alu_result;
+            EX_MEM_RS2 <= ID_EX_RS2;
+            EX_MEM_RD <= ID_EX_RD;
+            EX_MEM_REG_WRITE <= ID_EX_REG_WRITE;
+            EX_MEM_MEM_READ <= ID_EX_MEM_READ;
+            EX_MEM_MEM_WRITE <= ID_EX_MEM_WRITE;
+            EX_MEM_MEM_TO_REG <= ID_EX_MEM_TO_REG;
+            EX_MEM_BRANCH <= ID_EX_BRANCH;
+            EX_MEM_JUMP <= ID_EX_JUMP;
+            EX_MEM_BRANCH_TAKEN <= branch_taken && ID_EX_BRANCH;
+            EX_MEM_MEM_SIZE <= ID_EX_MEM_SIZE;
+
+            // MEM/WB stage
+            MEM_WB_PC <= EX_MEM_PC;
+            MEM_WB_ALU_RESULT <= EX_MEM_ALU_RESULT;
+            MEM_WB_MEM_DATA <= mem_data;
+            MEM_WB_RD <= EX_MEM_RD;
+            MEM_WB_REG_WRITE <= EX_MEM_REG_WRITE;
+            MEM_WB_MEM_TO_REG <= EX_MEM_MEM_TO_REG;
+            MEM_WB_JUMP <= EX_MEM_JUMP;
         end
-        else
-            pc <= pc + 4;
     end
 
     assign pc_out = pc;
+endmodule
+
+
+module forwarding_unit(
+        input [4:0] ID_EX_RS1_ADDR, ID_EX_RS2_ADDR,
+        input [4:0] EX_MEM_RD, MEM_WB_RD,
+        input EX_MEM_REG_WRITE, MEM_WB_REG_WRITE,
+        output reg [1:0] forward_a, forward_b
+    );
+
+    always @(*) begin
+        // 初始化输出，避免锁存器
+        forward_a = 2'b00;
+        forward_b = 2'b00;
+
+        // Forward A 逻辑
+        if (EX_MEM_REG_WRITE && EX_MEM_RD != 0 && EX_MEM_RD == ID_EX_RS1_ADDR)
+            forward_a = 2'b10;
+        else if (MEM_WB_REG_WRITE && MEM_WB_RD != 0 && MEM_WB_RD == ID_EX_RS1_ADDR)
+            forward_a = 2'b01;
+
+        // Forward B 逻辑
+        if (EX_MEM_REG_WRITE && EX_MEM_RD != 0 && EX_MEM_RD == ID_EX_RS2_ADDR)
+            forward_b = 2'b10;
+        else if (MEM_WB_REG_WRITE && MEM_WB_RD != 0 && MEM_WB_RD == ID_EX_RS2_ADDR)
+            forward_b = 2'b01;
+    end
+endmodule
+module hazard_detection_unit(
+        input ID_EX_MEM_READ,
+        input [4:0] ID_EX_RD,
+        input [4:0] IF_ID_RS1, IF_ID_RS2,
+        input EX_MEM_BRANCH_TAKEN,
+        input ID_EX_JUMP,        // 添加跳转信号
+        output reg stall,
+        output reg flush
+    );
+    always @(*) begin
+        // 加载-使用冒险
+        stall = ID_EX_MEM_READ && (ID_EX_RD == IF_ID_RS1 || ID_EX_RD == IF_ID_RS2);
+
+        // 分支预测失败或跳转
+        flush = EX_MEM_BRANCH_TAKEN || ID_EX_JUMP;
+    end
 endmodule
 
 module immediate_gen(
@@ -409,53 +582,87 @@ module register_file(
         output [31:0] rd1, rd2
     );
     reg [31:0] registers [0:31];
-    assign rd1 = registers[rs1];
-    assign rd2 = registers[rs2];
-    always @(posedge clk) if (we)
+
+    // 确保x0始终为0
+    initial
+        registers[0] = 32'b0;
+
+    assign rd1 = (rs1 == 5'b0) ? 32'b0 : registers[rs1];
+    assign rd2 = (rs2 == 5'b0) ? 32'b0 : registers[rs2];
+
+    always @(posedge clk) begin
+        if (we && rd != 5'b0) // 确保不写入x0
             registers[rd] <= wd;
+    end
 endmodule
+
+
 module alu(
         input [31:0] a, b,
         input [3:0] alu_op,
         input [31:0] pc,
-        output reg [31:0] result
+        output reg [31:0] result,
+        output reg branch_taken
     );
     always @(*) begin
+        // 默认值
+        result = 32'b0;
+        branch_taken = 1'b0;
+
         case (alu_op)
             4'b0010:
-                result = a + b; // ADD
+                result = a + b;        // ADD
             4'b0110:
-                result = a - b; // SUB
+                result = a - b;        // SUB
             4'b0000:
-                result = a & b; // AND
+                result = a & b;        // AND
             4'b0001:
-                result = a | b; // OR
+                result = a | b;        // OR
             4'b0011:
-                result = a ^ b; // XOR
-            4'b0101:
-                result = a >> b[4:0]; // SRL
-            4'b0111:
-                result = a >>> b[4:0]; // SRA
+                result = a ^ b;        // XOR
             4'b0100:
-                result = a << b[4:0]; // SLL
-            4'b1000:
-                result = (a == b) ? 32'd1 : 32'd0; // BEQ
-            4'b1001:
-                result = (a != b) ? 32'd1 : 32'd0; // BNE
-            4'b1010:
-                result = ($signed(a) < $signed(b)) ? 32'd1 : 32'd0; // SLT, BLT
-            4'b1100:
-                result = (a < b) ? 32'd1 : 32'd0; // SLTU, BLTU
-            4'b1011:
-                result = ($signed(a) >= $signed(b)) ? 32'd1 : 32'd0; // BGE
-            4'b1101:
-                result = (a >= b) ? 32'd1 : 32'd0; // BGEU
+                result = a << b[4:0];  // SLL
+            4'b0101:
+                result = a >> b[4:0];  // SRL
+            4'b0111:
+                result = $signed(a) >>> b[4:0]; // SRA (算术右移)
+
+            // 分支指令
+            4'b1000: begin                  // BEQ
+                result = (a == b) ? 32'd1 : 32'd0;
+                branch_taken = (a == b);
+            end
+            4'b1001: begin                  // BNE
+                result = (a != b) ? 32'd1 : 32'd0;
+                branch_taken = (a != b);
+            end
+            4'b1010: begin                  // BLT
+                result = ($signed(a) < $signed(b)) ? 32'd1 : 32'd0;
+                branch_taken = ($signed(a) < $signed(b));
+            end
+            4'b1011: begin                  // BGE
+                result = ($signed(a) >= $signed(b)) ? 32'd1 : 32'd0;
+                branch_taken = ($signed(a) >= $signed(b));
+            end
+            4'b1100: begin                  // BLTU
+                result = (a < b) ? 32'd1 : 32'd0;
+                branch_taken = (a < b);
+            end
+            4'b1101: begin                  // BGEU
+                result = (a >= b) ? 32'd1 : 32'd0;
+                branch_taken = (a >= b);
+            end
+
+            // 其他指令
             4'b1110:
-                result = b; // LUI
+                result = b;            // LUI (直接输出立即数)
             4'b1111:
-                result = pc+b; //auipc
-            default:
+                result = pc + b;       // AUIPC (PC + 立即数)
+
+            default: begin
                 result = 32'b0;
+                branch_taken = 1'b0;
+            end
         endcase
     end
 endmodule
@@ -651,84 +858,4 @@ module memory(
 
 endmodule
 
-// Properly structured CSR module
-module csr_registers(
-        input clk,
-        input rst,          // Reset signal
-        input we,           // Write enable
-        input [11:0] addr,  // CSR address
-        input [31:0] wd,    // Write data
-        input [2:0] funct3, // Function code for operation type
-        output reg [31:0] rd // Read data
-    );
 
-    // CSR registers storage
-    reg [31:0] csr_mem [0:4095];
-
-    // CSR address constants
-    localparam CSR_MTVEC    = 12'h305; // Exception handler address
-    localparam CSR_MSTATUS  = 12'h300; // Machine status
-    localparam CSR_MIE      = 12'h304; // Machine interrupt enable
-    localparam CSR_MSCRATCH = 12'h340; // Scratch register
-    localparam CSR_MEPC     = 12'h341; // Exception PC save
-    localparam CSR_MCAUSE   = 12'h342; // Exception cause
-    localparam CSR_MTVAL    = 12'h343; // Exception value
-    localparam CSR_MIP      = 12'h344; // Machine interrupt pending
-
-    // Initialize CSR registers
-    initial begin
-        csr_mem[CSR_MTVEC]    = 32'h0;
-        csr_mem[CSR_MSTATUS]  = 32'h0;
-        csr_mem[CSR_MIE]      = 32'h0;
-        csr_mem[CSR_MSCRATCH] = 32'h0;
-        csr_mem[CSR_MEPC]     = 32'h0;
-        csr_mem[CSR_MCAUSE]   = 32'h0;
-        csr_mem[CSR_MTVAL]    = 32'h0;
-        csr_mem[CSR_MIP]      = 32'h0;
-    end
-
-    // CSR write logic (synchronous)
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
-            // Reset critical CSR registers
-            csr_mem[CSR_MTVEC]    <= 32'h0;
-            csr_mem[CSR_MSTATUS]  <= 32'h0;
-            csr_mem[CSR_MIE]      <= 32'h0;
-            csr_mem[CSR_MSCRATCH] <= 32'h0;
-            csr_mem[CSR_MEPC]     <= 32'h0;
-            csr_mem[CSR_MCAUSE]   <= 32'h0;
-            csr_mem[CSR_MTVAL]    <= 32'h0;
-            csr_mem[CSR_MIP]      <= 32'h0;
-        end
-        else if (we) begin
-            case (funct3)
-                3'b001: begin // CSRRW - Atomic swap
-                    csr_mem[addr] <= wd;
-                end
-                3'b010: begin // CSRRS - Read and set bits
-                    csr_mem[addr] <= csr_mem[addr] | wd;
-                end
-                3'b011: begin // CSRRC - Read and clear bits
-                    csr_mem[addr] <= csr_mem[addr] & ~wd;
-                end
-                3'b101: begin // CSRRWI - Immediate swap
-                    csr_mem[addr] <= {27'b0, wd[4:0]};
-                end
-                3'b110: begin // CSRRSI - Immediate set bits
-                    csr_mem[addr] <= csr_mem[addr] | {27'b0, wd[4:0]};
-                end
-                3'b111: begin // CSRRCI - Immediate clear bits
-                    csr_mem[addr] <= csr_mem[addr] & ~{27'b0, wd[4:0]};
-                end
-                default: begin
-                    // No change to CSR register
-                end
-            endcase
-        end
-    end
-
-    // CSR read logic (combinational)
-    always @(*) begin
-        rd = csr_mem[addr];
-    end
-endmodule

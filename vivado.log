@@ -3,13 +3,13 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Tue Apr  1 12:16:52 2025
-# Process ID: 14523
+# Start of session at: Sat Apr  5 18:56:41 2025
+# Process ID: 9513
 # Current directory: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V
 # Command line: vivado
 # Log file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/vivado.log
 # Journal file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/vivado.jou
-# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 800.601 MHz, CPU Physical cores: 14, Host memory: 16445 MB
+# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 3011.793 MHz, CPU Physical cores: 14, Host memory: 16445 MB
 #-----------------------------------------------------------
 start_gui
 open_project {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.xpr}
@@ -69,22 +69,218 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 availab
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
-INFO: [Project 1-313] Project file moved from 'C:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU' since last save.
 INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.gen/sources_1'.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/mingzhenjia/Xilinx/Vivado/2023.2/data/ip'.
-open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:06 . Memory (MB): peak = 7881.246 ; gain = 391.477 ; free physical = 5256 ; free virtual = 25868
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:06 . Memory (MB): peak = 7877.473 ; gain = 349.531 ; free physical = 7809 ; free virtual = 27258
 update_compile_order -fileset sources_1
 reset_run synth_1
 INFO: [Project 1-1161] Replacing file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/utils_1/imports/synth_1/SPIC.dcp with file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC.dcp
 launch_runs synth_1 -jobs 10
-[Tue Apr  1 12:17:12 2025] Launched synth_1...
+[Sat Apr  5 18:57:03 2025] Launched synth_1...
 Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
 reset_run synth_1
-INFO: [Project 1-1161] Replacing file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/utils_1/imports/synth_1/SPIC.dcp with file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC.dcp
 launch_runs synth_1 -jobs 10
-[Tue Apr  1 12:39:06 2025] Launched synth_1...
+[Sat Apr  5 20:30:23 2025] Launched synth_1...
+Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 10
+[Sat Apr  5 20:31:43 2025] Launched synth_1...
+Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 10
+[Sat Apr  5 20:40:14 2025] Launched synth_1...
+Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 10
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'module' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:436]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'input' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:438]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'endmodule' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:480]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '7' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:487]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:496]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:498]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:500]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:502]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:504]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '7' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:509]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:516]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:518]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:520]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '7' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:526]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:531]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:533]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:535]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:537]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:539]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:541]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '7' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:546]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:579]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:583]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:587]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:591]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:595]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:601]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:607]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'endcase' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:614]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:488]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:489]
+CRITICAL WARNING: [HDL 9-3116] 'mem_read' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:490]
+CRITICAL WARNING: [HDL 9-3116] 'mem_to_reg' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:491]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:492]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:493]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:496]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:498]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:500]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:502]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:504]
+CRITICAL WARNING: [HDL 9-3116] 'mem_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:510]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:511]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:512]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:513]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:516]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:518]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:520]
+CRITICAL WARNING: [HDL 9-3116] 'branch' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:527]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:528]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:531]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:533]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:535]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:537]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:539]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:541]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:547]
+CRITICAL WARNING: [HDL 9-3116] 'jump' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:548]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:549]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:554]
+CRITICAL WARNING: [HDL 9-3116] 'jump' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:555]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:556]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:557]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:562]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:563]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:564]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:565]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:569]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:570]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:571]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:572]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:579]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:583]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:584]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:587]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:588]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:591]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:592]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:595]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:596]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:597]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:598]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:601]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:602]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:603]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:604]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:607]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:608]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:609]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:610]
+[Sat Apr  5 20:44:14 2025] Launched synth_1...
+Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 10
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'module' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:436]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'input' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:438]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'endmodule' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:480]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '7' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:487]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:496]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:498]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:500]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:502]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:504]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '7' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:509]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:516]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:518]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:520]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '7' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:526]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:531]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:533]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:535]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:537]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:539]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:541]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '7' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:546]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:579]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:583]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:587]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:591]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:595]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:601]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near '=' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:607]
+CRITICAL WARNING: [HDL 9-1206] Syntax error near 'endcase' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:614]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:488]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:489]
+CRITICAL WARNING: [HDL 9-3116] 'mem_read' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:490]
+CRITICAL WARNING: [HDL 9-3116] 'mem_to_reg' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:491]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:492]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:493]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:496]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:498]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:500]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:502]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:504]
+CRITICAL WARNING: [HDL 9-3116] 'mem_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:510]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:511]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:512]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:513]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:516]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:518]
+CRITICAL WARNING: [HDL 9-3116] 'mem_size' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:520]
+CRITICAL WARNING: [HDL 9-3116] 'branch' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:527]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:528]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:531]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:533]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:535]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:537]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:539]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:541]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:547]
+CRITICAL WARNING: [HDL 9-3116] 'jump' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:548]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:549]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:554]
+CRITICAL WARNING: [HDL 9-3116] 'jump' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:555]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:556]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:557]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:562]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:563]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:564]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:565]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:569]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:570]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:571]
+CRITICAL WARNING: [HDL 9-3116] 'alu_op' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:572]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:579]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:583]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:584]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:587]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:588]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:591]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:592]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:595]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:596]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:597]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:598]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:601]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:602]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:603]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:604]
+CRITICAL WARNING: [HDL 9-3116] 'reg_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:607]
+CRITICAL WARNING: [HDL 9-3116] 'csr_write' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:608]
+CRITICAL WARNING: [HDL 9-3116] 'alu_src' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:609]
+CRITICAL WARNING: [HDL 9-3116] 'imm_type' is not a type [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/SPIC.v:610]
+[Sat Apr  5 20:44:21 2025] Launched synth_1...
+Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 10
+[Sat Apr  5 20:46:07 2025] Launched synth_1...
 Run output will be captured here: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/runme.log

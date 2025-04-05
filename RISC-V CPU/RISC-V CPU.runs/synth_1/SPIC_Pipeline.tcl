@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC.tcl"
+  variable script "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC_Pipeline.tcl"
   variable category "vivado_synth"
 }
 
@@ -100,7 +100,7 @@ read_checkpoint -auto_incremental -incremental {/home/mingzhenjia/Complex-CPU-De
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top SPIC -part xc7a200tfbg484-1
+synth_design -top SPIC_Pipeline -part xc7a200tfbg484-1
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
@@ -110,10 +110,10 @@ if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
 OPTRACE "write_checkpoint" START { CHECKPOINT }
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef SPIC.dcp
+write_checkpoint -force -noxdef SPIC_Pipeline.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file SPIC_utilization_synth.rpt -pb SPIC_utilization_synth.pb"
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file SPIC_Pipeline_utilization_synth.rpt -pb SPIC_Pipeline_utilization_synth.pb"
 OPTRACE "synth reports" END { }
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

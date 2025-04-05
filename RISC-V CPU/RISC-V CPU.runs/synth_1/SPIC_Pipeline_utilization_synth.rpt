@@ -1,10 +1,10 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date         : Tue Apr  1 12:42:16 2025
+| Date         : Sat Apr  5 20:46:28 2025
 | Host         : mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx running 64-bit Ubuntu 22.04.5 LTS
-| Command      : report_utilization -file SPIC_utilization_synth.rpt -pb SPIC_utilization_synth.pb
-| Design       : SPIC
+| Command      : report_utilization -file SPIC_Pipeline_utilization_synth.rpt -pb SPIC_Pipeline_utilization_synth.pb
+| Design       : SPIC_Pipeline
 | Device       : xc7a200tfbg484-1
 | Speed File   : -1
 | Design State : Synthesized
@@ -34,8 +34,8 @@ Table of Contents
 | Slice LUTs*             |    1 |     0 |          0 |    134600 | <0.01 |
 |   LUT as Logic          |    1 |     0 |          0 |    134600 | <0.01 |
 |   LUT as Memory         |    0 |     0 |          0 |     46200 |  0.00 |
-| Slice Registers         |   31 |     0 |          0 |    269200 |  0.01 |
-|   Register as Flip Flop |   31 |     0 |          0 |    269200 |  0.01 |
+| Slice Registers         |   30 |     0 |          0 |    269200 |  0.01 |
+|   Register as Flip Flop |   30 |     0 |          0 |    269200 |  0.01 |
 |   Register as Latch     |    0 |     0 |          0 |    269200 |  0.00 |
 | F7 Muxes                |    0 |     0 |          0 |     67300 |  0.00 |
 | F8 Muxes                |    0 |     0 |          0 |     33650 |  0.00 |
@@ -57,7 +57,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 31    |          Yes |           - |        Reset |
+| 30    |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 0     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -152,7 +152,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | OBUF     |   32 |                  IO |
-| FDCE     |   31 |        Flop & Latch |
+| FDCE     |   30 |        Flop & Latch |
 | CARRY4   |    8 |          CarryLogic |
 | IBUF     |    2 |                  IO |
 | LUT1     |    1 |                 LUT |

@@ -1,15 +1,16 @@
-
-*** Running vivado
-    with args -log SPIC_Pipeline.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SPIC_Pipeline.tcl
-
-
-****** Vivado v2023.2 (64-bit)
-  **** SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
-  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
-  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Sat Apr  5 20:46:09 2025
+# Process ID: 79905
+# Current directory: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1
+# Command line: vivado -log SPIC_Pipeline.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SPIC_Pipeline.tcl
+# Log file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/SPIC_Pipeline.vds
+# Journal file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.runs/synth_1/vivado.jou
+# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 2252.414 MHz, CPU Physical cores: 14, Host memory: 16445 MB
+#-----------------------------------------------------------
 source SPIC_Pipeline.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/utils_1/imports/synth_1/SPIC.dcp}
 INFO: [Vivado 12-5825] Read reference checkpoint from /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/utils_1/imports/synth_1/SPIC.dcp for incremental synthesis
@@ -424,8 +425,6 @@ Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-lscpu: bad usage
-Try 'lscpu --help' for more information.
 Synth Design complete | Checksum: 984fd531
 INFO: [Common 17-83] Releasing license: Synthesis
 44 Infos, 167 Warnings, 0 Critical Warnings and 0 Errors encountered.
