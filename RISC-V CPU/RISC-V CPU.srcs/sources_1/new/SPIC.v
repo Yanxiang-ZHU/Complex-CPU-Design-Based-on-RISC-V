@@ -220,7 +220,7 @@ module control_unit(
         mem_size   = 3'b010; //default lw
 
         case (opcode)
-            // R type (add, sub, and, or, xor, sll, srl, sra)
+            // R type (add, sub, and, or, xor, sll, srl, sra, slt, sltu)
             7'b0110011: begin
                 reg_write = 1;
                 case (funct3)
@@ -236,10 +236,14 @@ module control_unit(
                         alu_op = 4'b0100; // sll
                     3'b101:
                         alu_op = (funct7 == 7'b0100000) ? 4'b0111 : 4'b0101; // sra / srl
+                    3'b010:
+                        alu_op = 4'b1010; // slt
+                    3'b011:
+                        alu_op = 4'b1100; // sltu
                 endcase
             end
 
-            // I type (addi, andi, ori, xori, slli, srli, srai)
+            // I type (addi, andi, ori, xori, slli, srli, srai, slti, sltiu)
             7'b0010011: begin
                 reg_write = 1;
                 alu_src = 1;
@@ -257,6 +261,10 @@ module control_unit(
                         alu_op = 4'b0100; // slli
                     3'b101:
                         alu_op = (funct7 == 7'b0100000) ? 4'b0111 : 4'b0101; // srai / srli
+                    3'b010:
+                        alu_op = 4'b1010; // slti
+                    3'b011:
+                        alu_op = 4'b1100; // sltiu
                 endcase
             end
 
@@ -299,7 +307,6 @@ module control_unit(
                 endcase
             end
 
-            // Branch (BEQ, BNE)
             // Branch (BEQ, BNE, BLT, BGE, BLTU, BGEU)
             7'b1100011: begin
                 branch = 1;
@@ -431,17 +438,16 @@ module alu(
                 result = a >>> b[4:0]; // SRA
             4'b0100:
                 result = a << b[4:0]; // SLL
-
             4'b1000:
                 result = (a == b) ? 32'd1 : 32'd0; // BEQ
             4'b1001:
                 result = (a != b) ? 32'd1 : 32'd0; // BNE
             4'b1010:
-                result = ($signed(a) < $signed(b)) ? 32'd1 : 32'd0; // BLT
+                result = ($signed(a) < $signed(b)) ? 32'd1 : 32'd0; // SLT, BLT
+            4'b1100:
+                result = (a < b) ? 32'd1 : 32'd0; // SLTU, BLTU
             4'b1011:
                 result = ($signed(a) >= $signed(b)) ? 32'd1 : 32'd0; // BGE
-            4'b1100:
-                result = (a < b) ? 32'd1 : 32'd0; // BLTU
             4'b1101:
                 result = (a >= b) ? 32'd1 : 32'd0; // BGEU
             4'b1110:
