@@ -35,6 +35,7 @@ module SPIC_Pipeline (
     // Instruction memory interface
     wire [31:0] instr;
     instruction_memory IMEM(
+        .clk(clk),
         .addr(pc),
         .instr(instr)
     );
@@ -139,16 +140,14 @@ module SPIC_Pipeline (
 
     // Data memory
     wire [31:0] mem_data;
-    wire error;
     data_memory MEM(
         .clk(clk),
-        .addr(EX_MEM_ALU_RESULT),
+        .addr(EX_MEM_RD),
         .we(EX_MEM_MEM_WRITE),
         .re(EX_MEM_MEM_READ),
-        .wd(EX_MEM_RS2),
+        .wd(EX_MEM_ALU_RESULT),
         .rd(mem_data),
-        .mem_size(EX_MEM_MEM_SIZE),
-        .error(error)
+        .mem_size(EX_MEM_MEM_SIZE)
     );
 
     // Pipeline CPU 
@@ -263,7 +262,6 @@ module SPIC_Pipeline (
         end
     end
 
-    assign pc_out = pc;
 endmodule
 
 

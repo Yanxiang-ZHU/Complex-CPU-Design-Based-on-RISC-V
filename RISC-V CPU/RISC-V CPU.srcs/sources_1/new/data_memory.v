@@ -11,180 +11,54 @@
 `define MIMO_END        16'hFFFF
 
 module data_memory(
-        input clk,
-        input [31:0] addr,
-        input we, re,
-        input [31:0] wd,
-        input [2:0] mem_size, //000(byte) 001(halfword) 010(word) 100(unsigned byte) 101(unsigned halfword)
-        output reg [31:0] rd,
-        output reg error
+    input clk,
+    input [31:0] addr,
+    input we, re,
+    input [31:0] wd,
+    input [2:0] mem_size, // 000(byte), 001(halfword), 010(word)
+    output reg [31:0] rd
+);
+
+    reg [3:0] write_mask;
+    wire [31:0] data;
+
+    MEMORY memory_data_operation (
+        .clka(clk),
+        .wea(we ? write_mask : 4'b0000),
+        .addra(addr >> 2),
+        .dina(wd),
+        .douta(data)
     );
 
-    reg [31:0] mem [0:`MEM_SIZE];
-
-    integer file, r, index;
-    reg [31:0] temp_data;
-    reg [31:0] word_data;
-    reg [15:0] half_data;
-    reg [7:0] byte_data;
-
-    initial begin
-        // Load data.mem
-        file = $fopen("data.mem", "r");
-        if (file) begin
-            index = `DATA_START >> 2;
-            while (!$feof(file)) begin
-                r = $fscanf(file, "%x", temp_data);
-                mem[index] = temp_data;
-                index = index + 1;
+    always @(*) begin
+        write_mask = 4'b0000;
+        case (mem_size)
+            3'b000: begin // SB (Store Byte)
+                case (addr[1:0])
+                    2'b00: write_mask = 4'b0001;
+                    2'b01: write_mask = 4'b0010;
+                    2'b10: write_mask = 4'b0100;
+                    2'b11: write_mask = 4'b1000;
+                endcase
             end
-            $fclose(file);
-            $display("Data memory loaded successfully.");
-        end
-        else begin
-            $display("Error: Unable to open data.mem");
-        end
-    end
-
-    always @(posedge clk) begin
-        error <= 0;
-        if (we) begin
-            case (1'b1)
-                (addr >= `DATA_START && addr <= `DATA_END),
-                (addr >= `HEAP_START && addr <= `HEAP_END),
-                (addr >= `MIMO_START && addr <= `MIMO_END): begin
-                    case (mem_size)
-                        3'b000: begin  // SB
-                            case (addr[1:0])
-                                2'b00:
-                                    mem[addr >> 2][7:0] <= wd[7:0];
-                                2'b01:
-                                    mem[addr >> 2][15:8] <= wd[7:0];
-                                2'b10:
-                                    mem[addr >> 2][23:16] <= wd[7:0];
-                                2'b11:
-                                    mem[addr >> 2][31:24] <= wd[7:0];
-                            endcase
-                        end
-                        3'b001: begin  // SH
-                            if (addr[0] != 0) begin
-                                error <= 1;
-                            end
-                            else begin
-                                case (addr[1])
-                                    1'b0:
-                                        mem[addr >> 2][15:0] <= wd[15:0];
-                                    1'b1:
-                                        mem[addr >> 2][31:16] <= wd[15:0];
-                                endcase
-                            end
-                        end
-                        3'b010: begin  // SW
-                            if (addr[1:0] != 2'b00) begin
-                                error <= 1;
-                            end
-                            else begin
-                                mem[addr >> 2] <= wd;
-                            end
-                        end
-                        default:
-                            error <= 1;
-                    endcase
-                end
-                (addr >= `TEXT_START && addr <= `TEXT_END): error <= 1;
-                default:
-                    error <= 1;
-            endcase
-        end
+            3'b001: begin // SH (Store Halfword)
+                case (addr[1])
+                    1'b0: write_mask = 4'b0011;
+                    1'b1: write_mask = 4'b1100;
+                endcase
+            end
+            3'b010: begin // SW (Store Word)
+                write_mask = 4'b1111;
+            end
+            default: write_mask = 4'b0000;
+        endcase
     end
 
     always @(*) begin
         if (re) begin
-            word_data = mem[addr >> 2];
-            case (mem_size)
-                3'b000: begin  // LB
-                    case (addr[1:0])
-                        2'b00:
-                            byte_data = word_data[7:0];
-                        2'b01:
-                            byte_data = word_data[15:8];
-                        2'b10:
-                            byte_data = word_data[23:16];
-                        2'b11:
-                            byte_data = word_data[31:24];
-                    endcase
-                    rd = {{24{byte_data[7]}}, byte_data};
-                    error = 0;
-                end
-                3'b001: begin  // LH
-                    if (addr[0] != 0) begin
-                        rd = 32'h0;
-                        error = 1;
-                    end
-                    else begin
-                        case (addr[1])
-                            1'b0:
-                                half_data = word_data[15:0];
-                            1'b1:
-                                half_data = word_data[31:16];
-                        endcase
-                        rd = {{16{half_data[15]}}, half_data};
-                        error = 0;
-                    end
-                end
-                3'b010: begin  // LW
-                    if (addr[1:0] != 2'b00) begin
-                        rd = 32'h0;
-                        error = 1;
-                    end
-                    else if (addr <= `MEM_SIZE) begin
-                        rd = word_data;
-                        error = 0;
-                    end
-                    else begin
-                        rd = 32'h0;
-                        error = 1;
-                    end
-                end
-                3'b100: begin  // LBU
-                    case (addr[1:0])
-                        2'b00:
-                            byte_data = word_data[7:0];
-                        2'b01:
-                            byte_data = word_data[15:8];
-                        2'b10:
-                            byte_data = word_data[23:16];
-                        2'b11:
-                            byte_data = word_data[31:24];
-                    endcase
-                    rd = {24'b0, byte_data};
-                    error = 0;
-                end
-                3'b101: begin  // LHU
-                    if (addr[0] != 0) begin
-                        rd = 32'h0;
-                        error = 1;
-                    end
-                    else begin
-                        case (addr[1])
-                            1'b0:
-                                half_data = word_data[15:0];
-                            1'b1:
-                                half_data = word_data[31:16];
-                        endcase
-                        rd = {16'b0, half_data};
-                        error = 0;
-                    end
-                end
-                default: begin
-                    rd = 32'h0;
-                    error = 1;
-                end
-            endcase
-        end
-        else begin
+            rd = data;
+        end else begin
             rd = 32'h0;
-            error = 0;
         end
     end
 
