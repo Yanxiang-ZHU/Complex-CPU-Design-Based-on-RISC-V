@@ -11,8 +11,12 @@ module register_file(
     // generate 32 registers in RISC-V architecture
     reg [31:0] registers [0:31];
 
-    initial
-        registers[0] = 32'b0;
+    integer i = 0;
+    initial begin
+        for (i = 0; i < 32; i = i + 1) begin
+            registers[i] = 32'b0;
+        end
+    end
 
     assign rd1 = (rs1 == 5'b0) ? 32'b0 : registers[rs1];
     assign rd2 = (rs2 == 5'b0) ? 32'b0 : registers[rs2];

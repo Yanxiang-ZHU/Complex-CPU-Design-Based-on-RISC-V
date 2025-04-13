@@ -73,8 +73,8 @@ module SPIC_Pipeline (
     // Immediate generator
     wire [31:0] imm;
     immediate_gen IG(
-        .inst(IF_ID_INSTR),
-        .imm_typ(imm_type),
+        .instr(IF_ID_INSTR),
+        .imm_type(imm_type),
         .imm(imm)
     );
 
@@ -83,8 +83,8 @@ module SPIC_Pipeline (
     register_file RF(
         .clk(clk),
         .we(MEM_WB_REG_WRITE),
-        .rs1(rs1),
-        .rs2(rs2),
+        .rs1(ID_EX_RS1_ADDR),
+        .rs2(ID_EX_RS2_ADDR),
         .rd(MEM_WB_RD),
         .wd(MEM_WB_MEM_TO_REG ? MEM_WB_MEM_DATA : MEM_WB_ALU_RESULT),
         .rd1(reg_rs1),
@@ -142,10 +142,10 @@ module SPIC_Pipeline (
     wire [31:0] mem_data;
     data_memory MEM(
         .clk(clk),
-        .addr(EX_MEM_RD),
+        .addr(EX_MEM_ALU_RESULT),
         .we(EX_MEM_MEM_WRITE),
         .re(EX_MEM_MEM_READ),
-        .wd(EX_MEM_ALU_RESULT),
+        .wd(EX_MEM_RS2),
         .rd(mem_data),
         .mem_size(EX_MEM_MEM_SIZE)
     );

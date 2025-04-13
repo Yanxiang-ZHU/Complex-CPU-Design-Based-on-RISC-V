@@ -1,7 +1,4 @@
-Running: xsim.dir/tb_riscv_behav/xsimk.exe -simmode gui -wdb tb_riscv_behav.wdb -simrunnum 0 -socket 54161
+Running: xsim.dir/tb_riscv_behav/xsimk.exe -simmode gui -wdb tb_riscv_behav.wdb -simrunnum 0 -socket 56045
 Design successfully loaded
-Design Loading Memory Usage: 8900 KB (Peak: 8900 KB)
+Design Loading Memory Usage: 10844 KB (Peak: 10844 KB)
 Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 11320 KB (Peak: 11320 KB)
-Simulation CPU Usage: 61 ms
