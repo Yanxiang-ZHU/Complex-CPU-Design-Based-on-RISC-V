@@ -1,5 +1,18 @@
-input_file = "memory.mem"  # 输入的 .mem 文件
-output_file = "memory.coe"  # 输出的 .coe 文件
+import os
+
+# 获取脚本所在目录的绝对路径
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 使用绝对路径
+input_file = os.path.join(script_dir, "memory.mem")
+output_file = os.path.join(script_dir, "memory.coe")
+
+# 添加文件存在性检查
+if not os.path.exists(input_file):
+    print(f"错误: 找不到文件 {input_file}")
+    print(f"当前工作目录: {os.getcwd()}")
+    print(f"脚本目录: {script_dir}")
+    exit(1)
 
 # 定义内存大小（假设 16KB 地址空间）
 MEMORY_SIZE = 65536  # 16KB = 16384 bytes
@@ -21,4 +34,4 @@ with open(output_file, "w") as coe_file:
     coe_file.write("memory_initialization_vector=\n")
     coe_file.write(",\n".join(memory) + ";\n")
 
-print(f"Converted {input_file} to {output_file}")
+print(f"转换完成：{input_file} -> {output_file}")

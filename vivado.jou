@@ -3,35 +3,58 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Sat Apr  5 18:56:41 2025
-# Process ID: 9513
+# Start of session at: Sat Apr 19 21:57:04 2025
+# Process ID: 84539
 # Current directory: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V
 # Command line: vivado
 # Log file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/vivado.log
 # Journal file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/vivado.jou
-# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 3011.793 MHz, CPU Physical cores: 14, Host memory: 16445 MB
+# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 1460.913 MHz, CPU Physical cores: 14, Host memory: 16445 MB
 #-----------------------------------------------------------
 start_gui
 open_project {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.xpr}
 update_compile_order -fileset sources_1
-reset_run synth_1
-launch_runs synth_1 -jobs 10
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 10
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 10
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 10
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 10
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 10
-wait_on_run synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 10
-wait_on_run synth_1
+set_property CONFIG.Coe_File {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/memory.coe} [get_ips MEMORY]
+launch_simulation
+source tb_riscv.tcl
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/IF_ID_PC}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/IF_ID_INSTR}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/IMEM/instr}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/IMEM/data}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/IMEM/addr}} 
+close_sim
+launch_simulation
+source tb_riscv.tcl
+run all
+current_wave_config {Untitled 2}
+add_wave {{/tb_riscv/uut/IF_ID_INSTR}} 
+current_wave_config {Untitled 2}
+add_wave {{/tb_riscv/uut/pc}} 
+close_sim
+launch_simulation
+source tb_riscv.tcl
+current_wave_config {Untitled 3}
+add_wave {{/tb_riscv/uut/IF_ID_PC}} 
+current_wave_config {Untitled 3}
+add_wave {{/tb_riscv/uut/IF_ID_INSTR}} 
+close_sim
+launch_simulation
+source tb_riscv.tcl
+current_wave_config {Untitled 4}
+add_wave {{/tb_riscv/uut/IMEM/addr}} 
+close_sim
+launch_simulation
+source tb_riscv.tcl
+current_wave_config {Untitled 5}
+add_wave {{/tb_riscv/uut/IMEM/addr}} 
+current_wave_config {Untitled 5}
+add_wave {{/tb_riscv/uut/IMEM/addr0}} 
+current_wave_config {Untitled 5}
+add_wave {{/tb_riscv/uut/IMEM/data}} 
+current_wave_config {Untitled 5}
+add_wave {{/tb_riscv/uut/IMEM/instr}} 

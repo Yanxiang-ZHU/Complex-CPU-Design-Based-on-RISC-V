@@ -1,0 +1,10 @@
+-------------------------------------
+| Tool Version : Vivado v.2023.2
+| Date         : Sat Apr 19 20:02:32 2025
+| Host         : mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx
+| Design       : design_1
+| Device       : xc7a200t-fbg484-1--
+-------------------------------------
+
+For more information on clockInfo.txt clock routing debug file see https://support.xilinx.com/s/article/000035660?language=en_US
+

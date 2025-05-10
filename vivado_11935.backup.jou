@@ -1,0 +1,116 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Sat Apr 19 20:00:08 2025
+# Process ID: 11935
+# Current directory: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V
+# Command line: vivado
+# Log file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/vivado.log
+# Journal file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/vivado.jou
+# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 800.008 MHz, CPU Physical cores: 14, Host memory: 16445 MB
+#-----------------------------------------------------------
+start_gui
+open_project {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.xpr}
+update_compile_order -fileset sources_1
+launch_runs impl_1 -jobs 10
+wait_on_run impl_1
+open_run impl_1
+launch_simulation
+source tb_riscv.tcl
+run all
+run 10 us
+run all
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/RF/rs1}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/RF/rs2}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/RF/rd1}} 
+relaunch_sim
+run all
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/RF/registers}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ID_EX_RS1}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ID_EX_RS2}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/rs2}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/pc}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/IF_ID_INSTR}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/IF_ID_PC}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ID_EX_IMM}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ID_EX_RD}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ID_EX_RS1_ADDR}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ID_EX_RS2_ADDR}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ID_EX_REG_WRITE}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ID_EX_ALU_SRC}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ID_EX_MEM_READ}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ID_EX_MEM_TO_REG}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/EX_MEM_ALU_RESULT}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/EX_MEM_RS2}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/EX_MEM_RD}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ALU/b}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/alu_in2}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ALU/result}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ALU/b}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ALU/a}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ID_EX_IMM}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ID_EX_RS2}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/RF/rs2}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/reg_rs2}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/reg_rs1}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/ID_EX_RS1}} 
+current_wave_config {Untitled 1}
+log_wave {/tb_riscv/uut/pc} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/instr}} 
+current_wave_config {Untitled 1}
+add_wave {{/tb_riscv/uut/IF_ID_INSTR}} 
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+source tb_riscv.tcl
+run all
+current_wave_config {Untitled 2}
+add_wave {{/tb_riscv/uut/IF_ID_INSTR}} 
+current_wave_config {Untitled 2}
+add_wave {{/tb_riscv/uut/ALU/result}} 
+current_wave_config {Untitled 2}
+add_wave {{/tb_riscv/uut/instr}} 
+current_wave_config {Untitled 2}
+add_wave {{/tb_riscv/uut/pc}} 
+set_property CONFIG.Coe_File {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/memory.coe} [get_ips MEMORY]
+set_property CONFIG.Coe_File {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/memory.coe} [get_ips MEMORY]
+close_sim
