@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Wed Apr 23 11:22:20 2025
+# Process ID: 5700
+# Current directory: D:/fpga/digital_twin/platform/digital_twin
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12036 D:\fpga\digital_twin\platform\digital_twin\digital_twin.xpr
+# Log file: D:/fpga/digital_twin/platform/digital_twin/vivado.log
+# Journal file: D:/fpga/digital_twin/platform/digital_twin\vivado.jou
+# Running On: LAPTOP-TNKPRGBT, OS: Windows, CPU Frequency: 3110 MHz, CPU Physical cores: 4, Host memory: 16952 MB
+#-----------------------------------------------------------
+start_gui
+open_project D:/fpga/digital_twin/platform/digital_twin/digital_twin.xpr
+update_compile_order -fileset sources_1
+synth_design -top top -part xc7k325tffg900-2 -lint 
+update_compile_order -fileset sources_1
+add_files -norecurse -scan_for_includes D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.sv
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+synth_design -top top -part xc7k325tffg900-2 -lint 
+synth_design -top top -part xc7k325tffg900-2 -lint 

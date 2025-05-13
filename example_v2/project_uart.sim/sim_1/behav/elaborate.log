@@ -1,0 +1,17 @@
+Vivado Simulator 2016.1
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: E:/Xilinx/Vivado/2016.1/bin/unwrapped/win64.o/xelab.exe -wto c9bb04490ded4674bdef1ca7a02e7eb3 --debug typical --relax --mt 2 -L xil_defaultlib -L xpm -L unisims_ver -L unimacro_ver -L secureip --snapshot uart_drive_tb_behav xil_defaultlib.uart_drive_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.clk_div_module(P_CLK_DIV_CNT=520...
+Compiling module xil_defaultlib.rst_gen_module(P_RST_CYCLE=10)
+Compiling module xil_defaultlib.uart_rx(P_SYSTEM_CLK=50000000,P_...
+Compiling module xil_defaultlib.uart_tx(P_SYSTEM_CLK=50000000,P_...
+Compiling module xil_defaultlib.uart_drive(P_UART_DATA_WIDTH=8,P...
+Compiling module xil_defaultlib.uart_drive_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot uart_drive_tb_behav

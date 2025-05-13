@@ -1,0 +1,17 @@
+0.2
+2016.1
+E:/Xilinx/Vivado/2016.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,1460161105,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,
+E:/Xilinx/Vivado/2016.1/data/ip/xpm/xpm_memory/hdl/xpm_memory_base.sv,1460161105,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,
+E:/Xilinx/Vivado/2016.1/data/ip/xpm/xpm_memory/hdl/xpm_memory_dpdistram.sv,1460161105,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,
+E:/Xilinx/Vivado/2016.1/data/ip/xpm/xpm_memory/hdl/xpm_memory_dprom.sv,1460161105,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,
+E:/Xilinx/Vivado/2016.1/data/ip/xpm/xpm_memory/hdl/xpm_memory_sdpram.sv,1460161105,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,
+E:/Xilinx/Vivado/2016.1/data/ip/xpm/xpm_memory/hdl/xpm_memory_spram.sv,1460161105,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,
+E:/Xilinx/Vivado/2016.1/data/ip/xpm/xpm_memory/hdl/xpm_memory_sprom.sv,1460161105,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,
+E:/Xilinx/Vivado/2016.1/data/ip/xpm/xpm_memory/hdl/xpm_memory_tdpram.sv,1460161105,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,
+E:/source/fpga/project_uart/project_uart.sim/sim_1/behav/glbl.v,1460148552,verilog,,,,,,,,,
+E:/source/fpga/project_uart/project_uart.srcs/sim_1/new/uart_drive_tb.v,1697684261,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,
+E:/source/fpga/project_uart/project_uart.srcs/sources_1/new/clk_div_module.v,1697692089,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,
+E:/source/fpga/project_uart/project_uart.srcs/sources_1/new/rst_gen_module.v,1697692094,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,
+E:/source/fpga/project_uart/project_uart.srcs/sources_1/new/uart_drive.v,1697692905,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,
+E:/source/fpga/project_uart/project_uart.srcs/sources_1/new/uart_rx.v,1697693056,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,
+E:/source/fpga/project_uart/project_uart.srcs/sources_1/new/uart_tx.v,1697799480,verilog,,,,../../../project_uart.ip_user_files/ipstatic/clk_wiz_v5_3_0,,,,,

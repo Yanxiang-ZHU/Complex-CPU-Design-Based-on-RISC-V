@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="uart_drive_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="uart_drive_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="5,720.000001 us"></ZoomEndTime>
+      <Cursor1Time time="1,614.570000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="345"></NameColumnWidth>
+      <ValueColumnWidth column_width="116"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="6" />
+   <wvobject fp_name="/uart_drive_tb/i_clk" type="logic">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_drive_tb/i_rst" type="logic">
+      <obj_property name="ElementShortName">i_rst</obj_property>
+      <obj_property name="ObjectShortName">i_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_drive_tb/o_user_clk" type="logic">
+      <obj_property name="ElementShortName">o_user_clk</obj_property>
+      <obj_property name="ObjectShortName">o_user_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_drive_tb/o_user_rst" type="logic">
+      <obj_property name="ElementShortName">o_user_rst</obj_property>
+      <obj_property name="ObjectShortName">o_user_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="group446" type="group">
+      <obj_property name="label">input</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/uart_drive_tb/ri_user_tx_data" type="array">
+         <obj_property name="ElementShortName">ri_user_tx_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">ri_user_tx_data[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_drive_tb/w_user_active" type="logic">
+         <obj_property name="ElementShortName">w_user_active</obj_property>
+         <obj_property name="ObjectShortName">w_user_active</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_drive_tb/ri_user_tx_valid" type="logic">
+         <obj_property name="ElementShortName">ri_user_tx_valid</obj_property>
+         <obj_property name="ObjectShortName">ri_user_tx_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_drive_tb/wo_user_tx_ready" type="logic">
+         <obj_property name="ElementShortName">wo_user_tx_ready</obj_property>
+         <obj_property name="ObjectShortName">wo_user_tx_ready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group437" type="group">
+      <obj_property name="label">output</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/uart_drive_tb/wo_uart_tx" type="logic">
+         <obj_property name="ElementShortName">wo_uart_tx</obj_property>
+         <obj_property name="ObjectShortName">wo_uart_tx</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_drive_tb/wo_user_rx_valid" type="logic">
+         <obj_property name="ElementShortName">wo_user_rx_valid</obj_property>
+         <obj_property name="ObjectShortName">wo_user_rx_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_drive_tb/wo_user_rx_data" type="array">
+         <obj_property name="ElementShortName">wo_user_rx_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">wo_user_rx_data[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

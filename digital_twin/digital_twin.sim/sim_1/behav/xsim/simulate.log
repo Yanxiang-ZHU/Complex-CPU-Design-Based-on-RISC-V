@@ -1,0 +1,9 @@
+Time resolution is 1 ps
+==== 发送非法指令0x00，期望无任何串口回复 ====
+PASS: 非法指令无串口输出，逻辑正确！
+==== 发送写指令，设置 SW[0]=1 ====
+==== 发送写指令，设置 SW[31]=1 ====
+==== 发送写指令，设置 KEY[0]=1 ====
+==== 发送读指令，收集18个字节 ====
+RX[0] = bf
+INFO: xsimkernel Simulation Memory Usage: 16836 KB (Peak: 16836 KB), Simulation CPU Usage: 183483 ms

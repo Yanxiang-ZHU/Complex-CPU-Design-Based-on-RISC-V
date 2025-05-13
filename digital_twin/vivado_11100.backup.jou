@@ -1,0 +1,76 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Apr 18 15:01:02 2025
+# Process ID: 11100
+# Current directory: D:/fpga/digital_twin/platform/digital_twin
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4776 D:\fpga\digital_twin\platform\digital_twin\digital_twin.xpr
+# Log file: D:/fpga/digital_twin/platform/digital_twin/vivado.log
+# Journal file: D:/fpga/digital_twin/platform/digital_twin\vivado.jou
+# Running On: LAPTOP-TNKPRGBT, OS: Windows, CPU Frequency: 3110 MHz, CPU Physical cores: 4, Host memory: 16952 MB
+#-----------------------------------------------------------
+start_gui
+open_project D:/fpga/digital_twin/platform/digital_twin/digital_twin.xpr
+update_compile_order -fileset sources_1
+open_hw_manager
+connect_hw_server -url 192.168.3.8:3122 -allow_non_jtag
+current_hw_target [get_hw_targets */xilinx_tcf/Digilent/C306A4BBABCD]
+set_property PARAM.FREQUENCY 15000000 [get_hw_targets */xilinx_tcf/Digilent/C306A4BBABCD]
+open_hw_target
+set_property PROGRAM.FILE {D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/impl_1/top.bit} [get_hw_devices xc7k325t_0]
+current_hw_device [get_hw_devices xc7k325t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k325t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property PROGRAM.FILE {D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/impl_1/top.bit} [get_hw_devices xc7k325t_0]
+program_hw_devices [get_hw_devices xc7k325t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k325t_0] 0]
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_simulation
+open_wave_config D:/fpga/digital_twin/platform/digital_twin/tb_uart_behav.wcfg
+open_wave_config D:/fpga/digital_twin/platform/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+run all
+save_wave_config {D:/fpga/digital_twin/platform/digital_twin/tb_top_behav.wcfg}
+relaunch_sim
+close_sim
+launch_simulation
+open_wave_config D:/fpga/digital_twin/platform/digital_twin/tb_uart_behav.wcfg
+open_wave_config D:/fpga/digital_twin/platform/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+run all
+save_wave_config {D:/fpga/digital_twin/platform/digital_twin/tb_top_behav.wcfg}
+relaunch_sim
+run all
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property PROGRAM.FILE {D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/impl_1/top.bit} [get_hw_devices xc7k325t_0]
+program_hw_devices [get_hw_devices xc7k325t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k325t_0] 0]
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+relaunch_sim
+relaunch_sim
+relaunch_sim
+run all
+run all
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property PROGRAM.FILE {D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/impl_1/top.bit} [get_hw_devices xc7k325t_0]
+program_hw_devices [get_hw_devices xc7k325t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k325t_0] 0]
+close_sim

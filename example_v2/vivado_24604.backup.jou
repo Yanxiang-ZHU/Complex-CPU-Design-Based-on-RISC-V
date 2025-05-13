@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Tue Apr  1 14:15:47 2025
+# Process ID: 24604
+# Current directory: C:/Users/KTD/Desktop/example
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7784 C:\Users\KTD\Desktop\example\project_uart.xpr
+# Log file: C:/Users/KTD/Desktop/example/vivado.log
+# Journal file: C:/Users/KTD/Desktop/example\vivado.jou
+# Running On: LAPTOP-TNKPRGBT, OS: Windows, CPU Frequency: 3110 MHz, CPU Physical cores: 4, Host memory: 16952 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/KTD/Desktop/example/project_uart.xpr
+open_hw_manager
+connect_hw_server -url 10.8.0.31:3121 -allow_non_jtag
+update_compile_order -fileset sources_1
+connect_hw_server -url 192.168.3.8:3121 -allow_non_jtag
+current_hw_target [get_hw_targets */xilinx_tcf/Digilent/C305BAD5ABCD]
+set_property PARAM.FREQUENCY 15000000 [get_hw_targets */xilinx_tcf/Digilent/C305BAD5ABCD]
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/KTD/Desktop/example/project_uart.runs/impl_1/top.bit} [get_hw_devices xc7k325t_0]
+current_hw_device [get_hw_devices xc7k325t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k325t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property PROGRAM.FILE {C:/Users/KTD/Desktop/example/project_uart.runs/impl_1/top.bit} [get_hw_devices xc7k325t_0]
+program_hw_devices [get_hw_devices xc7k325t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k325t_0] 0]

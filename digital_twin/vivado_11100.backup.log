@@ -1,0 +1,510 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Apr 18 15:01:02 2025
+# Process ID: 11100
+# Current directory: D:/fpga/digital_twin/platform/digital_twin
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4776 D:\fpga\digital_twin\platform\digital_twin\digital_twin.xpr
+# Log file: D:/fpga/digital_twin/platform/digital_twin/vivado.log
+# Journal file: D:/fpga/digital_twin/platform/digital_twin\vivado.jou
+# Running On: LAPTOP-TNKPRGBT, OS: Windows, CPU Frequency: 3110 MHz, CPU Physical cores: 4, Host memory: 16952 MB
+#-----------------------------------------------------------
+start_gui
+open_project D:/fpga/digital_twin/platform/digital_twin/digital_twin.xpr
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at D:/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.1 available at D:/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.1/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.0 available at D:/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.1 available at D:/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.1/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at D:/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.1 available at D:/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at D:/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at D:/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at D:/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at D:/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+INFO: [Project 1-313] Project file moved from '/home/ketted/Desktop/digital_twin/platform/digital_twin' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/2023.2/data/ip'.
+open_project: Time (s): cpu = 00:00:31 ; elapsed = 00:00:13 . Memory (MB): peak = 1572.188 ; gain = 426.734
+update_compile_order -fileset sources_1
+open_hw_manager
+connect_hw_server -url 192.168.3.8:3122 -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:192.168.3.8:3122
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2023.2.0
+  ****** Build date   : Oct 10 2023-12:01:56
+    **** Build number : 2023.2.1696910516
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 1577.500 ; gain = 4.375
+current_hw_target [get_hw_targets */xilinx_tcf/Digilent/C306A4BBABCD]
+set_property PARAM.FREQUENCY 15000000 [get_hw_targets */xilinx_tcf/Digilent/C306A4BBABCD]
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target 192.168.3.8:3122/xilinx_tcf/Digilent/C306A4BBABCD
+set_property PROGRAM.FILE {D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/impl_1/top.bit} [get_hw_devices xc7k325t_0]
+current_hw_device [get_hw_devices xc7k325t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k325t_0] 0]
+INFO: [Labtools 27-1434] Device xc7k325t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property PROGRAM.FILE {D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/impl_1/top.bit} [get_hw_devices xc7k325t_0]
+program_hw_devices [get_hw_devices xc7k325t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 1639.496 ; gain = 0.254
+refresh_hw_device [lindex [get_hw_devices xc7k325t_0] 0]
+INFO: [Labtools 27-1434] Device xc7k325t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\display_seg.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\twin_controller.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/utils_1/imports/synth_1/top.dcp with file D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/synth_1/top.dcp
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/ip/pll_1/pll.xci' is already up-to-date
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\display_seg.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\twin_controller.sv:]
+[Fri Apr 18 15:23:01 2025] Launched synth_1...
+Run output will be captured here: D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/synth_1/runme.log
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\display_seg.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\twin_controller.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\display_seg.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\twin_controller.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Vivado/2023.2/data/xsim/xsim.ini' copied to run dir:'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_top' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_top_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pll_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pll
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module display_seg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/seg7.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module seg7
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/student_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module student_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/twin_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module twin_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/uart.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sim_1/new/tb_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:66]
+WARNING: [VRFC 10-5021] port 'rst_n' is not connected on this instance [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sim_1/new/tb_top.sv:33]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:67]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:68]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:69]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUFDS
+Compiling module unisims_ver.PLLE2_ADV(CLKFBOUT_MULT=17,CLKIN...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.pll_clk_wiz
+Compiling module xil_defaultlib.pll
+Compiling module xil_defaultlib.uart(BAUD_RATE=9600)
+Compiling module xil_defaultlib.twin_controller
+Compiling module xil_defaultlib.seg7
+Compiling module xil_defaultlib.display_seg
+Compiling module xil_defaultlib.student_top
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.tb_top
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_top_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:12 . Memory (MB): peak = 1713.961 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '12' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_top_behav -key {Behavioral:sim_1:Functional:tb_top} -tclbatch {tb_top.tcl} -view {D:/fpga/digital_twin/platform/digital_twin/tb_uart_behav.wcfg} -view {D:/fpga/digital_twin/platform/digital_twin/tb_top_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+open_wave_config D:/fpga/digital_twin/platform/digital_twin/tb_uart_behav.wcfg
+WARNING: Simulation object /tb_uart/clk was not found in the design.
+WARNING: Simulation object /tb_uart/rst_n was not found in the design.
+WARNING: Simulation object /tb_uart/rx was not found in the design.
+WARNING: Simulation object /tb_uart/rx_ready was not found in the design.
+WARNING: Simulation object /tb_uart/rx_data was not found in the design.
+WARNING: Simulation object /tb_uart/tx was not found in the design.
+WARNING: Simulation object /tb_uart/tx_start was not found in the design.
+WARNING: Simulation object /tb_uart/tx_data was not found in the design.
+WARNING: Simulation object /tb_uart/tx_busy was not found in the design.
+WARNING: Simulation object /tb_uart/BIT_PERIOD was not found in the design.
+open_wave_config D:/fpga/digital_twin/platform/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+==== ÂèëÈÄÅÈùûÊ≥ïÊåá‰ª§0x00ÔºåÊúüÊúõÊó†‰ªª‰Ωï‰∏≤Âè£ÂõûÂ§ç ====
+xsim: Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 1788.930 ; gain = 74.969
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_top_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:14 ; elapsed = 00:00:25 . Memory (MB): peak = 1788.930 ; gain = 74.969
+run all
+PASS: ÈùûÊ≥ïÊåá‰ª§Êó†‰∏≤Âè£ËæìÂá∫ÔºåÈÄªËæëÊ≠£Á°ÆÔºÅ
+==== ÂèëÈÄÅÂÜôÊåá‰ª§ÔºåËÆæÁΩÆ SW[0]=1 ====
+==== ÂèëÈÄÅÂÜôÊåá‰ª§ÔºåËÆæÁΩÆ SW[31]=1 ====
+run: Time (s): cpu = 00:00:31 ; elapsed = 00:01:16 . Memory (MB): peak = 1788.930 ; gain = 0.000
+save_wave_config {D:/fpga/digital_twin/platform/digital_twin/tb_top_behav.wcfg}
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\display_seg.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\twin_controller.sv:]
+relaunch_sim
+INFO: xsimkernel Simulation Memory Usage: 17472 KB (Peak: 17472 KB), Simulation CPU Usage: 72327 ms
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Vivado/2023.2/data/xsim/xsim.ini' copied to run dir:'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_top' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+ERROR: [Common 17-180] Spawn failed: No error
+"xvlog --incr --relax -L uvm -prj tb_top_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+ERROR: [USF-XSim-62] 'compile' step failed with error(s) while executing 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim/compile.bat' script. Please check that the file has the correct 'read/write/execute' permissions and the Tcl console output for any other possible errors or warnings.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'D:/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Vivado/2023.2/data/xsim/xsim.ini' copied to run dir:'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_top' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_top_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:66]
+WARNING: [VRFC 10-5021] port 'rst_n' is not connected on this instance [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sim_1/new/tb_top.sv:33]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:67]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:68]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:69]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_top_behav -key {Behavioral:sim_1:Functional:tb_top} -tclbatch {tb_top.tcl} -view {D:/fpga/digital_twin/platform/digital_twin/tb_uart_behav.wcfg} -view {D:/fpga/digital_twin/platform/digital_twin/tb_top_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+open_wave_config D:/fpga/digital_twin/platform/digital_twin/tb_uart_behav.wcfg
+WARNING: Simulation object /tb_uart/clk was not found in the design.
+WARNING: Simulation object /tb_uart/rst_n was not found in the design.
+WARNING: Simulation object /tb_uart/rx was not found in the design.
+WARNING: Simulation object /tb_uart/rx_ready was not found in the design.
+WARNING: Simulation object /tb_uart/rx_data was not found in the design.
+WARNING: Simulation object /tb_uart/tx was not found in the design.
+WARNING: Simulation object /tb_uart/tx_start was not found in the design.
+WARNING: Simulation object /tb_uart/tx_data was not found in the design.
+WARNING: Simulation object /tb_uart/tx_busy was not found in the design.
+WARNING: Simulation object /tb_uart/BIT_PERIOD was not found in the design.
+open_wave_config D:/fpga/digital_twin/platform/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+==== ÂèëÈÄÅÈùûÊ≥ïÊåá‰ª§0x00ÔºåÊúüÊúõÊó†‰ªª‰Ωï‰∏≤Âè£ÂõûÂ§ç ====
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_top_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:11 . Memory (MB): peak = 1788.930 ; gain = 0.000
+run all
+run: Time (s): cpu = 00:00:04 ; elapsed = 00:00:10 . Memory (MB): peak = 1788.930 ; gain = 0.000
+save_wave_config {D:/fpga/digital_twin/platform/digital_twin/tb_top_behav.wcfg}
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\display_seg.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\twin_controller.sv:]
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_top_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:66]
+WARNING: [VRFC 10-5021] port 'rst_n' is not connected on this instance [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sim_1/new/tb_top.sv:33]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:67]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:68]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:69]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Time resolution is 1 ps
+==== ÂèëÈÄÅÈùûÊ≥ïÊåá‰ª§0x00ÔºåÊúüÊúõÊó†‰ªª‰Ωï‰∏≤Âè£ÂõûÂ§ç ====
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1788.930 ; gain = 0.000
+run all
+run: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1788.930 ; gain = 0.000
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\display_seg.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\twin_controller.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/utils_1/imports/synth_1/top.dcp with file D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/synth_1/top.dcp
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/synth_1
+
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/ip/pll_1/pll.xci' is already up-to-date
+[Fri Apr 18 15:36:18 2025] Launched synth_1...
+Run output will be captured here: D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/synth_1/runme.log
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\display_seg.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\twin_controller.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+launch_runs impl_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/ip/pll_1/pll.xci' is already up-to-date
+[Fri Apr 18 15:38:06 2025] Launched impl_1...
+Run output will be captured here: D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/ip/pll_1/pll.xci' is already up-to-date
+[Fri Apr 18 15:40:45 2025] Launched impl_1...
+Run output will be captured here: D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property PROGRAM.FILE {D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/impl_1/top.bit} [get_hw_devices xc7k325t_0]
+program_hw_devices [get_hw_devices xc7k325t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 2137.910 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7k325t_0] 0]
+INFO: [Labtools 27-1434] Device xc7k325t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\display_seg.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\twin_controller.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\display_seg.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\twin_controller.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/utils_1/imports/synth_1/top.dcp with file D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/synth_1/top.dcp
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/synth_1
+
+launch_runs synth_1 -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/ip/pll_1/pll.xci' is already up-to-date
+[Fri Apr 18 15:52:30 2025] Launched synth_1...
+Run output will be captured here: D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/synth_1/runme.log
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\display_seg.v:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [D:\fpga\digital_twin\platform\digital_twin\digital_twin.srcs\sources_1\new\twin_controller.sv:]
+ERROR: [Common 17-180] Spawn failed: No error
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+boost::filesystem::remove: ¡Ì“ª∏ˆ≥Ã–Ú’˝‘⁄ π”√¥ÀŒƒº˛£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£: "D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim/simulate.log"
+INFO: [Common 17-17] undo 'relaunch_sim'
+INFO: [Common 17-17] undo 'relaunch_sim'
+ERROR: [Common 17-69] Command failed: boost::filesystem::remove: ¡Ì“ª∏ˆ≥Ã–Ú’˝‘⁄ π”√¥ÀŒƒº˛£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£: "D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim/simulate.log"
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+boost::filesystem::remove: ¡Ì“ª∏ˆ≥Ã–Ú’˝‘⁄ π”√¥ÀŒƒº˛£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£: "D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim/simulate.log"
+INFO: [Common 17-17] undo 'relaunch_sim'
+INFO: [Common 17-17] undo 'relaunch_sim'
+ERROR: [Common 17-69] Command failed: boost::filesystem::remove: ¡Ì“ª∏ˆ≥Ã–Ú’˝‘⁄ π”√¥ÀŒƒº˛£¨Ω¯≥ÃŒﬁ∑®∑√Œ °£: "D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim/simulate.log"
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_top_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/seg7.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module seg7
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/student_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module student_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/twin_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module twin_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/uart.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sim_1/new/tb_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_top
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:66]
+WARNING: [VRFC 10-5021] port 'rst_n' is not connected on this instance [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sim_1/new/tb_top.sv:33]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:67]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:68]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'din' [D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v:69]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUFDS
+Compiling module unisims_ver.PLLE2_ADV(CLKFBOUT_MULT=17,CLKIN...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.pll_clk_wiz
+Compiling module xil_defaultlib.pll
+Compiling module xil_defaultlib.uart(BAUD_RATE=9600)
+Compiling module xil_defaultlib.twin_controller
+Compiling module xil_defaultlib.seg7
+Compiling module xil_defaultlib.display_seg
+Compiling module xil_defaultlib.student_top
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.tb_top
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_top_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 2137.910 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 2137.910 ; gain = 0.000
+Time resolution is 1 ps
+==== ÂèëÈÄÅÈùûÊ≥ïÊåá‰ª§0x00ÔºåÊúüÊúõÊó†‰ªª‰Ωï‰∏≤Âè£ÂõûÂ§ç ====
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:11 . Memory (MB): peak = 2137.910 ; gain = 0.000
+run all
+PASS: ÈùûÊ≥ïÊåá‰ª§Êó†‰∏≤Âè£ËæìÂá∫ÔºåÈÄªËæëÊ≠£Á°ÆÔºÅ
+==== ÂèëÈÄÅÂÜôÊåá‰ª§ÔºåËÆæÁΩÆ SW[0]=1 ====
+==== ÂèëÈÄÅÂÜôÊåá‰ª§ÔºåËÆæÁΩÆ SW[31]=1 ====
+==== ÂèëÈÄÅÂÜôÊåá‰ª§ÔºåËÆæÁΩÆ KEY[0]=1 ====
+==== ÂèëÈÄÅËØªÊåá‰ª§ÔºåÊî∂ÈõÜ18‰∏™Â≠óËäÇ ====
+run: Time (s): cpu = 00:01:01 ; elapsed = 00:02:38 . Memory (MB): peak = 2817.332 ; gain = 679.422
+run all
+RX[0] = bf
+run: Time (s): cpu = 00:00:12 ; elapsed = 00:00:35 . Memory (MB): peak = 2817.332 ; gain = 0.000
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/ip/pll_1/pll.xci' is already up-to-date
+[Fri Apr 18 15:58:43 2025] Launched impl_1...
+Run output will be captured here: D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property PROGRAM.FILE {D:/fpga/digital_twin/platform/digital_twin/digital_twin.runs/impl_1/top.bit} [get_hw_devices xc7k325t_0]
+program_hw_devices [get_hw_devices xc7k325t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 2817.332 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7k325t_0] 0]
+INFO: [Labtools 27-1434] Device xc7k325t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_sim
+INFO: xsimkernel Simulation Memory Usage: 16836 KB (Peak: 16836 KB), Simulation CPU Usage: 183483 ms
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Apr 18 16:06:52 2025...

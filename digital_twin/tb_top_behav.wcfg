@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_top_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="862.000001 us"></ZoomEndTime>
+      <Cursor1Time time="318.394559 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="398"></NameColumnWidth>
+      <ValueColumnWidth column_width="231"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/tb_top/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/serial_rx" type="logic">
+      <obj_property name="ElementShortName">serial_rx</obj_property>
+      <obj_property name="ObjectShortName">serial_rx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/uart_inst/rx" type="logic">
+      <obj_property name="ElementShortName">rx</obj_property>
+      <obj_property name="ObjectShortName">rx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/uart_inst/rx_ready" type="logic">
+      <obj_property name="ElementShortName">rx_ready</obj_property>
+      <obj_property name="ObjectShortName">rx_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/uart_inst/rx_data" type="array">
+      <obj_property name="ElementShortName">rx_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/uart_inst/rx_ready" type="logic">
+      <obj_property name="ElementShortName">rx_ready</obj_property>
+      <obj_property name="ObjectShortName">rx_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/uart_inst/rx_bit_cnt" type="array">
+      <obj_property name="ElementShortName">rx_bit_cnt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_bit_cnt[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/uart_inst/tx" type="logic">
+      <obj_property name="ElementShortName">tx</obj_property>
+      <obj_property name="ObjectShortName">tx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/serial_tx" type="logic">
+      <obj_property name="ElementShortName">serial_tx</obj_property>
+      <obj_property name="ObjectShortName">serial_tx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/uart_inst/tx_busy" type="logic">
+      <obj_property name="ElementShortName">tx_busy</obj_property>
+      <obj_property name="ObjectShortName">tx_busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/uart_inst/tx_data" type="array">
+      <obj_property name="ElementShortName">tx_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group43" type="group">
+      <obj_property name="label">controller</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_top/uut/twin_controller_inst/current_state" type="array">
+         <obj_property name="ElementShortName">current_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">current_state[1:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF0000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_top/uut/twin_controller_inst/tx_busy" type="logic">
+         <obj_property name="ElementShortName">tx_busy</obj_property>
+         <obj_property name="ObjectShortName">tx_busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_top/uut/twin_controller_inst/tx_start_next" type="logic">
+         <obj_property name="ElementShortName">tx_start_next</obj_property>
+         <obj_property name="ObjectShortName">tx_start_next</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_top/uut/twin_controller_inst/send_cnt" type="array">
+         <obj_property name="ElementShortName">send_cnt[4:0]</obj_property>
+         <obj_property name="ObjectShortName">send_cnt[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_top/uut/twin_controller_inst/status_buffer" type="array">
+         <obj_property name="ElementShortName">status_buffer[0:17][7:0]</obj_property>
+         <obj_property name="ObjectShortName">status_buffer[0:17][7:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_top/uut/twin_controller_inst/tx_start" type="logic">
+         <obj_property name="ElementShortName">tx_start</obj_property>
+         <obj_property name="ObjectShortName">tx_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_top/uut/twin_controller_inst/tx_data" type="array">
+         <obj_property name="ElementShortName">tx_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tx_data[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group72" type="group">
+      <obj_property name="label">virtual</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_top/uut/student_top_inst/w_clk_50Mhz" type="logic">
+         <obj_property name="ElementShortName">w_clk_50Mhz</obj_property>
+         <obj_property name="ObjectShortName">w_clk_50Mhz</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_top/uut/student_top_inst/w_clk_rst" type="logic">
+         <obj_property name="ElementShortName">w_clk_rst</obj_property>
+         <obj_property name="ObjectShortName">w_clk_rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_top/uut/student_top_inst/virtual_key" type="array">
+         <obj_property name="ElementShortName">virtual_key[7:0]</obj_property>
+         <obj_property name="ObjectShortName">virtual_key[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_top/uut/student_top_inst/virtual_sw" type="array">
+         <obj_property name="ElementShortName">virtual_sw[63:0]</obj_property>
+         <obj_property name="ObjectShortName">virtual_sw[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_top/uut/student_top_inst/virtual_led" type="array">
+         <obj_property name="ElementShortName">virtual_led[31:0]</obj_property>
+         <obj_property name="ObjectShortName">virtual_led[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_top/uut/student_top_inst/virtual_seg" type="array">
+         <obj_property name="ElementShortName">virtual_seg[39:0]</obj_property>
+         <obj_property name="ObjectShortName">virtual_seg[39:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group93" type="group">
+      <obj_property name="label">student_top</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_top/uut/student_top_inst/seg_driver/count" type="array">
+         <obj_property name="ElementShortName">count[4:0]</obj_property>
+         <obj_property name="ObjectShortName">count[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_top/uut/student_top_inst/seg_driver/ans" type="array">
+         <obj_property name="ElementShortName">ans[7:0]</obj_property>
+         <obj_property name="ObjectShortName">ans[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

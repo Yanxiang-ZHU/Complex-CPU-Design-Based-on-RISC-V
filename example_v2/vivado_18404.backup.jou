@@ -1,0 +1,53 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Mar 21 10:02:31 2025
+# Process ID: 18404
+# Current directory: D:/fpga/example
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2688 D:\fpga\example\project_uart.xpr
+# Log file: D:/fpga/example/vivado.log
+# Journal file: D:/fpga/example\vivado.jou
+# Running On: LAPTOP-TNKPRGBT, OS: Windows, CPU Frequency: 3110 MHz, CPU Physical cores: 4, Host memory: 16952 MB
+#-----------------------------------------------------------
+start_gui
+open_project D:/fpga/example/project_uart.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/imports/new/MiniRVCPU.sv] -no_script -reset -force -quiet
+remove_files  D:/fpga/example/project_uart.srcs/sources_1/imports/new/MiniRVCPU.sv
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/imports/new/ACTL.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/imports/new/ALU.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/imports/new/Bridge.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/imports/new/Control.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/imports/new/IMMGEN.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/imports/new/MUX2_1.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/imports/new/MUX4_1.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/imports/new/NPC.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/imports/new/PC.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/imports/new/RF.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/imports/new/myCPU.sv] -no_script -reset -force -quiet
+remove_files  {D:/fpga/example/project_uart.srcs/sources_1/imports/new/ACTL.sv D:/fpga/example/project_uart.srcs/sources_1/imports/new/ALU.sv D:/fpga/example/project_uart.srcs/sources_1/imports/new/Bridge.sv D:/fpga/example/project_uart.srcs/sources_1/imports/new/Control.sv D:/fpga/example/project_uart.srcs/sources_1/imports/new/IMMGEN.sv D:/fpga/example/project_uart.srcs/sources_1/imports/new/MUX2_1.sv D:/fpga/example/project_uart.srcs/sources_1/imports/new/MUX4_1.sv D:/fpga/example/project_uart.srcs/sources_1/imports/new/NPC.sv D:/fpga/example/project_uart.srcs/sources_1/imports/new/PC.sv D:/fpga/example/project_uart.srcs/sources_1/imports/new/RF.sv D:/fpga/example/project_uart.srcs/sources_1/imports/new/myCPU.sv}
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/ip/DRAM/DRAM.xci] -no_script -reset -force -quiet
+remove_files  -fileset DRAM D:/fpga/example/project_uart.srcs/sources_1/ip/DRAM/DRAM.xci
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/ip/IROM/IROM.xci] -no_script -reset -force -quiet
+remove_files  -fileset IROM D:/fpga/example/project_uart.srcs/sources_1/ip/IROM/IROM.xci
+export_ip_user_files -of_objects  [get_files d:/fpga/new_asm/test_ram.coe] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files d:/fpga/new_asm/test_rom.coe] -no_script -reset -force -quiet
+remove_files  {d:/fpga/new_asm/test_ram.coe d:/fpga/new_asm/test_rom.coe}
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sim_1/new/uart_tx_tb.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sim_1/new/uart_drive_tb.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 {D:/fpga/example/project_uart.srcs/sim_1/new/uart_tx_tb.v D:/fpga/example/project_uart.srcs/sim_1/new/uart_drive_tb.v}
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sources_1/new/uart_top.v] -no_script -reset -force -quiet
+remove_files  D:/fpga/example/project_uart.srcs/sources_1/new/uart_top.v
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sim_1/new/counter_tb.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/project_uart.srcs/sim_1/new/controller_tb.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 {D:/fpga/example/project_uart.srcs/sim_1/new/counter_tb.v D:/fpga/example/project_uart.srcs/sim_1/new/controller_tb.v}
+export_ip_user_files -of_objects  [get_files D:/fpga/example/controller_tb_behav.wcfg] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/counter_tb_behav.wcfg] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files D:/fpga/example/uart_tx_tb_behav.wcfg] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 {D:/fpga/example/controller_tb_behav.wcfg D:/fpga/example/counter_tb_behav.wcfg D:/fpga/example/uart_tx_tb_behav.wcfg}
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1

@@ -1,0 +1,14 @@
+0.7
+2020.2
+Oct 13 2023
+20:47:58
+D:/fpga/digital_twin/platform/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll.v,1744946171,verilog,,D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v,,pll,,uvm,../../../../digital_twin.ip_user_files/ipstatic,,,,,
+D:/fpga/digital_twin/platform/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll_clk_wiz.v,1744946171,verilog,,D:/fpga/digital_twin/platform/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll.v,,pll_clk_wiz,,uvm,../../../../digital_twin.ip_user_files/ipstatic,,,,,
+D:/fpga/digital_twin/platform/digital_twin/digital_twin.sim/sim_1/behav/xsim/glbl.v,1697210495,verilog,,,,glbl,,uvm,,,,,,
+D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sim_1/new/tb_top.sv,1744877882,systemVerilog,,,,tb_top,,uvm,../../../../digital_twin.ip_user_files/ipstatic,,,,,
+D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v,1744961466,verilog,,,,display_seg,,uvm,../../../../digital_twin.ip_user_files/ipstatic,,,,,
+D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/seg7.sv,1744944208,systemVerilog,,D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/student_top.sv,,seg7,,uvm,../../../../digital_twin.ip_user_files/ipstatic,,,,,
+D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/student_top.sv,1744943912,systemVerilog,,D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/top.sv,,student_top,,uvm,../../../../digital_twin.ip_user_files/ipstatic,,,,,
+D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/top.sv,1744961771,systemVerilog,,D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/twin_controller.sv,,top,,uvm,../../../../digital_twin.ip_user_files/ipstatic,,,,,
+D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/twin_controller.sv,1744876408,systemVerilog,,D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/uart.sv,,twin_controller,,uvm,../../../../digital_twin.ip_user_files/ipstatic,,,,,
+D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sources_1/new/uart.sv,1744875245,systemVerilog,,D:/fpga/digital_twin/platform/digital_twin/digital_twin.srcs/sim_1/new/tb_top.sv,,uart,,uvm,../../../../digital_twin.ip_user_files/ipstatic,,,,,
