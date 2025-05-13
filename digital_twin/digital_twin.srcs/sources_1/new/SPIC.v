@@ -27,7 +27,7 @@ module SPIC_Pipeline (
     // Data paths -- restore the next pc (normal or branch or jump)
     wire [31:0] pc_plus_4 = pc + 4;
     wire [31:0] branch_target = EX_MEM_PC + EX_MEM_ALU_RESULT;
-    wire [31:0] jump_target = ID_EX_PC + ID_EX_IMM;
+    wire [31:0] jump_target = EX_MEM_PC + ID_EX_IMM;
     assign next_pc = (EX_MEM_BRANCH_TAKEN) ? branch_target :
            (ID_EX_JUMP) ? jump_target :
            pc_plus_4;
@@ -118,13 +118,13 @@ module SPIC_Pipeline (
     );
 
     // ALU inputs with forwarding
-    wire [31:0] alu_in1 = (forward_a == 2'b00) ? ID_EX_RS1 :
+    wire [31:0] alu_in1 = (forward_a == 2'b00) ? reg_rs1 :
         (forward_a == 2'b01) ? (MEM_WB_MEM_TO_REG ? MEM_WB_MEM_DATA : MEM_WB_ALU_RESULT) :
-        (forward_a == 2'b10) ? EX_MEM_ALU_RESULT : ID_EX_RS1;
-    wire [31:0] alu_in2 = (forward_b == 2'b00) ? (ID_EX_ALU_SRC ? ID_EX_IMM : ID_EX_RS2) :
+        (forward_a == 2'b10) ? EX_MEM_ALU_RESULT : reg_rs1;
+    wire [31:0] alu_in2 = (forward_b == 2'b00) ? (ID_EX_ALU_SRC ? ID_EX_IMM : reg_rs2) :
         (forward_b == 2'b01) ? (MEM_WB_MEM_TO_REG ? MEM_WB_MEM_DATA : MEM_WB_ALU_RESULT) :
         (forward_b == 2'b10) ? EX_MEM_ALU_RESULT :
-        (ID_EX_ALU_SRC ? ID_EX_IMM : ID_EX_RS2);  // alu_in2 can be immediate while alu_in1 is not
+        (ID_EX_ALU_SRC ? ID_EX_IMM : reg_rs2);  // alu_in2 can be immediate while alu_in1 is not
 
     // ALU
     wire [31:0] alu_result;

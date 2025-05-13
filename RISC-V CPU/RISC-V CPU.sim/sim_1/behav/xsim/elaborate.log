@@ -10,24 +10,4 @@ WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 16 f
 WARNING: [VRFC 10-3091] actual bit length 4 differs from formal bit length 1 for port 'wea' [C:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/data_memory.v:27]
 WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 16 for port 'addra' [C:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/RISC-V CPU/RISC-V CPU.srcs/sources_1/new/data_memory.v:28]
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module blk_mem_gen_v8_4_7.blk_mem_gen_v8_4_7_output_stage(...
-Compiling module blk_mem_gen_v8_4_7.blk_mem_gen_v8_4_7_output_stage(...
-Compiling module blk_mem_gen_v8_4_7.blk_mem_gen_v8_4_7_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_7.blk_mem_gen_v8_4_7_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_7.blk_mem_gen_v8_4_7(C_FAMILY="art...
-Compiling module xil_defaultlib.MEMORY
-Compiling module xil_defaultlib.instruction_memory
-Compiling module xil_defaultlib.control_unit
-Compiling module xil_defaultlib.immediate_gen
-Compiling module xil_defaultlib.register_file
-Compiling module xil_defaultlib.hazard_detection_unit
-Compiling module xil_defaultlib.forwarding_unit
-Compiling module xil_defaultlib.alu
-Compiling module xil_defaultlib.data_memory
-Compiling module xil_defaultlib.SPIC_Pipeline
-Compiling module xil_defaultlib.tb_riscv
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_riscv_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
