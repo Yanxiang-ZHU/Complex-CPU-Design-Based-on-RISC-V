@@ -21,17 +21,17 @@
 
 
 module display_seg (
-    input  wire          clk    ,
-    input  wire          rst    ,
-    input  wire [31:0]   s      ,
-    output wire [6:0]    seg1   ,
-    output wire [6:0]    seg2   ,
-    output wire [6:0]    seg3   ,
-    output wire [6:0]    seg4   ,
-    output reg  [7:0]    ans
+    input  logic          clk    ,
+    input  logic          rst    ,
+    input  logic [31:0]   s      ,
+    output logic [6:0]    seg1   ,
+    output logic [6:0]    seg2   ,
+    output logic [6:0]    seg3   ,
+    output logic [6:0]    seg4   ,
+    output logic [7:0]    ans
 );
-    reg [4:0]  count;
-    reg [3:0]   digit1,  digit2, digit3, digit4; 
+    logic  [4:0]   count;
+    logic  [3:0]   digit1, digit2, digit3, digit4; 
 
     always@(posedge clk or posedge rst) begin
         if(rst)  

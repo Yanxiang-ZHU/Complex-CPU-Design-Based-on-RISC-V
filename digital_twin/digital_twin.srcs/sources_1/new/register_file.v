@@ -26,4 +26,14 @@ always @(*) begin
         if (we && rd != 5'b0)
             registers[rd] <= wd;
     end
+
+    ILA_REG ILA_REG_u(
+        .clk(clk),
+        .probe0(rs1),
+        .probe1(rs2),
+        .probe2(rd),
+        .probe3(wd),
+        .probe4(rd1),
+        .probe5(rd2)
+    );
 endmodule

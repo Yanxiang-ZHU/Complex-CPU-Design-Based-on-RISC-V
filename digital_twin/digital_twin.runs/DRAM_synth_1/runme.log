@@ -3,8 +3,11 @@
     with args -log DRAM.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source DRAM.tcl
 
 
+ECHO 处于关闭状态。
+ECHO 处于关闭状态。
+
 ****** Vivado v2023.2 (64-bit)
-  **** SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+  **** SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
   **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
   **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
@@ -12,11 +15,11 @@
 
 source DRAM.tcl -notrace
 INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: DRAM
-INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 39c1e3669d6bffd9 to dir: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1
-INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/ip/2023.2/3/9/39c1e3669d6bffd9/DRAM_sim_netlist.vhdl to /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1/DRAM_sim_netlist.vhdl.
-INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/ip/2023.2/3/9/39c1e3669d6bffd9/DRAM.dcp to /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1/DRAM.dcp.
-INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/ip/2023.2/3/9/39c1e3669d6bffd9/DRAM_stub.vhdl to /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1/DRAM_stub.vhdl.
-INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/ip/2023.2/3/9/39c1e3669d6bffd9/DRAM_stub.v to /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1/DRAM_stub.v.
-INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/ip/2023.2/3/9/39c1e3669d6bffd9/DRAM_sim_netlist.v to /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1/DRAM_sim_netlist.v.
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 39c1e3669d6bffd9 to dir: C:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/ip/2023.2/3/9/39c1e3669d6bffd9/DRAM.dcp to C:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1/DRAM.dcp.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/ip/2023.2/3/9/39c1e3669d6bffd9/DRAM_sim_netlist.v to C:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1/DRAM_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/ip/2023.2/3/9/39c1e3669d6bffd9/DRAM_sim_netlist.vhdl to C:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1/DRAM_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/ip/2023.2/3/9/39c1e3669d6bffd9/DRAM_stub.v to C:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1/DRAM_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/ip/2023.2/3/9/39c1e3669d6bffd9/DRAM_stub.vhdl to C:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1/DRAM_stub.vhdl.
 INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP DRAM, cache-ID = 39c1e3669d6bffd9.
-INFO: [Common 17-206] Exiting Vivado at Wed May 14 19:59:41 2025...
+INFO: [Common 17-206] Exiting Vivado at Thu May 15 17:12:59 2025...

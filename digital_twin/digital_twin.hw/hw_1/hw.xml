@@ -8,11 +8,513 @@
   <device name="xc7k325t_0" gui_info=""/>
   <ObjectList object_type="hw_device" gui_info="">
     <Object name="xc7k325t_0" gui_info="">
-      <Properties Property="FULL_PROBES.FILE" value=""/>
-      <Properties Property="PROBES.FILE" value=""/>
+      <Properties Property="FULL_PROBES.FILE" value="$_project_name_.runs/impl_1/top.ltx"/>
+      <Properties Property="PROBES.FILE" value="$_project_name_.runs/impl_1/top.ltx"/>
       <Properties Property="PROGRAM.HW_BITSTREAM" value="$_project_name_.runs/impl_1/top.bit"/>
       <Properties Property="SLR.COUNT" value="1"/>
     </Object>
   </ObjectList>
-  <probeset name="hw project" active="false"/>
+  <ObjectList object_type="hw_ila" gui_info="">
+    <Object name="student_top_inst/Core_cpu/ILA_SPIC_u" gui_info="">
+      <Properties Property="CONTROL.TRIGGER_CONDITION" value="AND"/>
+      <Properties Property="CORE_REFRESH_RATE_MS" value="500"/>
+    </Object>
+    <Object name="student_top_inst/Core_cpu/RF/ILA_REG_u" gui_info="">
+      <Properties Property="CONTROL.TRIGGER_CONDITION" value="AND"/>
+      <Properties Property="CORE_REFRESH_RATE_MS" value="500"/>
+    </Object>
+  </ObjectList>
+  <probeset name="hw project" active="false">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe4[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="student_top_inst/Core_cpu/RF/rd1[31]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[30]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[29]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[28]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[27]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[26]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[25]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[24]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[23]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[22]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[21]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[20]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[19]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[18]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[17]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[16]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[15]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[14]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[13]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[12]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[11]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[10]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[9]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[8]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[7]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[6]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[5]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[4]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[3]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[2]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[1]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd1[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe5[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="student_top_inst/Core_cpu/RF/rd2[31]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[30]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[29]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[28]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[27]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[26]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[25]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[24]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[23]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[22]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[21]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[20]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[19]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[18]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[17]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[16]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[15]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[14]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[13]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[12]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[11]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[10]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[9]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[8]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[7]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[6]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[5]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[4]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[3]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[2]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[1]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd2[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq5&apos;hXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq5&apos;hXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe2[4:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq5&apos;hXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="student_top_inst/Core_cpu/RF/rd[4]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd[3]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd[2]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd[1]"/>
+        <net name="student_top_inst/Core_cpu/RF/rd[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq5&apos;hXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq5&apos;hXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[4:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq5&apos;hXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="student_top_inst/Core_cpu/RF/rs1[4]"/>
+        <net name="student_top_inst/Core_cpu/RF/rs1[3]"/>
+        <net name="student_top_inst/Core_cpu/RF/rs1[2]"/>
+        <net name="student_top_inst/Core_cpu/RF/rs1[1]"/>
+        <net name="student_top_inst/Core_cpu/RF/rs1[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq5&apos;hXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq5&apos;hXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe1[4:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq5&apos;hXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="student_top_inst/Core_cpu/RF/rs2[4]"/>
+        <net name="student_top_inst/Core_cpu/RF/rs2[3]"/>
+        <net name="student_top_inst/Core_cpu/RF/rs2[2]"/>
+        <net name="student_top_inst/Core_cpu/RF/rs2[1]"/>
+        <net name="student_top_inst/Core_cpu/RF/rs2[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_2"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe3[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="student_top_inst/Core_cpu/RF/wd[31]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[30]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[29]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[28]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[27]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[26]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[25]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[24]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[23]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[22]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[21]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[20]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[19]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[18]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[17]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[16]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[15]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[14]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[13]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[12]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[11]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[10]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[9]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[8]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[7]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[6]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[5]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[4]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[3]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[2]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[1]"/>
+        <net name="student_top_inst/Core_cpu/RF/wd[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe3[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="student_top_inst/Core_cpu/alu_in1[31]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[30]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[29]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[28]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[27]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[26]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[25]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[24]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[23]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[22]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[21]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[20]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[19]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[18]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[17]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[16]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[15]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[14]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[13]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[12]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[11]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[10]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[9]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[8]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[7]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[6]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[5]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[4]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[3]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[2]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[1]"/>
+        <net name="student_top_inst/Core_cpu/alu_in1[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe4[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="student_top_inst/Core_cpu/alu_in2[31]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[30]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[29]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[28]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[27]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[26]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[25]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[24]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[23]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[22]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[21]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[20]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[19]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[18]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[17]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[16]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[15]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[14]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[13]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[12]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[11]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[10]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[9]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[8]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[7]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[6]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[5]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[4]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[3]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[2]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[1]"/>
+        <net name="student_top_inst/Core_cpu/alu_in2[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe2[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="student_top_inst/Core_cpu/imm[31]"/>
+        <net name="student_top_inst/Core_cpu/imm[30]"/>
+        <net name="student_top_inst/Core_cpu/imm[29]"/>
+        <net name="student_top_inst/Core_cpu/imm[28]"/>
+        <net name="student_top_inst/Core_cpu/imm[27]"/>
+        <net name="student_top_inst/Core_cpu/imm[26]"/>
+        <net name="student_top_inst/Core_cpu/imm[25]"/>
+        <net name="student_top_inst/Core_cpu/imm[24]"/>
+        <net name="student_top_inst/Core_cpu/imm[23]"/>
+        <net name="student_top_inst/Core_cpu/imm[22]"/>
+        <net name="student_top_inst/Core_cpu/imm[21]"/>
+        <net name="student_top_inst/Core_cpu/imm[20]"/>
+        <net name="student_top_inst/Core_cpu/imm[19]"/>
+        <net name="student_top_inst/Core_cpu/imm[18]"/>
+        <net name="student_top_inst/Core_cpu/imm[17]"/>
+        <net name="student_top_inst/Core_cpu/imm[16]"/>
+        <net name="student_top_inst/Core_cpu/imm[15]"/>
+        <net name="student_top_inst/Core_cpu/imm[14]"/>
+        <net name="student_top_inst/Core_cpu/imm[13]"/>
+        <net name="student_top_inst/Core_cpu/imm[12]"/>
+        <net name="student_top_inst/Core_cpu/imm[11]"/>
+        <net name="student_top_inst/Core_cpu/imm[10]"/>
+        <net name="student_top_inst/Core_cpu/imm[9]"/>
+        <net name="student_top_inst/Core_cpu/imm[8]"/>
+        <net name="student_top_inst/Core_cpu/imm[7]"/>
+        <net name="student_top_inst/Core_cpu/imm[6]"/>
+        <net name="student_top_inst/Core_cpu/imm[5]"/>
+        <net name="student_top_inst/Core_cpu/imm[4]"/>
+        <net name="student_top_inst/Core_cpu/imm[3]"/>
+        <net name="student_top_inst/Core_cpu/imm[2]"/>
+        <net name="student_top_inst/Core_cpu/imm[1]"/>
+        <net name="student_top_inst/Core_cpu/imm[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe1[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="student_top_inst/Core_cpu/instr[31]"/>
+        <net name="student_top_inst/Core_cpu/instr[30]"/>
+        <net name="student_top_inst/Core_cpu/instr[29]"/>
+        <net name="student_top_inst/Core_cpu/instr[28]"/>
+        <net name="student_top_inst/Core_cpu/instr[27]"/>
+        <net name="student_top_inst/Core_cpu/instr[26]"/>
+        <net name="student_top_inst/Core_cpu/instr[25]"/>
+        <net name="student_top_inst/Core_cpu/instr[24]"/>
+        <net name="student_top_inst/Core_cpu/instr[23]"/>
+        <net name="student_top_inst/Core_cpu/instr[22]"/>
+        <net name="student_top_inst/Core_cpu/instr[21]"/>
+        <net name="student_top_inst/Core_cpu/instr[20]"/>
+        <net name="student_top_inst/Core_cpu/instr[19]"/>
+        <net name="student_top_inst/Core_cpu/instr[18]"/>
+        <net name="student_top_inst/Core_cpu/instr[17]"/>
+        <net name="student_top_inst/Core_cpu/instr[16]"/>
+        <net name="student_top_inst/Core_cpu/instr[15]"/>
+        <net name="student_top_inst/Core_cpu/instr[14]"/>
+        <net name="student_top_inst/Core_cpu/instr[13]"/>
+        <net name="student_top_inst/Core_cpu/instr[12]"/>
+        <net name="student_top_inst/Core_cpu/instr[11]"/>
+        <net name="student_top_inst/Core_cpu/instr[10]"/>
+        <net name="student_top_inst/Core_cpu/instr[9]"/>
+        <net name="student_top_inst/Core_cpu/instr[8]"/>
+        <net name="student_top_inst/Core_cpu/instr[7]"/>
+        <net name="student_top_inst/Core_cpu/instr[6]"/>
+        <net name="student_top_inst/Core_cpu/instr[5]"/>
+        <net name="student_top_inst/Core_cpu/instr[4]"/>
+        <net name="student_top_inst/Core_cpu/instr[3]"/>
+        <net name="student_top_inst/Core_cpu/instr[2]"/>
+        <net name="student_top_inst/Core_cpu/instr[1]"/>
+        <net name="student_top_inst/Core_cpu/instr[0]"/>
+      </nets>
+    </probe>
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="BINARY"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[31:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="student_top_inst/Core_cpu/pc[31]"/>
+        <net name="student_top_inst/Core_cpu/pc[30]"/>
+        <net name="student_top_inst/Core_cpu/pc[29]"/>
+        <net name="student_top_inst/Core_cpu/pc[28]"/>
+        <net name="student_top_inst/Core_cpu/pc[27]"/>
+        <net name="student_top_inst/Core_cpu/pc[26]"/>
+        <net name="student_top_inst/Core_cpu/pc[25]"/>
+        <net name="student_top_inst/Core_cpu/pc[24]"/>
+        <net name="student_top_inst/Core_cpu/pc[23]"/>
+        <net name="student_top_inst/Core_cpu/pc[22]"/>
+        <net name="student_top_inst/Core_cpu/pc[21]"/>
+        <net name="student_top_inst/Core_cpu/pc[20]"/>
+        <net name="student_top_inst/Core_cpu/pc[19]"/>
+        <net name="student_top_inst/Core_cpu/pc[18]"/>
+        <net name="student_top_inst/Core_cpu/pc[17]"/>
+        <net name="student_top_inst/Core_cpu/pc[16]"/>
+        <net name="student_top_inst/Core_cpu/pc[15]"/>
+        <net name="student_top_inst/Core_cpu/pc[14]"/>
+        <net name="student_top_inst/Core_cpu/pc[13]"/>
+        <net name="student_top_inst/Core_cpu/pc[12]"/>
+        <net name="student_top_inst/Core_cpu/pc[11]"/>
+        <net name="student_top_inst/Core_cpu/pc[10]"/>
+        <net name="student_top_inst/Core_cpu/pc[9]"/>
+        <net name="student_top_inst/Core_cpu/pc[8]"/>
+        <net name="student_top_inst/Core_cpu/pc[7]"/>
+        <net name="student_top_inst/Core_cpu/pc[6]"/>
+        <net name="student_top_inst/Core_cpu/pc[5]"/>
+        <net name="student_top_inst/Core_cpu/pc[4]"/>
+        <net name="student_top_inst/Core_cpu/pc[3]"/>
+        <net name="student_top_inst/Core_cpu/pc[2]"/>
+        <net name="student_top_inst/Core_cpu/pc[1]"/>
+        <net name="student_top_inst/Core_cpu/pc[0]"/>
+      </nets>
+    </probe>
+  </probeset>
 </hwsession>

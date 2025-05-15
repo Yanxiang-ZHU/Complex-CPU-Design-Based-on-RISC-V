@@ -26,6 +26,7 @@ module student_top#(
     parameter                           P_SEG_CNT           = 40,
     parameter                           P_KEY_CNT           = 8
 ) (
+    input                                       w_cpu_clk     ,
     input                                       w_clk_50Mhz   ,
     input                                       w_clk_rst     ,
     input  [P_KEY_CNT - 1:0]                    virtual_key   ,
@@ -34,32 +35,71 @@ module student_top#(
     output [P_LED_CNT - 1:0]                    virtual_led   ,
     output [P_SEG_CNT - 1:0]                    virtual_seg   
 );
-     // You can revise the design below to finish your design. Let's go.
-    // assign virtual_led = virtual_sw[31:0];
-    // assign virtual_seg = {virtual_key, virtual_sw[63:32]};
-    SPIC_Pipeline SPIC_Pipeline_u (
-        .clk  (w_clk_50Mhz),
-        .rst  (rst)
-    );
-    // If you want to know more about the function of the virtual_seg driver
-    // please read Appendix 4: https://jyq2umyqyt.feishu.cn/docx/Fdkod8H4folLbexKQSCcwXbMnKc
- 
-    assign virtual_led = virtual_sw[31:0];
- 
-    display_seg seg_driver (
-        .clk    (w_clk_50Mhz),
-        .rst    (w_clk_rst),
-        .s      (virtual_sw[63:32]),
-        .seg1   (virtual_seg[6:0]),
-        .seg2   (virtual_seg[16:10]),
-        .seg3   (virtual_seg[26:20]),
-        .seg4   (virtual_seg[36:30]),
-        .ans    ({virtual_seg[39:38], virtual_seg[29:28], virtual_seg[19:18], virtual_seg[9:8]})
-    ); 
 
-    assign virtual_seg[7] = virtual_key[0];
-    assign virtual_seg[17] = virtual_key[1];
-    assign virtual_seg[27] = virtual_key[2];
-    assign virtual_seg[37] = virtual_key[3];
+    // IROM
+    logic [31:0] pc;
+    logic [11:0] inst_addr;
+    logic [31:0] instruction;
+    logic [31:0] instruction2;
+
+    // perip
+    logic [31:0] perip_addr, perip_wdata, perip_rdata;
+    logic perip_wen;
+    logic [1:0] perip_mask;
+
+    // 16KB = 2^12 * 32bit
+    assign inst_addr = pc[13:2];
+
+    SPIC_Pipeline Core_cpu (
+        .rst            (w_clk_rst),
+        .clk            (w_cpu_clk),
+
+        // Interface to IROM
+        .irom_addr          (pc),             
+        .irom_data          (instruction),   
+
+        // Interface to DRAM & periphera
+        .perip_addr         (perip_addr),     
+        .perip_wen          (perip_wen),     
+        .perip_mask         (perip_mask),   
+        .perip_wdata        (perip_wdata),    
+        .perip_rdata        (perip_rdata)     
+    );
+
+//    IROM Mem_IROM (
+//        .a          (inst_addr),
+//        .spo        (instruction)
+//    );
+        
+    IROM Mem_IROM (
+        .clka(clk),
+        .ena(1),
+        .wea(4'b0000),
+        .addra(inst_addr),
+        .dina(32'b0),
+        .douta(instruction),
+        
+        .clkb(clk),
+        .enb(0),
+        .web(0),
+        .addrb(0),
+        .dinb(0),
+        .doutb(instruction2)
+    );
+    
+    perip_bridge bridge_inst (
+        .clk				(w_cpu_clk),
+        .cnt_clk            (w_clk_50Mhz),
+        .rst                (w_clk_rst),
+        .perip_addr			(perip_addr),
+        .perip_wdata		(perip_wdata),
+        .perip_wen			(perip_wen),
+        .perip_mask			(perip_mask),
+        .perip_rdata		(perip_rdata),
+        .virtual_sw_input	(virtual_sw),
+        .virtual_key_input	(virtual_key),	
+        .virtual_seg_output	(virtual_seg),
+        .virtual_led_output (virtual_led)
+    );
 
 endmodule

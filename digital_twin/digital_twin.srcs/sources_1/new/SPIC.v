@@ -1,6 +1,13 @@
 module SPIC_Pipeline (
         input clk,
-        input rst
+        input rst,
+        output [31:0] irom_addr,
+        input [31:0] irom_data,
+        output [31:0] perip_addr,
+        output perip_wen,
+        output [1:0] perip_mask,
+        output [31:0] perip_wdata,
+        input [31:0] perip_rdata
     );
 
     // pc register
@@ -36,12 +43,16 @@ module SPIC_Pipeline (
     // Instruction memory interface
     wire [31:0] instr;
     wire [31:0] instr_new;
-    instruction_memory IMEM(
-                           .clk(clk),
-                           .addr(pc),
-                           .instr(instr)
-                       );
+    wire flush;
+//    instruction_memory IMEM(
+//                           .clk(clk),
+//                           .addr(pc),
+//                           .instr(instr)
+//                       );
+    assign irom_addr = pc;
+    assign instr = irom_data;
     assign instr_new=(flush || EX_MEM_BRANCH_TAKEN || ID_EX_JUMP) ? 32'h00000013 : instr;
+    
     // ID stage signals (RISC-V instruction format)
     wire [6:0] opcode = instr_new[6:0];
     wire [2:0] funct3 = instr_new[14:12];
@@ -53,7 +64,8 @@ module SPIC_Pipeline (
     // Control signals
     wire reg_write, alu_src, mem_read, mem_write, mem_to_reg, branch, jump, csr_write;
     wire [3:0] alu_op;
-    wire [2:0] imm_type, mem_size;
+    wire [2:0] imm_type;
+    wire [2:0] mem_size;
 
     control_unit CU(
                      .opcode(opcode),
@@ -94,7 +106,7 @@ module SPIC_Pipeline (
                   );
 
     // Hazard detection -- two cases: load-use hazard and branch hazard
-    wire stall, flush;
+    wire stall;
     hazard_detection_unit HDU(
                               .ID_EX_MEM_READ(ID_EX_MEM_READ),
                               .ID_EX_RD(ID_EX_RD),
@@ -142,14 +154,29 @@ module SPIC_Pipeline (
 
     // Data memory
     wire [31:0] mem_data;
-    data_memory MEM(
+//    data_memory MEM(
+//                    .clk(clk),
+//                    .addr(EX_MEM_ALU_RESULT),
+//                    .we(EX_MEM_MEM_WRITE),
+//                    .re(EX_MEM_MEM_READ),
+//                    .wd(EX_MEM_RS2),
+//                    .rd(mem_data),
+//                    .mem_size(EX_MEM_MEM_SIZE)
+//                );
+    assign perip_addr = EX_MEM_ALU_RESULT;
+    assign perip_wen = EX_MEM_MEM_WRITE;
+    assign perip_mask = EX_MEM_MEM_SIZE[1:0];
+    assign perip_wdata = EX_MEM_RS2;
+    assign perip_rdata = mem_data;                 
+     
+     // ILA
+     ILA_SPIC ILA_SPIC_u(
                     .clk(clk),
-                    .addr(EX_MEM_ALU_RESULT),
-                    .we(EX_MEM_MEM_WRITE),
-                    .re(EX_MEM_MEM_READ),
-                    .wd(EX_MEM_RS2),
-                    .rd(mem_data),
-                    .mem_size(EX_MEM_MEM_SIZE)
+                    .probe0(pc),
+                    .probe1(instr),
+                    .probe2(imm),
+                    .probe3(alu_in1),
+                    .probe4(alu_in2)
                 );
 
     // Pipeline CPU
@@ -230,7 +257,7 @@ module SPIC_Pipeline (
             end
             else begin
 
-                // Insert bubble (NOP): 清零所有字段，而不仅仅是控制信号
+                // Insert bubble (NOP): 清零�?有字段，而不仅仅是控制信�?
                 ID_EX_PC         <= 32'b0;
                 ID_EX_RS1        <= 32'b0;
                 ID_EX_RS2        <= 32'b0;

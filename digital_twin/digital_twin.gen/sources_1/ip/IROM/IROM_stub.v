@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-// Date        : Wed May 14 17:15:18 2025
+// Date        : Wed May 14 17:15:17 2025
 // Host        : mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx running 64-bit Ubuntu 22.04.5 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/IROM/IROM_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top IROM -prefix
+//               IROM_ IROM_stub.v
 // Design      : IROM
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7k325tffg900-2

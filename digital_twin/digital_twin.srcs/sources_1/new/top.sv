@@ -31,6 +31,7 @@ module top(
 );
 
     wire w_clk_50Mhz;
+    wire w_cpu_clk;
     wire w_clk_rst;
 
     wire [7:0] virtual_key;
@@ -46,6 +47,7 @@ module top(
         .clk_in1_p(i_sys_clk_p),
         .clk_in1_n(i_sys_clk_n),
         .clk_out1(w_clk_50Mhz),
+        .clk_out2(w_cpu_clk),
         .locked(w_clk_rst)
     );
 
@@ -80,6 +82,7 @@ module top(
 
     student_top student_top_inst(
         .w_clk_50Mhz(w_clk_50Mhz),
+        .w_cpu_clk(w_cpu_clk),
         .w_clk_rst(~w_clk_rst),
         .virtual_key(virtual_key),
         .virtual_sw(virtual_sw),

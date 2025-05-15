@@ -69,5 +69,14 @@ module data_memory(
             rd = 32'h0;
         end
     end
+    
+    ILA_DRAM ILA_DRAM_u(
+        .clk(clk),
+        .probe0(we),
+        .probe1(re),
+        .probe2(wd),
+        .probe3(mem_size),
+        .probe4(rd)
+    );
 
 endmodule
