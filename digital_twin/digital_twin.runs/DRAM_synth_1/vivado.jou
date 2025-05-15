@@ -1,14 +1,14 @@
 #-----------------------------------------------------------
 # Vivado v2023.2 (64-bit)
-# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Tue May 13 00:29:13 2025
-# Process ID: 1208
-# Current directory: C:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1
-# Command line: vivado.exe -log DRAM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source DRAM.tcl
-# Log file: C:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1/DRAM.vds
-# Journal file: C:/Users/39551/Desktop/College Files/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1\vivado.jou
-# Running On: YanX, OS: Windows, CPU Frequency: 2803 MHz, CPU Physical cores: 4, Host memory: 16885 MB
+# Start of session at: Wed May 14 19:59:34 2025
+# Process ID: 28255
+# Current directory: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1
+# Command line: vivado -log DRAM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source DRAM.tcl
+# Log file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1/DRAM.vds
+# Journal file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/DRAM_synth_1/vivado.jou
+# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 800.346 MHz, CPU Physical cores: 14, Host memory: 16445 MB
 #-----------------------------------------------------------
 source DRAM.tcl -notrace

@@ -21,7 +21,8 @@ module register_file(
     assign rd1 = (rs1 == 5'b0) ? 32'b0 : registers[rs1];
     assign rd2 = (rs2 == 5'b0) ? 32'b0 : registers[rs2];
 
-    always @(posedge clk) begin
+always @(*) begin
+
         if (we && rd != 5'b0)
             registers[rd] <= wd;
     end
