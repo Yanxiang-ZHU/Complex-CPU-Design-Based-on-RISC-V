@@ -1,9 +1,9 @@
-
-// (c) Copyright 2017-2018, 2023 Advanced Micro Devices, Inc. All rights reserved.
+// (c) Copyright 2023 Advanced Micro Devices, Inc. All rights reserved.
 //
 // This file contains confidential and proprietary information
-// of AMD and is protected under U.S. and international copyright
-// and other intellectual property laws.
+// of AMD and is protected under U.S. and
+// international copyright and other intellectual property
+// laws.
 //
 // DISCLAIMER
 // This disclaimer is not a license and does not grant any
@@ -11,7 +11,7 @@
 // otherwise provided in a valid license issued to you by
 // AMD, and to the maximum extent permitted by applicable
 // law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
-// WITH ALL FAULTS, AND AMD HEREBY DISCLAIMS ALL WARRANTIES
+// WITH ALL FAULTS, AND HEREBY DISCLAIMS ALL WARRANTIES
 // AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
 // BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
 // INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
@@ -43,22 +43,9 @@
 //
 // THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
 // PART OF THIS FILE AT ALL TIMES.
-//----------------------------------------------------------------------------
-// User entered comments
-//----------------------------------------------------------------------------
-// None
 //
-//----------------------------------------------------------------------------
-//  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
-//   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
-//----------------------------------------------------------------------------
-// clk_out1__50.00000______0.000______50.0______198.242____155.540
-// clk_out2__50.00000______0.000______50.0______198.242____155.540
-//
-//----------------------------------------------------------------------------
-// Input Clock   Freq (MHz)    Input Jitter (UI)
-//----------------------------------------------------------------------------
-// __primary_________200.000____________0.010
+// DO NOT MODIFY THIS FILE.
+
 
 // The following must be inserted into your Verilog file for this
 // core to be instantiated. Change the instance name and port connections
@@ -66,16 +53,22 @@
 
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 
-  pll instance_name
-   (
-    // Clock out ports
-    .clk_out1(clk_out1),     // output clk_out1
-    .clk_out2(clk_out2),     // output clk_out2
-    // Status and control signals
-    .locked(locked),       // output locked
-   // Clock in ports
-    .clk_in1_p(clk_in1_p),    // input clk_in1_p
-    .clk_in1_n(clk_in1_n)    // input clk_in1_n
+ILA_REG your_instance_name (
+	.clk(clk), // input wire clk
+
+
+	.probe0(probe0), // input wire [4:0]  probe0  
+	.probe1(probe1), // input wire [4:0]  probe1 
+	.probe2(probe2), // input wire [4:0]  probe2 
+	.probe3(probe3), // input wire [31:0]  probe3 
+	.probe4(probe4), // input wire [31:0]  probe4 
+	.probe5(probe5) // input wire [31:0]  probe5
 );
 
 // INST_TAG_END ------ End INSTANTIATION Template ---------
+
+// You must compile the wrapper file ILA_REG when simulating
+// the core, ILA_REG. When compiling the wrapper file, be sure to
+// reference the Verilog simulation library.
+
+
