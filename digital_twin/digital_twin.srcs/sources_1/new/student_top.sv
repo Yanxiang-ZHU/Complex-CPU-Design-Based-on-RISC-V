@@ -38,7 +38,7 @@ module student_top#(
 
     // IROM
     logic [31:0] pc;
-    logic [11:0] inst_addr;
+    logic [31:0] inst_addr;
     logic [31:0] instruction;
     logic [31:0] instruction2;
 
@@ -48,7 +48,8 @@ module student_top#(
     logic [1:0] perip_mask;
 
     // 16KB = 2^12 * 32bit
-    assign inst_addr = pc[13:2];
+//    assign inst_addr = pc[13:2];
+    assign inst_addr = pc >> 2;
 
     SPIC_Pipeline Core_cpu (
         .rst            (w_clk_rst),
@@ -72,14 +73,14 @@ module student_top#(
 //    );
         
     IROM Mem_IROM (
-        .clka(clk),
+        .clka(w_cpu_clk),
         .ena(1),
         .wea(4'b0000),
         .addra(inst_addr),
         .dina(32'b0),
         .douta(instruction),
         
-        .clkb(clk),
+        .clkb(w_cpu_clk),
         .enb(0),
         .web(0),
         .addrb(0),

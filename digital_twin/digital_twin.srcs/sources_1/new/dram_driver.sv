@@ -23,18 +23,19 @@
 module dram_driver(
     input  logic         clk				,
 
-    input  logic [17:0]  perip_addr			,
+    input  logic [31:0]  perip_addr			,
     input  logic [31:0]  perip_wdata		,
 	input  logic [1:0]	 perip_mask			,
     input  logic         dram_wen           ,
     output logic [31:0]  perip_rdata		
 );
-    logic [15:0] dram_addr;
+    logic [31:0] dram_addr;
     logic [ 1:0] offset;
     logic [31:0] dram_data, dram_rdata_raw, dout;
     logic [31:0] dram_rdata_raw2;
 
-    assign dram_addr = perip_addr[17:2];
+//    assign dram_addr = perip_addr[17:2];
+    assign dram_addr = perip_addr >> 2;
     assign offset = perip_addr[1:0];
     assign perip_rdata = dout;
 

@@ -21,7 +21,6 @@
 
 module tb_top;
     reg clk;
-    reg rst_n;
 
     reg serial_rx;          
     wire serial_tx;         
@@ -105,15 +104,15 @@ module tb_top;
         uart_send_byte(8'b10000001);
         #2000;
         
-        $display("==== send 0xa0? SW[31]=1 ====");
+        $display("==== send 0xa0 SW[31]=1 ====");
         uart_send_byte(8'b10000001 + 31); 
         #2000;
 
-        $display("==== send 0xc1? KEY[0]=1 ====");
+        $display("==== send 0xc1 KEY[0]=1 ====");
         uart_send_byte(8'b10000000 + 65);
         #2000;
 
-        $display("==== send 0x80?read 18bit data  ====");
+        $display("==== send 0x80 read 18bit data  ====");
         uart_send_byte(8'h80); 
           
         for(j = 0; j < 18; j = j + 1) begin
@@ -122,9 +121,9 @@ module tb_top;
         end
 
         if(rx_data[5][0] !== 1'b1 || rx_data[6][0] != 1'b1 || rx_data[9][7] != 1'b1)
-            $display("ERROR: SW[0] KEY[0] SW[31] data right");
+            $display("ERROR: SW[0] KEY[0] SW[31] data error");
         else
-            $display("PASS: SW[0] KEY[0] SW[31] data error");
+            $display("PASS: SW[0] KEY[0] SW[31] data right");
            
         $finish;
     end

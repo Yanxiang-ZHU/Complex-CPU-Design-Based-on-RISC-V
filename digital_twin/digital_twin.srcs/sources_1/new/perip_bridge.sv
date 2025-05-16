@@ -96,7 +96,8 @@ module perip_bridge(
     // dram rw
     dram_driver dram_driver_inst (
         .clk				(clk),
-        .perip_addr			(perip_addr[17:0]),
+//        .perip_addr			(perip_addr[17:0]),
+        .perip_addr         (perip_addr),
         .perip_wdata		(perip_wdata),
         .perip_mask			(perip_mask),
         .dram_wen 			(perip_wen & (perip_addr >= DRAM_ADDR_START && perip_addr < DRAM_ADDR_END)),
