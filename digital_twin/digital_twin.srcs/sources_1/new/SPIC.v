@@ -44,15 +44,15 @@ module SPIC_Pipeline (
     wire [31:0] instr;
     wire [31:0] instr_new;
     wire flush;
-//    instruction_memory IMEM(
-//                           .clk(clk),
-//                           .addr(pc),
-//                           .instr(instr)
-//                       );
+    //    instruction_memory IMEM(
+    //                           .clk(clk),
+    //                           .addr(pc),
+    //                           .instr(instr)
+    //                       );
     assign irom_addr = pc;
     assign instr = irom_data;
     assign instr_new=(flush || EX_MEM_BRANCH_TAKEN || ID_EX_JUMP) ? 32'h00000013 : instr;
-    
+
     // ID stage signals (RISC-V instruction format)
     wire [6:0] opcode = instr_new[6:0];
     wire [2:0] funct3 = instr_new[14:12];
@@ -154,30 +154,30 @@ module SPIC_Pipeline (
 
     // Data memory
     wire [31:0] mem_data;
-//    data_memory MEM(
-//                    .clk(clk),
-//                    .addr(EX_MEM_ALU_RESULT),
-//                    .we(EX_MEM_MEM_WRITE),
-//                    .re(EX_MEM_MEM_READ),
-//                    .wd(EX_MEM_RS2),
-//                    .rd(mem_data),
-//                    .mem_size(EX_MEM_MEM_SIZE)
-//                );
-    assign perip_addr = EX_MEM_ALU_RESULT;
+    //    data_memory MEM(
+    //                    .clk(clk),
+    //                    .addr(EX_MEM_ALU_RESULT),
+    //                    .we(EX_MEM_MEM_WRITE),
+    //                    .re(EX_MEM_MEM_READ),
+    //                    .wd(EX_MEM_RS2),
+    //                    .rd(mem_data),
+    //                    .mem_size(EX_MEM_MEM_SIZE)
+    //                );
+    assign perip_addr = EX_MEM_ALU_RESULT-32'h80100000;
     assign perip_wen = EX_MEM_MEM_WRITE;
     assign perip_mask = EX_MEM_MEM_SIZE[1:0];
     assign perip_wdata = EX_MEM_RS2;
-    assign perip_rdata = mem_data;                 
-     
-     // ILA
-     ILA_SPIC ILA_SPIC_u(
-                    .clk(clk),
-                    .probe0(pc),
-                    .probe1(instr),
-                    .probe2(imm),
-                    .probe3(alu_in1),
-                    .probe4(alu_in2)
-                );
+    assign perip_rdata = mem_data;
+
+    // ILA
+    ILA_SPIC ILA_SPIC_u(
+                 .clk(clk),
+                 .probe0(pc),
+                 .probe1(instr),
+                 .probe2(imm),
+                 .probe3(alu_in1),
+                 .probe4(alu_in2)
+             );
 
     // Pipeline CPU
     always @(posedge clk or posedge rst) begin
@@ -257,7 +257,7 @@ module SPIC_Pipeline (
             end
             else begin
 
-                // Insert bubble (NOP): 清零�?有字段，而不仅仅是控制信�?
+                // Insert bubble (NOP): 清零�?有字段，而不仅仅是控制信�?
                 ID_EX_PC         <= 32'b0;
                 ID_EX_RS1        <= 32'b0;
                 ID_EX_RS2        <= 32'b0;
