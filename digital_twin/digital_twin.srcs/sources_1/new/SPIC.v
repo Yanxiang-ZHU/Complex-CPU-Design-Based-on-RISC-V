@@ -32,19 +32,26 @@ module SPIC_Pipeline (
     reg        MEM_WB_REG_WRITE, MEM_WB_MEM_TO_REG, MEM_WB_JUMP;
 
     // Data paths -- restore the next pc (normal or branch or jump)
+    wire [31:0] imm;
+    wire [31:0] alu_result;
+    wire branch_taken;
     wire [31:0] pc_plus_4 = pc + 4;
-    wire [31:0] branch_target = EX_MEM_PC + EX_MEM_ALU_RESULT;
-    wire [31:0] jump_target = ID_EX_PC + ID_EX_IMM;
+    wire [31:0] reg_rs1, reg_rs2;
+    wire [6:0] opcode;
+    wire [31:0] branch_target = ID_EX_PC + alu_result;
+    wire [31:0] jump_target = (opcode==1100111)?(IF_ID_PC+imm+reg_rs1):(IF_ID_PC + imm);
+    wire jump;
+    wire [4:0] rs1, rs2, rd;
 
-    assign next_pc = (EX_MEM_BRANCH_TAKEN) ? branch_target :
-           (ID_EX_JUMP) ? jump_target :
+    
+    assign next_pc = (branch_taken) ? branch_target :
+           (jump) ? jump_target :
            pc_plus_4;
 
     // Instruction memory interface
     wire [31:0] instr;
     wire [31:0] instr_new;
     wire flush;
-    reg FLUSH;
     //    instruction_memory IMEM(
     //                           .clk(clk),
     //                           .addr(pc),
@@ -52,26 +59,17 @@ module SPIC_Pipeline (
     //                       );
     assign irom_addr = pc;
     assign instr = irom_data;
-    assign instr_new=(FLUSH || EX_MEM_BRANCH_TAKEN || ID_EX_JUMP) ? 32'h00000013 : instr;
+    assign instr_new=(flush) ? 32'h00000013 : instr;
 
-    // ID stage signals (RISC-V instruction format)
-    wire [6:0] opcode = instr_new[6:0];
-    wire [2:0] funct3 = instr_new[14:12];
-    wire [6:0] funct7 = instr_new[31:25];
-    wire [4:0] rs1 = instr_new[19:15];
-    wire [4:0] rs2 = instr_new[24:20];
-    wire [4:0] rd = instr_new[11:7];
-
+ 
     // Control signals
-    wire reg_write, alu_src, mem_read, mem_write, mem_to_reg, branch, jump, csr_write;
+    wire reg_write, alu_src, mem_read, mem_write, mem_to_reg, branch, csr_write;
     wire [3:0] alu_op;
     wire [2:0] imm_type;
     wire [2:0] mem_size;
 
     control_unit CU(
-                     .opcode(opcode),
-                     .funct3(funct3),
-                     .funct7(funct7),
+                     .instr(instr_new),
                      .reg_write(reg_write),
                      .alu_src(alu_src),
                      .mem_read(mem_read),
@@ -82,11 +80,14 @@ module SPIC_Pipeline (
                      .csr_write(csr_write),
                      .alu_op(alu_op),
                      .imm_type(imm_type),
-                     .mem_size(mem_size)
+                     .mem_size(mem_size),
+                    .rs1(rs1),
+                    .rs2(rs2),
+                    .rd(rd),
+                    .opcode(opcode)
                  );
 
     // Immediate generator
-    wire [31:0] imm;
     immediate_gen IG(
                       .instr(instr_new),
                       .imm_type(imm_type),
@@ -94,7 +95,6 @@ module SPIC_Pipeline (
                   );
 
     // Register file
-    wire [31:0] reg_rs1, reg_rs2;
     register_file RF(
                       .clk(clk),
                       .we(MEM_WB_REG_WRITE),
@@ -113,8 +113,7 @@ module SPIC_Pipeline (
                               .ID_EX_RD(ID_EX_RD),
                               .IF_ID_RS1(rs1),
                               .IF_ID_RS2(rs2),
-                              .EX_MEM_BRANCH_TAKEN(EX_MEM_BRANCH_TAKEN),
-                              .ID_EX_JUMP(ID_EX_JUMP),
+                              .branch_taken(branch_taken),
                               .stall(stall),
                               .flush(flush)
                           );
@@ -142,8 +141,6 @@ module SPIC_Pipeline (
          (ID_EX_ALU_SRC ? ID_EX_IMM : ID_EX_RS2);  // alu_in2 can be immediate while alu_in1 is not
 
     // ALU
-    wire [31:0] alu_result;
-    wire branch_taken;
     alu ALU(
             .a(alu_in1),
             .b(alu_in2),
@@ -230,7 +227,6 @@ module SPIC_Pipeline (
         else begin
             // PC update
             pc <= next_pc;
-            FLUSH <= flush;
 
             // IF/ID stage
             if (!stall) begin
@@ -259,7 +255,7 @@ module SPIC_Pipeline (
             end
             else begin
 
-                // Insert bubble (NOP): 清零�??有字段，而不仅仅是控制信�??
+                // Insert bubble (NOP): 清零�??有字段，而丝仅仅是控制信�??
                 ID_EX_PC         <= 32'b0;
                 ID_EX_RS1        <= 32'b0;
                 ID_EX_RS2        <= 32'b0;
@@ -274,7 +270,7 @@ module SPIC_Pipeline (
                 ID_EX_MEM_WRITE  <= 1'b0;
                 ID_EX_MEM_TO_REG <= 1'b0;
                 ID_EX_BRANCH     <= 1'b0;
-                ID_EX_JUMP       <= 1'b0;
+                ID_EX_JUMP       <= 1'b1;
                 ID_EX_CSR_WRITE  <= 1'b0;
                 ID_EX_MEM_SIZE   <= 3'b0;
             end

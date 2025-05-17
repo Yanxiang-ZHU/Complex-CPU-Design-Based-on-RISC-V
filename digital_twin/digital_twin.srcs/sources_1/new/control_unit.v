@@ -1,9 +1,7 @@
 // Control Unit for RISC-V Processor. This module generates control signals based on the opcode and funct3/funct7 fields of the instruction. It determines whether to write to registers, read from memory, perform ALU operations, etc.
 
 module control_unit(
-        input  [6:0] opcode,
-        input  [2:0] funct3,
-        input  [6:0] funct7,
+        input  [31:0] instr,       // instruction input
         output reg reg_write,       // write register or not
         output reg alu_src,         // have immediate operand or not
         output reg mem_read,        // read from memory or not
@@ -14,8 +12,19 @@ module control_unit(
         output reg csr_write,       // CSR or not
         output reg [3:0] alu_op,    // ALU operands
         output reg [2:0] imm_type,  // add imm_type as output
-        output reg [2:0] mem_size
+        output reg [2:0] mem_size,
+        output reg [4:0] rs1,
+        output reg [4:0] rs2,
+        output reg [4:0] rd,
+        output reg [6:0] opcode
     );
+   // ID stage signals (RISC-V instruction format)
+    always @(*) begin
+        opcode <= instr[6:0];
+    end
+    wire [2:0] funct3 = instr[14:12];
+    wire [6:0] funct7 = instr[31:25];
+ 
 
     always @(*) begin
         reg_write  = 0;
@@ -34,6 +43,9 @@ module control_unit(
             // R type (add, sub, and, or, xor, sll, srl, sra, slt, sltu)
             7'b0110011: begin
                 reg_write = 1;
+                rs1 = instr[19:15];
+                rs2 = instr[24:20];
+                rd = instr[11:7];
                 case (funct3)
                     3'b000:
                         alu_op = (funct7 == 7'b0100000) ? 4'b0110 : 4'b0010; // sub / add
@@ -59,6 +71,9 @@ module control_unit(
                 reg_write = 1;
                 alu_src = 1;
                 imm_type = 3'b000;
+                rs1 = instr[19:15];
+                rs2 = 5'bz;
+                rd = instr[11:7];
                 case (funct3)
                     3'b000:
                         alu_op = 4'b0010; // addi
@@ -87,6 +102,9 @@ module control_unit(
                 mem_to_reg = 1;
                 alu_op = 4'b0010; // calculate address
                 imm_type = 3'b000;
+                rs1 = instr[19:15];
+                rs2 = 5'bz;
+                rd = instr[11:7];
                 case(funct3)
                     3'b000:
                         mem_size = 3'b000; // LB
@@ -107,6 +125,9 @@ module control_unit(
                 alu_src = 1;
                 alu_op = 4'b0010; // calculate address
                 imm_type = 3'b001;
+                rs1 = instr[19:15];
+                rs2 = instr[24:20];
+                rd = 5'bz;
                 case(funct3)
                     3'b000:
                         mem_size = 3'b000; // SB
@@ -122,6 +143,9 @@ module control_unit(
             7'b1100011: begin
                 branch = 1;
                 imm_type = 3'b010;
+                rs1 = instr[19:15];
+                rs2 = instr[24:20];
+                rd = 5'bz;
                 case (funct3)
                     3'b000:
                         alu_op = 4'b1000; // BEQ
@@ -143,6 +167,10 @@ module control_unit(
                 reg_write = 1;
                 jump = 1;
                 imm_type = 3'b100;
+                alu_op = 4'b0001;
+                rs1 = 5'bz;
+                rs2 = 5'bz;
+                rd = instr[11:7];
             end
 
             // JALR
@@ -151,6 +179,10 @@ module control_unit(
                 jump = 1;
                 alu_src=1;
                 imm_type = 3'b000;
+                alu_op = 4'b0001;
+                rs1 = 5'bz;
+                rs2 = 5'bz;
+                rd = instr[11:7];
             end
 
             //LUI
@@ -159,57 +191,64 @@ module control_unit(
                 alu_src = 1;
                 imm_type = 3'b011;
                 alu_op = 4'b1110;
+                rs1 = 5'bz;
+                rs2 = 5'bz;
+                rd = instr[11:7];
             end
+
             //AUIPC
             7'b0010111: begin
                 reg_write = 1;
                 alu_src = 1;
                 imm_type = 3'b011;
                 alu_op = 4'b1111;
+                rs1 = 5'bz;
+                rs2 = 5'bz;
+                rd = instr[11:7];
             end
 
-            // CSR (ECALL, EBREAK, CSRRW, CSRRS, CSRRC, etc.)
-            7'b1110011: begin
-                case (funct3)
-                    3'b000: begin
-                        if (funct7 == 7'b0000000) begin
-                            // ECALL
-                        end else if (funct7 == 7'b0000001) begin
-                            // EBREAK
-                        end
-                    end
-                    3'b001: begin  // CSRRW
-                        reg_write = 1;
-                        csr_write = 1;
-                    end
-                    3'b010: begin  // CSRRS
-                        reg_write = 1;
-                        csr_write = 1;
-                    end
-                    3'b011: begin  // CSRRC
-                        reg_write = 1;
-                        csr_write = 1;
-                    end
-                    3'b101: begin  // CSRRWI
-                        reg_write = 1;
-                        csr_write = 1;
-                        alu_src = 1;
-                        imm_type = 3'b000;
-                    end
-                    3'b110: begin  // CSRRSI
-                        reg_write = 1;
-                        csr_write = 1;
-                        alu_src = 1;
-                        imm_type = 3'b000;
-                    end
-                    3'b111: begin  // CSRRCI
-                        reg_write = 1;
-                        csr_write = 1;
-                        alu_src = 1;
-                        imm_type = 3'b000;
-                    end
-                endcase
-            end
+            // // CSR (ECALL, EBREAK, CSRRW, CSRRS, CSRRC, etc.)
+            // 7'b1110011: begin
+            //     case (funct3)
+            //         3'b000: begin
+            //             if (funct7 == 7'b0000000) begin
+            //                 // ECALL
+            //             end else if (funct7 == 7'b0000001) begin
+            //                 // EBREAK
+            //             end
+            //         end
+            //         3'b001: begin  // CSRRW
+            //             reg_write = 1;
+            //             csr_write = 1;
+            //         end
+            //         3'b010: begin  // CSRRS
+            //             reg_write = 1;
+            //             csr_write = 1;
+            //         end
+            //         3'b011: begin  // CSRRC
+            //             reg_write = 1;
+            //             csr_write = 1;
+            //         end
+            //         3'b101: begin  // CSRRWI
+            //             reg_write = 1;
+            //             csr_write = 1;
+            //             alu_src = 1;
+            //             imm_type = 3'b000;
+            //         end
+            //         3'b110: begin  // CSRRSI
+            //             reg_write = 1;
+            //             csr_write = 1;
+            //             alu_src = 1;
+            //             imm_type = 3'b000;
+            //         end
+            //         3'b111: begin  // CSRRCI
+            //             reg_write = 1;
+            //             csr_write = 1;
+            //             alu_src = 1;
+            //             imm_type = 3'b000;
+            //         end
+            //     endcase
+            // end
         endcase
     end
 endmodule

@@ -12,6 +12,8 @@ module alu(
         branch_taken = 1'b0;
 
         case (alu_op)
+            4'b0001:
+                result = pc + 4;
             4'b0010:
                 result = a + b;        // ADD
             4'b0110:
