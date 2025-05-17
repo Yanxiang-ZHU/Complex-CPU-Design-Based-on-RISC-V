@@ -89,6 +89,7 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 add_files C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/coe/irom.coe
 add_files C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/coe/dram.coe
+add_files C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/coe/irom_test.coe
 read_verilog -library xil_defaultlib -sv {
   C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/counter.sv
   C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/display_seg.sv
@@ -109,11 +110,8 @@ read_verilog -library xil_defaultlib {
   C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/immediate_gen.v
   C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/register_file.v
 }
-read_ip -quiet C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/IROM/IROM.xci
-set_property used_in_implementation false [get_files -all c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/IROM/IROM_ooc.xdc]
-
-read_ip -quiet C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/DRAM/DRAM.xci
-set_property used_in_implementation false [get_files -all c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM/DRAM_ooc.xdc]
+read_ip -quiet C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/IROM_1/IROM.xci
+set_property used_in_implementation false [get_files -all c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/IROM_1/IROM_ooc.xdc]
 
 read_ip -quiet C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/pll_1/pll.xci
 set_property used_in_implementation false [get_files -all c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll_board.xdc]
@@ -132,6 +130,9 @@ set_property used_in_implementation false [get_files -all c:/Users/39551/Desktop
 set_property used_in_implementation false [get_files -all c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/ILA_REG/ila_v6_2/constraints/ila.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/ILA_REG/ILA_REG_ooc.xdc]
 
+read_ip -quiet C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/DRAM_1/DRAM.xci
+set_property used_in_implementation false [get_files -all c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM_1/DRAM_ooc.xdc]
+
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -144,6 +145,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/constrs_1/new/digital_twin.xdc
 set_property used_in_implementation false [get_files C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/constrs_1/new/digital_twin.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 
 read_checkpoint -auto_incremental -incremental C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/utils_1/imports/synth_1/top.dcp

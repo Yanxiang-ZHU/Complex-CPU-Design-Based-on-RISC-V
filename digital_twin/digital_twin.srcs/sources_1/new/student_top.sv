@@ -67,26 +67,26 @@ module student_top#(
         .perip_rdata        (perip_rdata)     
     );
 
-//    IROM Mem_IROM (
-//        .a          (inst_addr),
-//        .spo        (instruction)
-//    );
-        
     IROM Mem_IROM (
-        .clka(w_cpu_clk),
-        .ena(1),
-        .wea(4'b0000),
-        .addra(inst_addr),
-        .dina(32'b0),
-        .douta(instruction),
-        
-        .clkb(w_cpu_clk),
-        .enb(0),
-        .web(0),
-        .addrb(0),
-        .dinb(0),
-        .doutb(instruction2)
+        .a          (inst_addr),
+        .spo        (instruction)
     );
+        
+//    IROM Mem_IROM (
+//        .clka(w_cpu_clk),
+//        .ena(1),
+//        .wea(4'b0000),
+//        .addra(inst_addr),
+//        .dina(32'b0),
+//        .douta(instruction),
+        
+//        .clkb(w_cpu_clk),
+//        .enb(0),
+//        .web(0),
+//        .addrb(0),
+//        .dinb(0),
+//        .doutb(instruction2)
+//    );
     
     perip_bridge bridge_inst (
         .clk				(w_cpu_clk),

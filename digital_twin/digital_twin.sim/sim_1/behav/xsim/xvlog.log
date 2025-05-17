@@ -1,6 +1,6 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM/sim/DRAM.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM_1/sim/DRAM.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module DRAM
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/IROM/sim/IROM.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/IROM_1/sim/IROM.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module IROM
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/ILA_SPIC/sim/ILA_SPIC.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ILA_SPIC

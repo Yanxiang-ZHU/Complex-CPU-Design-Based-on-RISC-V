@@ -1,6 +1,0 @@
-xpm_cdc.sv,systemverilog,xpm,D:/Xilinx/Vivado/2023.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,incdir="../../../../digital_twin.gen/sources_1/ip/ILA_DRAM/hdl/verilog"
-xpm_memory.sv,systemverilog,xpm,D:/Xilinx/Vivado/2023.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,incdir="../../../../digital_twin.gen/sources_1/ip/ILA_DRAM/hdl/verilog"
-xpm_VCOMP.vhd,vhdl,xpm,D:/Xilinx/Vivado/2023.2/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../../digital_twin.gen/sources_1/ip/ILA_DRAM/hdl/verilog"
-blk_mem_gen_v8_4.v,verilog,blk_mem_gen_v8_4_7,../../../ipstatic/simulation/blk_mem_gen_v8_4.v,incdir="../../../../digital_twin.gen/sources_1/ip/ILA_DRAM/hdl/verilog"
-DRAM.v,verilog,xil_defaultlib,../../../../digital_twin.gen/sources_1/ip/DRAM/sim/DRAM.v,incdir="../../../../digital_twin.gen/sources_1/ip/ILA_DRAM/hdl/verilog"
-glbl.v,Verilog,xil_defaultlib,glbl.v

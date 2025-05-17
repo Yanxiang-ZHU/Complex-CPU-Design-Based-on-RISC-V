@@ -138,11 +138,11 @@ OPTRACE "set parameters" START { }
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/top.dcp
-  read_ip -quiet C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/IROM/IROM.xci
-  read_ip -quiet C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/DRAM/DRAM.xci
+  read_ip -quiet C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/IROM_1/IROM.xci
   read_ip -quiet C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/pll_1/pll.xci
   read_ip -quiet C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/ILA_SPIC/ILA_SPIC.xci
   read_ip -quiet C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/ILA_REG/ILA_REG.xci
+  read_ip -quiet C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/DRAM_1/DRAM.xci
 OPTRACE "read constraints: implementation" START { }
   read_xdc C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/constrs_1/new/digital_twin.xdc
 OPTRACE "read constraints: implementation" END { }

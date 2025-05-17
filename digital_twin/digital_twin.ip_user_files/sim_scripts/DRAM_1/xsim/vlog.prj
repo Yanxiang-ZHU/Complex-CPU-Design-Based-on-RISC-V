@@ -1,0 +1,7 @@
+verilog xil_defaultlib --include "../../../../digital_twin.gen/sources_1/ip/ILA_DRAM/hdl/verilog" \
+"../../../../digital_twin.gen/sources_1/ip/DRAM_1/sim/DRAM.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

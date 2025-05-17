@@ -10,7 +10,7 @@ module control_unit(
         output reg branch,          // branch or not
         output reg jump,            // jump or not
         output reg csr_write,       // CSR or not
-        output reg [3:0] alu_op,    // ALU operands
+        output reg [4:0] alu_op,    // ALU operands
         output reg [2:0] imm_type,  // add imm_type as output
         output reg [2:0] mem_size,
         output reg [4:0] rs1,
@@ -35,7 +35,7 @@ module control_unit(
         branch     = 0;
         jump       = 0;
         csr_write  = 0;
-        alu_op     = 4'b0000;
+        alu_op     = 5'b00000;
         imm_type   = 3'b000;
         mem_size   = 3'b010; //default lw
 
@@ -48,21 +48,21 @@ module control_unit(
                 rd = instr[11:7];
                 case (funct3)
                     3'b000:
-                        alu_op = (funct7 == 7'b0100000) ? 4'b0110 : 4'b0010; // sub / add
+                        alu_op = (funct7 == 7'b0100000) ? 5'b00110 : 5'b00010; // sub / add
                     3'b111:
-                        alu_op = 4'b0000; // and
+                        alu_op = 5'b00000; // and
                     3'b110:
-                        alu_op = 4'b0001; // or
+                        alu_op = 5'b00001; // or
                     3'b100:
-                        alu_op = 4'b0011; // xor
+                        alu_op = 5'b00011; // xor
                     3'b001:
-                        alu_op = 4'b0100; // sll
+                        alu_op = 5'b00100; // sll
                     3'b101:
-                        alu_op = (funct7 == 7'b0100000) ? 4'b0111 : 4'b0101; // sra / srl
+                        alu_op = (funct7 == 7'b0100000) ? 5'b00111 : 5'b00101; // sra / srl
                     3'b010:
-                        alu_op = 4'b1010; // slt
+                        alu_op = 5'b11010; // slt
                     3'b011:
-                        alu_op = 4'b1100; // sltu
+                        alu_op = 5'b11100; // sltu
                 endcase
             end
 
@@ -76,21 +76,21 @@ module control_unit(
                 rd = instr[11:7];
                 case (funct3)
                     3'b000:
-                        alu_op = 4'b0010; // addi
+                        alu_op = 5'b00010; // addi
                     3'b111:
-                        alu_op = 4'b0000; // andi
+                        alu_op = 5'b00000; // andi
                     3'b110:
-                        alu_op = 4'b0001; // ori
+                        alu_op = 5'b00001; // ori
                     3'b100:
-                        alu_op = 4'b0011; // xori
+                        alu_op = 5'b00011; // xori
                     3'b001:
-                        alu_op = 4'b0100; // slli
+                        alu_op = 5'b00100; // slli
                     3'b101:
-                        alu_op = (funct7 == 7'b0100000) ? 4'b0111 : 4'b0101; // srai / srli
+                        alu_op = (funct7 == 7'b0100000) ? 5'b00111 : 5'b00101; // srai / srli
                     3'b010:
-                        alu_op = 4'b1010; // slti
+                        alu_op = 5'b11010; // slti
                     3'b011:
-                        alu_op = 4'b1100; // sltiu
+                        alu_op = 5'b11100; // sltiu
                 endcase
             end
 
@@ -100,7 +100,7 @@ module control_unit(
                 alu_src = 1;
                 mem_read = 1;
                 mem_to_reg = 1;
-                alu_op = 4'b0010; // calculate address
+                alu_op = 5'b00010; // calculate address
                 imm_type = 3'b000;
                 rs1 = instr[19:15];
                 rs2 = 5'bz;
@@ -123,7 +123,7 @@ module control_unit(
             7'b0100011: begin
                 mem_write = 1;
                 alu_src = 1;
-                alu_op = 4'b0010; // calculate address
+                alu_op = 5'b00010; // calculate address
                 imm_type = 3'b001;
                 rs1 = instr[19:15];
                 rs2 = instr[24:20];
@@ -148,17 +148,17 @@ module control_unit(
                 rd = 5'bz;
                 case (funct3)
                     3'b000:
-                        alu_op = 4'b1000; // BEQ
+                        alu_op = 5'b01000; // BEQ
                     3'b001:
-                        alu_op = 4'b1001; // BNE
+                        alu_op = 5'b01001; // BNE
                     3'b100:
-                        alu_op = 4'b1010; // BLT
+                        alu_op = 5'b01010; // BLT
                     3'b101:
-                        alu_op = 4'b1011; // BGE
+                        alu_op = 5'b01011; // BGE
                     3'b110:
-                        alu_op = 4'b1100; // BLTU
+                        alu_op = 5'b01100; // BLTU
                     3'b111:
-                        alu_op = 4'b1101; // BGEU
+                        alu_op = 5'b01101; // BGEU
                 endcase
             end
 
@@ -167,7 +167,7 @@ module control_unit(
                 reg_write = 1;
                 jump = 1;
                 imm_type = 3'b100;
-                alu_op = 4'b0001;
+                alu_op = 5'b10001;
                 rs1 = 5'bz;
                 rs2 = 5'bz;
                 rd = instr[11:7];
@@ -179,8 +179,8 @@ module control_unit(
                 jump = 1;
                 alu_src=1;
                 imm_type = 3'b000;
-                alu_op = 4'b0001;
-                rs1 = 5'bz;
+                alu_op = 5'b10001;
+                rs1 = instr[19:15];
                 rs2 = 5'bz;
                 rd = instr[11:7];
             end
@@ -190,7 +190,7 @@ module control_unit(
                 reg_write = 1;
                 alu_src = 1;
                 imm_type = 3'b011;
-                alu_op = 4'b1110;
+                alu_op = 5'b01110;
                 rs1 = 5'bz;
                 rs2 = 5'bz;
                 rd = instr[11:7];
@@ -201,7 +201,7 @@ module control_unit(
                 reg_write = 1;
                 alu_src = 1;
                 imm_type = 3'b011;
-                alu_op = 4'b1111;
+                alu_op = 5'b01111;
                 rs1 = 5'bz;
                 rs2 = 5'bz;
                 rd = instr[11:7];

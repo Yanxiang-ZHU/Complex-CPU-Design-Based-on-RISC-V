@@ -14,7 +14,7 @@ ECHO 处于关闭状态。
     ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source top.tcl -notrace
-create_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 495.734 ; gain = 184.340
+create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 494.820 ; gain = 182.770
 Command: read_checkpoint -auto_incremental -incremental C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/utils_1/imports/synth_1/top.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -27,14 +27,13 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 42268
+INFO: [Synth 8-7075] Helper process launched with PID 26892
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1427.492 ; gain = 439.910
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 1427.785 ; gain = 440.973
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-11241] undeclared symbol 'clk', assumed default net type 'wire' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/student_top.sv:75]
 INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/top.sv:23]
-INFO: [Synth 8-6157] synthesizing module 'pll' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-24788-YanX/realtime/pll_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'pll' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-24788-YanX/realtime/pll_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'pll' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-31044-YanX/realtime/pll_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'pll' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-31044-YanX/realtime/pll_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'uart' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/uart.sv:22]
 	Parameter CLK_FREQ bound to: 50000000 - type: integer 
 	Parameter BAUD_RATE bound to: 9600 - type: integer 
@@ -45,33 +44,31 @@ INFO: [Synth 8-6155] done synthesizing module 'twin_controller' (0#1) [C:/Users/
 INFO: [Synth 8-6157] synthesizing module 'student_top' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/student_top.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'SPIC_Pipeline' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:1]
 INFO: [Synth 8-6157] synthesizing module 'control_unit' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:3]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:90]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:110]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:125]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:173]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:33]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:108]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:131]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:149]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:42]
 INFO: [Synth 8-6155] done synthesizing module 'control_unit' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:3]
 INFO: [Synth 8-6157] synthesizing module 'immediate_gen' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/immediate_gen.v:4]
 INFO: [Synth 8-6155] done synthesizing module 'immediate_gen' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/immediate_gen.v:4]
 INFO: [Synth 8-6157] synthesizing module 'register_file' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/register_file.v:3]
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/register_file.v:30]
-INFO: [Synth 8-6157] synthesizing module 'ILA_REG' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-24788-YanX/realtime/ILA_REG_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ILA_REG' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-24788-YanX/realtime/ILA_REG_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ILA_REG' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-31044-YanX/realtime/ILA_REG_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ILA_REG' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-31044-YanX/realtime/ILA_REG_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'register_file' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/register_file.v:3]
 INFO: [Synth 8-6157] synthesizing module 'hazard_detection_unit' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/hazard_detectioin_unit.v:3]
 INFO: [Synth 8-6155] done synthesizing module 'hazard_detection_unit' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/hazard_detectioin_unit.v:3]
 INFO: [Synth 8-6157] synthesizing module 'forwarding_unit' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/forwarding_unit.v:4]
 INFO: [Synth 8-6155] done synthesizing module 'forwarding_unit' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/forwarding_unit.v:4]
 INFO: [Synth 8-6157] synthesizing module 'alu' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/alu.v:3]
-INFO: [Synth 8-226] default block is never used [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/alu.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'alu' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/alu.v:3]
-WARNING: [Synth 8-6104] Input port 'perip_rdata' has an internal driver [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:170]
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:173]
-INFO: [Synth 8-6157] synthesizing module 'ILA_SPIC' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-24788-YanX/realtime/ILA_SPIC_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ILA_SPIC' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-24788-YanX/realtime/ILA_SPIC_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ILA_SPIC' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-31044-YanX/realtime/ILA_SPIC_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ILA_SPIC' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-31044-YanX/realtime/ILA_SPIC_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'SPIC_Pipeline' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:1]
-INFO: [Synth 8-6157] synthesizing module 'IROM' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-24788-YanX/realtime/IROM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'IROM' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-24788-YanX/realtime/IROM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'IROM' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-31044-YanX/realtime/IROM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'IROM' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-31044-YanX/realtime/IROM_stub.v:6]
+WARNING: [Synth 8-689] width (32) of port connection 'a' does not match port width (12) of module 'IROM' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/student_top.sv:71]
 INFO: [Synth 8-6157] synthesizing module 'perip_bridge' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/perip_bridge.sv:22]
 INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/perip_bridge.sv:56]
 INFO: [Synth 8-6157] synthesizing module 'display_seg' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/display_seg.sv:23]
@@ -80,28 +77,30 @@ INFO: [Synth 8-226] default block is never used [C:/Users/39551/Desktop/College/
 INFO: [Synth 8-6155] done synthesizing module 'seg7' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/seg7.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'display_seg' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/display_seg.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'dram_driver' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/dram_driver.sv:23]
-INFO: [Synth 8-6157] synthesizing module 'DRAM' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-24788-YanX/realtime/DRAM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'DRAM' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-24788-YanX/realtime/DRAM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'DRAM' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-31044-YanX/realtime/DRAM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'DRAM' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/.Xil/Vivado-31044-YanX/realtime/DRAM_stub.v:6]
+WARNING: [Synth 8-689] width (32) of port connection 'a' does not match port width (16) of module 'DRAM' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/dram_driver.sv:44]
 INFO: [Synth 8-6155] done synthesizing module 'dram_driver' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/dram_driver.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'counter' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/counter.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'counter' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/counter.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'perip_bridge' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/perip_bridge.sv:22]
 INFO: [Synth 8-6155] done synthesizing module 'student_top' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/student_top.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/top.sv:23]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'RF'. This will prevent further optimization [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:97]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'RF'. This will prevent further optimization [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:98]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ILA_REG_u'. This will prevent further optimization [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/register_file.v:30]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Core_cpu'. This will prevent further optimization [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/student_top.sv:53]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'Core_cpu'. This will prevent further optimization [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/student_top.sv:54]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ILA_SPIC_u'. This will prevent further optimization [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:173]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'IG'. This will prevent further optimization [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:89]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ALU'. This will prevent further optimization [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:146]
-WARNING: [Synth 8-6014] Unused sequential element ID_EX_CSR_WRITE_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:205]
-WARNING: [Synth 8-6014] Unused sequential element EX_MEM_MEM_READ_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:213]
-WARNING: [Synth 8-6014] Unused sequential element EX_MEM_BRANCH_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:216]
-WARNING: [Synth 8-6014] Unused sequential element EX_MEM_JUMP_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:217]
-WARNING: [Synth 8-6014] Unused sequential element MEM_WB_PC_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:221]
-WARNING: [Synth 8-6014] Unused sequential element MEM_WB_JUMP_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:227]
-WARNING: [Synth 8-3848] Net mem_data in module/entity SPIC_Pipeline does not have driver. [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:156]
-WARNING: [Synth 8-3848] Net clk in module/entity student_top does not have driver. [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/student_top.sv:75]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'IG'. This will prevent further optimization [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:91]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ALU'. This will prevent further optimization [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:145]
+WARNING: [Synth 8-6014] Unused sequential element ID_EX_BRANCH_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:204]
+WARNING: [Synth 8-6014] Unused sequential element ID_EX_CSR_WRITE_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:206]
+WARNING: [Synth 8-6014] Unused sequential element EX_MEM_PC_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:209]
+WARNING: [Synth 8-6014] Unused sequential element EX_MEM_MEM_READ_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:214]
+WARNING: [Synth 8-6014] Unused sequential element EX_MEM_BRANCH_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:217]
+WARNING: [Synth 8-6014] Unused sequential element EX_MEM_JUMP_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:218]
+WARNING: [Synth 8-6014] Unused sequential element EX_MEM_BRANCH_TAKEN_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:219]
+WARNING: [Synth 8-6014] Unused sequential element MEM_WB_PC_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:222]
+WARNING: [Synth 8-6014] Unused sequential element MEM_WB_JUMP_reg was removed.  [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:228]
 WARNING: [Synth 8-7129] Port instr[6] in module immediate_gen is either unconnected or has no load
 WARNING: [Synth 8-7129] Port instr[5] in module immediate_gen is either unconnected or has no load
 WARNING: [Synth 8-7129] Port instr[4] in module immediate_gen is either unconnected or has no load
@@ -110,55 +109,57 @@ WARNING: [Synth 8-7129] Port instr[2] in module immediate_gen is either unconnec
 WARNING: [Synth 8-7129] Port instr[1] in module immediate_gen is either unconnected or has no load
 WARNING: [Synth 8-7129] Port instr[0] in module immediate_gen is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 1549.785 ; gain = 562.203
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1550.844 ; gain = 564.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 1549.785 ; gain = 562.203
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1550.844 ; gain = 564.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 1549.785 ; gain = 562.203
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 1550.844 ; gain = 564.031
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.070 . Memory (MB): peak = 1549.785 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 1550.844 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/IROM/IROM/IROM_in_context.xdc] for cell 'student_top_inst/Mem_IROM'
-Finished Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/IROM/IROM/IROM_in_context.xdc] for cell 'student_top_inst/Mem_IROM'
-Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM/DRAM/DRAM_in_context.xdc] for cell 'student_top_inst/bridge_inst/dram_driver_inst/Mem_DRAM'
-Finished Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM/DRAM/DRAM_in_context.xdc] for cell 'student_top_inst/bridge_inst/dram_driver_inst/Mem_DRAM'
+Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/IROM_1/IROM/IROM_in_context.xdc] for cell 'student_top_inst/Mem_IROM'
+Finished Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/IROM_1/IROM/IROM_in_context.xdc] for cell 'student_top_inst/Mem_IROM'
 Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll/pll_in_context.xdc] for cell 'pll_inst'
 Finished Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll/pll_in_context.xdc] for cell 'pll_inst'
 Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/ILA_SPIC/ILA_SPIC/ILA_SPIC_in_context.xdc] for cell 'student_top_inst/Core_cpu/ILA_SPIC_u'
 Finished Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/ILA_SPIC/ILA_SPIC/ILA_SPIC_in_context.xdc] for cell 'student_top_inst/Core_cpu/ILA_SPIC_u'
 Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/ILA_REG/ILA_REG/ILA_REG_in_context.xdc] for cell 'student_top_inst/Core_cpu/RF/ILA_REG_u'
 Finished Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/ILA_REG/ILA_REG/ILA_REG_in_context.xdc] for cell 'student_top_inst/Core_cpu/RF/ILA_REG_u'
+Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM_1/DRAM/DRAM_in_context.xdc] for cell 'student_top_inst/bridge_inst/dram_driver_inst/Mem_DRAM'
+Finished Parsing XDC File [c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM_1/DRAM/DRAM_in_context.xdc] for cell 'student_top_inst/bridge_inst/dram_driver_inst/Mem_DRAM'
 Parsing XDC File [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/constrs_1/new/digital_twin.xdc]
 Finished Parsing XDC File [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/constrs_1/new/digital_twin.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/constrs_1/new/digital_twin.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1620.895 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1645.863 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 系统找不到指定的路径。
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1620.895 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1645.863 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:26 . Memory (MB): peak = 1620.895 ; gain = 633.312
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:22 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k325tffg900-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:26 . Memory (MB): peak = 1620.895 ; gain = 633.312
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:22 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -168,12 +169,12 @@ Applied set_property CLOCK_BUFFER_TYPE = NONE for i_sys_clk_n. (constraint file 
 Applied set_property IO_BUFFER_TYPE = NONE for i_sys_clk_p. (constraint file  c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll/pll_in_context.xdc, line 6).
 Applied set_property CLOCK_BUFFER_TYPE = NONE for i_sys_clk_p. (constraint file  c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll/pll_in_context.xdc, line 7).
 Applied set_property KEEP_HIERARCHY = SOFT for student_top_inst/Mem_IROM. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for student_top_inst/bridge_inst/dram_driver_inst/Mem_DRAM. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for pll_inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for student_top_inst/Core_cpu/ILA_SPIC_u. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for student_top_inst/Core_cpu/RF/ILA_REG_u. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for student_top_inst/bridge_inst/dram_driver_inst/Mem_DRAM. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:26 . Memory (MB): peak = 1620.895 ; gain = 633.312
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:22 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'rx_state_reg' in module 'uart'
 INFO: [Synth 8-802] inferred FSM for state register 'tx_state_reg' in module 'uart'
@@ -203,6 +204,9 @@ INFO: [Synth 8-3354] encoded FSM with state register 'tx_state_reg' using encodi
 *
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'twin_controller'
+WARNING: [Synth 8-327] inferring latch for variable 'rs1_reg' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:46]
+WARNING: [Synth 8-327] inferring latch for variable 'rs2_reg' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:47]
+WARNING: [Synth 8-327] inferring latch for variable 'rd_reg' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v:48]
 WARNING: [Synth 8-327] inferring latch for variable 'registers_reg[0]' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/register_file.v:21]
 WARNING: [Synth 8-327] inferring latch for variable 'registers_reg[1]' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/register_file.v:21]
 WARNING: [Synth 8-327] inferring latch for variable 'registers_reg[2]' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/register_file.v:21]
@@ -236,14 +240,14 @@ WARNING: [Synth 8-327] inferring latch for variable 'registers_reg[29]' [C:/User
 WARNING: [Synth 8-327] inferring latch for variable 'registers_reg[30]' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/register_file.v:21]
 WARNING: [Synth 8-327] inferring latch for variable 'registers_reg[31]' [C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/register_file.v:21]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:28 . Memory (MB): peak = 1620.895 ; gain = 633.312
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:24 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   32 Bit       Adders := 6     
+	   2 Input   32 Bit       Adders := 8     
 	   3 Input   32 Bit       Adders := 1     
 	   2 Input   13 Bit       Adders := 3     
 	   2 Input    5 Bit       Adders := 2     
@@ -257,14 +261,14 @@ Detailed RTL Component Info :
 	               13 Bit    Registers := 2     
 	               10 Bit    Registers := 1     
 	                8 Bit    Registers := 22    
-	                5 Bit    Registers := 7     
-	                4 Bit    Registers := 3     
+	                5 Bit    Registers := 8     
+	                4 Bit    Registers := 2     
 	                3 Bit    Registers := 2     
-	                1 Bit    Registers := 23    
+	                1 Bit    Registers := 21    
 +---Muxes : 
 	   2 Input   64 Bit        Muxes := 2     
 	  33 Input   32 Bit        Muxes := 2     
-	   2 Input   32 Bit        Muxes := 13    
+	   2 Input   32 Bit        Muxes := 15    
 	   4 Input   32 Bit        Muxes := 4     
 	   2 Input   16 Bit        Muxes := 1     
 	   2 Input   13 Bit        Muxes := 4     
@@ -272,23 +276,22 @@ Detailed RTL Component Info :
 	   2 Input   10 Bit        Muxes := 1     
 	   2 Input    8 Bit        Muxes := 4     
 	   4 Input    8 Bit        Muxes := 1     
-	   2 Input    5 Bit        Muxes := 4     
+	   2 Input    5 Bit        Muxes := 1     
+	   8 Input    5 Bit        Muxes := 2     
+	  10 Input    5 Bit        Muxes := 3     
 	   4 Input    4 Bit        Muxes := 1     
-	   2 Input    4 Bit        Muxes := 6     
-	   8 Input    4 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 5     
 	   7 Input    4 Bit        Muxes := 1     
-	   2 Input    3 Bit        Muxes := 3     
-	  11 Input    3 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 2     
+	  10 Input    3 Bit        Muxes := 2     
 	   6 Input    3 Bit        Muxes := 1     
 	   4 Input    2 Bit        Muxes := 2     
 	   3 Input    2 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 5     
-	   2 Input    1 Bit        Muxes := 53    
+	   2 Input    1 Bit        Muxes := 54    
 	   4 Input    1 Bit        Muxes := 6     
 	   3 Input    1 Bit        Muxes := 5     
-	   8 Input    1 Bit        Muxes := 2     
-	  11 Input    1 Bit        Muxes := 7     
-	  16 Input    1 Bit        Muxes := 1     
+	  10 Input    1 Bit        Muxes := 7     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -345,26 +348,26 @@ WARNING: [Synth 8-3332] Sequential element (registers_reg[0][2]) is unused and w
 WARNING: [Synth 8-3332] Sequential element (registers_reg[0][1]) is unused and will be removed from module register_file.
 WARNING: [Synth 8-3332] Sequential element (registers_reg[0][0]) is unused and will be removed from module register_file.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:57 . Memory (MB): peak = 1620.895 ; gain = 633.312
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:41 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:01:17 . Memory (MB): peak = 1620.895 ; gain = 633.312
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:49 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:01:45 . Memory (MB): peak = 1651.496 ; gain = 663.914
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:59 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3332] Sequential element (twin_controller_inst/FSM_sequential_current_state_reg[1]) is unused and will be removed from module top.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:01:50 . Memory (MB): peak = 1651.496 ; gain = 663.914
+Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:01:01 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -382,37 +385,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:46 ; elapsed = 00:02:04 . Memory (MB): peak = 1651.496 ; gain = 663.914
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:01:07 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:46 ; elapsed = 00:02:04 . Memory (MB): peak = 1651.496 ; gain = 663.914
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:01:07 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:46 ; elapsed = 00:02:05 . Memory (MB): peak = 1651.496 ; gain = 663.914
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:01:08 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:46 ; elapsed = 00:02:05 . Memory (MB): peak = 1651.496 ; gain = 663.914
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:01:08 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:46 ; elapsed = 00:02:05 . Memory (MB): peak = 1651.496 ; gain = 663.914
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:01:08 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:46 ; elapsed = 00:02:05 . Memory (MB): peak = 1651.496 ; gain = 663.914
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:01:08 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -439,46 +442,46 @@ Report Cell Usage:
 |4     |IROM     |     1|
 |5     |pll      |     1|
 |6     |BUFG     |    12|
-|7     |CARRY4   |    87|
+|7     |CARRY4   |    95|
 |8     |LUT1     |     7|
-|9     |LUT2     |   336|
-|10    |LUT3     |   141|
-|11    |LUT4     |   268|
-|12    |LUT5     |   381|
-|13    |LUT6     |  1024|
-|14    |MUXF7    |   304|
+|9     |LUT2     |   194|
+|10    |LUT3     |   142|
+|11    |LUT4     |   297|
+|12    |LUT5     |   359|
+|13    |LUT6     |  1109|
+|14    |MUXF7    |   272|
 |15    |MUXF8    |     8|
-|16    |FDCE     |   692|
+|16    |FDCE     |   691|
 |17    |FDPE     |    14|
 |18    |FDRE     |   113|
-|19    |LD       |   992|
+|19    |LD       |  1010|
 |20    |IBUF     |     1|
 |21    |OBUF     |    73|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:46 ; elapsed = 00:02:05 . Memory (MB): peak = 1651.496 ; gain = 663.914
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:01:08 . Memory (MB): peak = 1645.863 ; gain = 659.051
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 73 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:41 ; elapsed = 00:02:01 . Memory (MB): peak = 1651.496 ; gain = 592.805
-Synthesis Optimization Complete : Time (s): cpu = 00:00:46 ; elapsed = 00:02:06 . Memory (MB): peak = 1651.496 ; gain = 663.914
+Synthesis finished with 0 errors, 0 critical warnings and 76 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:01:04 . Memory (MB): peak = 1645.863 ; gain = 564.031
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:01:08 . Memory (MB): peak = 1645.863 ; gain = 659.051
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.155 . Memory (MB): peak = 1651.496 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1391 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 1645.863 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1385 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1651.496 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1652.062 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 992 instances were transformed.
-  LD => LDCE: 992 instances
+  A total of 1010 instances were transformed.
+  LD => LDCE: 1010 instances
 
 系统找不到指定的路径。
-Synth Design complete | Checksum: 21a82a08
+Synth Design complete | Checksum: b3d669e4
 INFO: [Common 17-83] Releasing license: Synthesis
-85 Infos, 91 Warnings, 0 Critical Warnings and 0 Errors encountered.
+82 Infos, 96 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:50 ; elapsed = 00:02:23 . Memory (MB): peak = 1651.496 ; gain = 1116.820
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 1651.496 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:01:18 . Memory (MB): peak = 1652.062 ; gain = 1119.359
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1652.062 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri May 16 00:31:22 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun May 18 04:11:10 2025...

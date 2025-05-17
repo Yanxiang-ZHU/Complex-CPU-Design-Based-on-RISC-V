@@ -35,33 +35,33 @@ module dram_driver(
     logic [31:0] dram_rdata_raw2;
 
 //    assign dram_addr = perip_addr[17:2];
-    assign dram_addr = perip_addr >> 2;
+    assign dram_addr = (perip_addr-32'h80100000) >> 2;
     assign offset = perip_addr[1:0];
     assign perip_rdata = dout;
 
-//    DRAM Mem_DRAM (
-//        .clk        (clk),
-//        .a          (dram_addr),
-//        .spo        (dram_rdata_raw),
-//        .we         (dram_wen),
-//        .d          (dram_data)
-//    );
-    
     DRAM Mem_DRAM (
-        .clka(clk),
-        .ena(1),
-        .wea(dram_wen),
-        .addra(dram_addr),
-        .dina(dram_data),
-        .douta(dram_rdata_raw),
-        
-        .clkb(clk),
-        .enb(0),
-        .web(0),
-        .addrb(0),
-        .dinb(0),
-        .doutb(dram_rdata_raw2)
+        .clk        (clk),
+        .a          (dram_addr),
+        .spo        (dram_rdata_raw),
+        .we         (dram_wen),
+        .d          (dram_data)
     );
+    
+//    DRAM Mem_DRAM (
+//        .clka(clk),
+//        .ena(1),
+//        .wea(dram_wen),
+//        .addra(dram_addr),
+//        .dina(dram_data),
+//        .douta(dram_rdata_raw),
+        
+//        .clkb(clk),
+//        .enb(0),
+//        .web(0),
+//        .addrb(0),
+//        .dinb(0),
+//        .doutb(dram_rdata_raw2)
+//    );
 
 
     // dram_rdata_raw process, lh lb

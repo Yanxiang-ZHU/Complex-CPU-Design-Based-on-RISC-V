@@ -1,21 +1,164 @@
 #-----------------------------------------------------------
 # Vivado v2023.2 (64-bit)
-# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Mon Apr 28 11:23:16 2025
-# Process ID: 17172
-# Current directory: C:/Users/KTD/Desktop/digital_twin
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9596 C:\Users\KTD\Desktop\digital_twin\digital_twin.xpr
-# Log file: C:/Users/KTD/Desktop/digital_twin/vivado.log
-# Journal file: C:/Users/KTD/Desktop/digital_twin\vivado.jou
-# Running On: LAPTOP-TNKPRGBT, OS: Windows, CPU Frequency: 3110 MHz, CPU Physical cores: 4, Host memory: 16952 MB
+# Start of session at: Sat May 17 22:13:27 2025
+# Process ID: 27243
+# Current directory: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin
+# Command line: vivado
+# Log file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/vivado.log
+# Journal file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/vivado.jou
+# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 2275.413 MHz, CPU Physical cores: 14, Host memory: 16445 MB
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/KTD/Desktop/digital_twin/digital_twin.xpr
+open_project /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.xpr
 update_compile_order -fileset sources_1
-export_ip_user_files -of_objects  [get_files C:/Users/KTD/Desktop/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v] -no_script -reset -force -quiet
-remove_files  C:/Users/KTD/Desktop/digital_twin/digital_twin.srcs/sources_1/new/display_seg.v
-synth_design -top top -part xc7k325tffg900-2 -lint 
-set_property needs_refresh false [get_runs synth_1]
-set_property needs_refresh false [get_runs impl_1]
+launch_simulation
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/clk}} {{/tb_top/uut/student_top_inst/Core_cpu/rst}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_data}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wen}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_mask}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wdata}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_rdata}} {{/tb_top/uut/student_top_inst/Core_cpu/pc}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/instr}} 
+run all
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/jump}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/jump_target}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/RF/registers}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/RF/registers[1]}} 
+close_sim
+launch_simulation
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+current_wave_config {}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/clk}} {{/tb_top/uut/student_top_inst/Core_cpu/rst}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_data}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wen}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_mask}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wdata}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_rdata}} {{/tb_top/uut/student_top_inst/Core_cpu/pc}} {{/tb_top/uut/student_top_inst/Core_cpu/next_pc}} {{/tb_top/uut/student_top_inst/Core_cpu/IF_ID_PC}} {{/tb_top/uut/student_top_inst/Core_cpu/ID_EX_PC}} {{/tb_top/uut/student_top_inst/Core_cpu/ID_EX_RS1}} {{/tb_top/uut/student_top_inst/Core_cpu/ID_EX_RS2}} {{/tb_top/uut/student_top_inst/Core_cpu/ID_EX_IMM}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/instr}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/instr_new}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/jump}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/branch_taken}} 
+run 10 us
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/jump_target}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/opcode}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/imm}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/reg_rs1}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/RF/registers[1]}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/RF/rd1}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/RF/rs1}} 
+close_sim
+launch_simulation
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+current_wave_config {}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/clk}} {{/tb_top/uut/student_top_inst/Core_cpu/rst}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_data}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wen}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_mask}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wdata}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_rdata}} {{/tb_top/uut/student_top_inst/Core_cpu/pc}} {{/tb_top/uut/student_top_inst/Core_cpu/next_pc}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/rs1}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/instr}} 
+run 10 us
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/jump_target}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/jump}} 
+current_wave_config {tb_top_behav.wcfg}
+log_wave {/tb_top/uut/student_top_inst/Core_cpu/rs1} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/rs1}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/CU/opcode}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/imm}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/reg_rs1}} 
+close_sim
+launch_simulation
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+current_wave_config {}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/clk}} {{/tb_top/uut/student_top_inst/Core_cpu/rst}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_data}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wen}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_mask}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wdata}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_rdata}} {{/tb_top/uut/student_top_inst/Core_cpu/pc}} {{/tb_top/uut/student_top_inst/Core_cpu/next_pc}} {{/tb_top/uut/student_top_inst/Core_cpu/IF_ID_PC}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/jump}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/instr}} 
+run 10 us
+run all
+run all
+close_sim
+set_property CONFIG.Coe_File {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/coe/irom_test.coe} [get_ips IROM]
+generate_target all [get_files  /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/IROM/IROM.xci]
+catch { config_ip_cache -export [get_ips -all IROM] }
+export_ip_user_files -of_objects [get_files /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/IROM/IROM.xci] -no_script -sync -force -quiet
+reset_run IROM_synth_1
+launch_runs IROM_synth_1 -jobs 10
+wait_on_run IROM_synth_1
+export_simulation -of_objects [get_files /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/IROM/IROM.xci] -directory /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.ip_user_files/sim_scripts -ip_user_files_dir /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.ip_user_files -ipstatic_source_dir /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/compile_simlib/modelsim} {questa=/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/compile_simlib/questa} {xcelium=/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/compile_simlib/xcelium} {vcs=/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/compile_simlib/vcs} {riviera=/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/clk}} {{/tb_top/uut/student_top_inst/Core_cpu/rst}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_data}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wen}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_mask}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wdata}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_rdata}} {{/tb_top/uut/student_top_inst/Core_cpu/pc}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/instr}} 
+run 10 us
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/stall}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/HDU/ID_EX_MEM_READ}} {{/tb_top/uut/student_top_inst/Core_cpu/HDU/ID_EX_RD}} {{/tb_top/uut/student_top_inst/Core_cpu/HDU/IF_ID_RS1}} {{/tb_top/uut/student_top_inst/Core_cpu/HDU/IF_ID_RS2}} {{/tb_top/uut/student_top_inst/Core_cpu/HDU/branch_taken}} {{/tb_top/uut/student_top_inst/Core_cpu/HDU/stall}} {{/tb_top/uut/student_top_inst/Core_cpu/HDU/flush}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/bridge_inst/perip_addr}} {{/tb_top/uut/student_top_inst/bridge_inst/perip_wdata}} {{/tb_top/uut/student_top_inst/bridge_inst/perip_wen}} {{/tb_top/uut/student_top_inst/bridge_inst/perip_mask}} {{/tb_top/uut/student_top_inst/bridge_inst/perip_rdata}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/bridge_inst/dram_driver_inst/dout}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/bridge_inst/dram_driver_inst/perip_wdata}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/bridge_inst/dram_driver_inst/perip_rdata}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/bridge_inst/perip_rdata}} 
+close_sim
+launch_simulation -mode post-synthesis -type functional
+launch_simulation
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/clk}} {{/tb_top/uut/student_top_inst/Core_cpu/rst}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_data}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wen}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_mask}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wdata}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_rdata}} {{/tb_top/uut/student_top_inst/Core_cpu/pc}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/instr}} 
+run 10 us
+set_property CONFIG.Coe_File {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/coe/irom.coe} [get_ips IROM]
+generate_target all [get_files  /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/IROM/IROM.xci]
+catch { config_ip_cache -export [get_ips -all IROM] }
+export_ip_user_files -of_objects [get_files /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/IROM/IROM.xci] -no_script -sync -force -quiet
+reset_run IROM_synth_1
+launch_runs IROM_synth_1 -jobs 10
+wait_on_run IROM_synth_1
+export_simulation -of_objects [get_files /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/ip/IROM/IROM.xci] -directory /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.ip_user_files/sim_scripts -ip_user_files_dir /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.ip_user_files -ipstatic_source_dir /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/compile_simlib/modelsim} {questa=/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/compile_simlib/questa} {xcelium=/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/compile_simlib/xcelium} {vcs=/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/compile_simlib/vcs} {riviera=/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+close_sim
+launch_simulation
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+current_wave_config {}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/clk}} {{/tb_top/uut/student_top_inst/Core_cpu/rst}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/irom_data}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_addr}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wen}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_mask}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_wdata}} {{/tb_top/uut/student_top_inst/Core_cpu/perip_rdata}} {{/tb_top/uut/student_top_inst/Core_cpu/pc}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/instr}} 
+run all

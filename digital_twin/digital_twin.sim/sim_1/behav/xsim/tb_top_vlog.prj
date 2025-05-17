@@ -1,7 +1,7 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  --include "../../../../digital_twin.ip_user_files/ipstatic" \
-"../../../../digital_twin.gen/sources_1/ip/DRAM/sim/DRAM.v" \
-"../../../../digital_twin.gen/sources_1/ip/IROM/sim/IROM.v" \
+"../../../../digital_twin.gen/sources_1/ip/DRAM_1/sim/DRAM.v" \
+"../../../../digital_twin.gen/sources_1/ip/IROM_1/sim/IROM.v" \
 "../../../../digital_twin.gen/sources_1/ip/ILA_SPIC/sim/ILA_SPIC.v" \
 "../../../../digital_twin.gen/sources_1/ip/ILA_REG/sim/ILA_REG.v" \
 "../../../../digital_twin.gen/sources_1/ip/pll_1/pll_clk_wiz.v" \

@@ -15,10 +15,10 @@ module SPIC_Pipeline (
     wire [31:0] next_pc;
 
     // Pipeline registers
-    reg [31:0] IF_ID_PC;
+    reg [31:0] IF_ID_PC,IF_ID_INSTR;
     reg [31:0] ID_EX_PC, ID_EX_RS1, ID_EX_RS2, ID_EX_IMM;
     reg [4:0]  ID_EX_RD, ID_EX_RS1_ADDR, ID_EX_RS2_ADDR;
-    reg [3:0]  ID_EX_ALU_OP;
+    reg [4:0]  ID_EX_ALU_OP;
     reg        ID_EX_REG_WRITE, ID_EX_ALU_SRC, ID_EX_MEM_READ, ID_EX_MEM_WRITE;
     reg        ID_EX_MEM_TO_REG, ID_EX_BRANCH, ID_EX_JUMP, ID_EX_CSR_WRITE;
     reg [2:0]  ID_EX_MEM_SIZE;
@@ -32,14 +32,14 @@ module SPIC_Pipeline (
     reg        MEM_WB_REG_WRITE, MEM_WB_MEM_TO_REG, MEM_WB_JUMP;
 
     // Data paths -- restore the next pc (normal or branch or jump)
-    wire [31:0] imm;
+    wire signed [31:0] imm;
     wire [31:0] alu_result;
     wire branch_taken;
     wire [31:0] pc_plus_4 = pc + 4;
     wire [31:0] reg_rs1, reg_rs2;
     wire [6:0] opcode;
     wire [31:0] branch_target = ID_EX_PC + alu_result;
-    wire [31:0] jump_target = (opcode==1100111)?(IF_ID_PC+imm+reg_rs1):(IF_ID_PC + imm);
+    wire [31:0] jump_target = (opcode==7'b1100111)?($signed(imm)+reg_rs1):(IF_ID_PC + imm);
     wire jump;
     wire [4:0] rs1, rs2, rd;
 
@@ -59,12 +59,12 @@ module SPIC_Pipeline (
     //                       );
     assign irom_addr = pc;
     assign instr = irom_data;
-    assign instr_new=(flush) ? 32'h00000013 : instr;
+    assign instr_new=(flush) ? 32'h00000013 : IF_ID_INSTR;
 
  
     // Control signals
     wire reg_write, alu_src, mem_read, mem_write, mem_to_reg, branch, csr_write;
-    wire [3:0] alu_op;
+    wire [4:0] alu_op;
     wire [2:0] imm_type;
     wire [2:0] mem_size;
 
@@ -113,6 +113,7 @@ module SPIC_Pipeline (
                               .ID_EX_RD(ID_EX_RD),
                               .IF_ID_RS1(rs1),
                               .IF_ID_RS2(rs2),
+                              .ID_EX_JUMP(ID_EX_JUMP),
                               .branch_taken(branch_taken),
                               .stall(stall),
                               .flush(flush)
@@ -144,6 +145,7 @@ module SPIC_Pipeline (
     alu ALU(
             .a(alu_in1),
             .b(alu_in2),
+            .ID_EX_IMM(ID_EX_IMM),
             .alu_op(ID_EX_ALU_OP),
             .pc(ID_EX_PC),
             .result(alu_result),
@@ -161,7 +163,7 @@ module SPIC_Pipeline (
     //                    .rd(mem_data),
     //                    .mem_size(EX_MEM_MEM_SIZE)
     //                );
-    assign perip_addr = EX_MEM_ALU_RESULT-32'h80100000;
+    assign perip_addr = EX_MEM_ALU_RESULT;
     assign perip_wen = EX_MEM_MEM_WRITE;
     assign perip_mask = EX_MEM_MEM_SIZE[1:0];
     assign perip_wdata = EX_MEM_RS2;
@@ -183,6 +185,7 @@ module SPIC_Pipeline (
             // Reset all pipeline registers
             pc <= 32'h80000000;
             IF_ID_PC <= 32'b0;
+            IF_ID_INSTR<=32'b0;
 
 
             ID_EX_PC <= 32'b0;
@@ -192,7 +195,7 @@ module SPIC_Pipeline (
             ID_EX_RD <= 5'b0;
             ID_EX_RS1_ADDR <= 5'b0;
             ID_EX_RS2_ADDR <= 5'b0;
-            ID_EX_ALU_OP <= 4'b0;
+            ID_EX_ALU_OP <= 5'b0;
             ID_EX_REG_WRITE <= 1'b0;
             ID_EX_ALU_SRC <= 1'b0;
             ID_EX_MEM_READ <= 1'b0;
@@ -225,12 +228,12 @@ module SPIC_Pipeline (
             MEM_WB_JUMP <= 1'b0;
         end
         else begin
-            // PC update
             pc <= next_pc;
 
             // IF/ID stage
             if (!stall) begin
                 IF_ID_PC <= pc;
+                IF_ID_INSTR<=instr;
             end
 
             // ID/EX stage
@@ -255,15 +258,15 @@ module SPIC_Pipeline (
             end
             else begin
 
-                // Insert bubble (NOP): 清零�??有字段，而丝仅仅是控制信�??
-                ID_EX_PC         <= 32'b0;
-                ID_EX_RS1        <= 32'b0;
-                ID_EX_RS2        <= 32'b0;
-                ID_EX_IMM        <= 32'b0;
-                ID_EX_RD         <= 5'b0;
-                ID_EX_RS1_ADDR   <= 5'b0;
-                ID_EX_RS2_ADDR   <= 5'b0;
-                ID_EX_ALU_OP     <= 4'b0;
+                // Insert bubble (NOP): 清零�???有字段，而丝仅仅是控制信�???
+//                ID_EX_PC         <= 32'b0;
+//                ID_EX_RS1        <= 32'b0;
+//                ID_EX_RS2        <= 32'b0;
+//                ID_EX_IMM        <= 32'b0;
+//                ID_EX_RD         <= 5'b0;
+//                ID_EX_RS1_ADDR   <= 5'b0;
+//                ID_EX_RS2_ADDR   <= 5'b0;
+//                ID_EX_ALU_OP     <= 4'b0;
                 ID_EX_REG_WRITE  <= 1'b0;
                 ID_EX_ALU_SRC    <= 1'b0;
                 ID_EX_MEM_READ   <= 1'b0;
@@ -272,7 +275,7 @@ module SPIC_Pipeline (
                 ID_EX_BRANCH     <= 1'b0;
                 ID_EX_JUMP       <= 1'b1;
                 ID_EX_CSR_WRITE  <= 1'b0;
-                ID_EX_MEM_SIZE   <= 3'b0;
+//                ID_EX_MEM_SIZE   <= 3'b0;
             end
 
             // EX/MEM stage
