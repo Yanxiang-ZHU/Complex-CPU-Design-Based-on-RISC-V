@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1747326512" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/top.dcp">
-  <File Type="RDS-RDS" Name="top.vds"/>
-  <File Type="REPORTS-TCL" Name="top_reports.tcl"/>
   <File Type="PA-TCL" Name="top.tcl"/>
-  <File Type="RDS-DCP" Name="top.dcp"/>
+  <File Type="REPORTS-TCL" Name="top_reports.tcl"/>
+  <File Type="RDS-RDS" Name="top.vds"/>
   <File Type="RDS-UTIL" Name="top_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="top_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="top.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/SPIC.v">
@@ -185,8 +185,8 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="ILA_REG"/>
+  <BlockFileSet Type="BlockSrcs" Name="ILA_SPIC"/>
   <BlockFileSet Type="BlockSrcs" Name="pll"/>
   <BlockFileSet Type="BlockSrcs" Name="IROM"/>
-  <BlockFileSet Type="BlockSrcs" Name="ILA_SPIC"/>
   <BlockFileSet Type="BlockSrcs" Name="DRAM"/>
 </GenRun>

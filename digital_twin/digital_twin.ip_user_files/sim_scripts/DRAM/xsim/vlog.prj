@@ -1,4 +1,4 @@
-verilog xil_defaultlib  \
+verilog xil_defaultlib --include "../../../../digital_twin.gen/sources_1/ip/ILA_DRAM/hdl/verilog" \
 "../../../../digital_twin.gen/sources_1/ip/DRAM/sim/DRAM.v" \
 
 verilog xil_defaultlib "glbl.v"

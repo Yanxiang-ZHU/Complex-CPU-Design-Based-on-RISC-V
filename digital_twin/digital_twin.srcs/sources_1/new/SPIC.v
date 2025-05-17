@@ -44,6 +44,7 @@ module SPIC_Pipeline (
     wire [31:0] instr;
     wire [31:0] instr_new;
     wire flush;
+    reg FLUSH;
     //    instruction_memory IMEM(
     //                           .clk(clk),
     //                           .addr(pc),
@@ -51,7 +52,7 @@ module SPIC_Pipeline (
     //                       );
     assign irom_addr = pc;
     assign instr = irom_data;
-    assign instr_new=(flush || EX_MEM_BRANCH_TAKEN || ID_EX_JUMP) ? 32'h00000013 : instr;
+    assign instr_new=(FLUSH || EX_MEM_BRANCH_TAKEN || ID_EX_JUMP) ? 32'h00000013 : instr;
 
     // ID stage signals (RISC-V instruction format)
     wire [6:0] opcode = instr_new[6:0];
@@ -167,7 +168,7 @@ module SPIC_Pipeline (
     assign perip_wen = EX_MEM_MEM_WRITE;
     assign perip_mask = EX_MEM_MEM_SIZE[1:0];
     assign perip_wdata = EX_MEM_RS2;
-    assign perip_rdata = mem_data;
+    assign mem_data = perip_rdata;
 
     // ILA
     ILA_SPIC ILA_SPIC_u(
@@ -229,6 +230,7 @@ module SPIC_Pipeline (
         else begin
             // PC update
             pc <= next_pc;
+            FLUSH <= flush;
 
             // IF/ID stage
             if (!stall) begin
@@ -257,7 +259,7 @@ module SPIC_Pipeline (
             end
             else begin
 
-                // Insert bubble (NOP): 清零�?有字段，而不仅仅是控制信�?
+                // Insert bubble (NOP): 清零�??有字段，而不仅仅是控制信�??
                 ID_EX_PC         <= 32'b0;
                 ID_EX_RS1        <= 32'b0;
                 ID_EX_RS2        <= 32'b0;
