@@ -38,18 +38,17 @@ module student_top#(
 
     // IROM
     logic [31:0] pc;
-    logic [31:0] inst_addr;
+    logic [11:0] inst_addr;
     logic [31:0] instruction;
-    logic [31:0] instruction2;
 
     // perip
     logic [31:0] perip_addr, perip_wdata, perip_rdata;
     logic perip_wen;
-    logic [1:0] perip_mask;
+    logic [2:0] perip_mask;
 
     // 16KB = 2^12 * 32bit
 //    assign inst_addr = pc[13:2];
-    assign inst_addr = pc >> 2;
+    assign inst_addr = pc[13:2];
 
     SPIC_Pipeline Core_cpu (
         .rst            (w_clk_rst),

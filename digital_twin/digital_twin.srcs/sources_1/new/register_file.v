@@ -6,6 +6,7 @@ module register_file(
         input [4:0] rs1, rs2, rd,
         input [31:0] wd,
         output [31:0] rd1, rd2
+
     );
 
     // generate 32 registers in RISC-V architecture
@@ -21,19 +22,8 @@ module register_file(
     assign rd1 = (rs1 == 5'b0) ? 32'b0 : registers[rs1];
     assign rd2 = (rs2 == 5'b0) ? 32'b0 : registers[rs2];
 
-always @(*) begin
-
+    always @(*) begin
         if (we && rd != 5'b0)
-            registers[rd] <= wd;
+            registers[rd] = wd;
     end
-
-    ILA_REG ILA_REG_u(
-        .clk(clk),
-        .probe0(rs1),
-        .probe1(rs2),
-        .probe2(rd),
-        .probe3(wd),
-        .probe4(rd1),
-        .probe5(rd2)
-    );
 endmodule

@@ -27,7 +27,7 @@ module perip_bridge(
     input  logic [31:0]  perip_addr			,
     input  logic [31:0]  perip_wdata		,
     input  logic         perip_wen			,
-	input  logic [1:0]	 perip_mask			,
+	input  logic [2:0]	 perip_mask			,
     output logic [31:0]  perip_rdata		,
 
     input  logic [63:0]  virtual_sw_input	,
@@ -96,8 +96,8 @@ module perip_bridge(
     // dram rw
     dram_driver dram_driver_inst (
         .clk				(clk),
-//        .perip_addr			(perip_addr[17:0]),
-        .perip_addr         (perip_addr),
+        .perip_addr			(perip_addr[17:0]),
+//        .perip_addr         (perip_addr),
         .perip_wdata		(perip_wdata),
         .perip_mask			(perip_mask),
         .dram_wen 			(perip_wen & (perip_addr >= DRAM_ADDR_START && perip_addr < DRAM_ADDR_END)),

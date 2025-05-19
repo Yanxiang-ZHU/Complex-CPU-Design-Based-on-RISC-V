@@ -59,26 +59,27 @@ module alu(
                 result = b;                      // LUI
             5'b01111:
                 result = pc + b;                 // AUIPC (PC + imm)
-            
-            // jal, jalr    
+
+            // jal, jalr
             5'b10001:
                 result = pc + 4;
-            
+
             // slt, slti
             5'b11010: begin
                 result = ($signed(a) < $signed(b)) ? 32'd1 : 32'd0;
             end
-            
+
             // sltu, sltiu
             5'b11100: begin
                 result = (a < b) ? 32'd1 : 32'd0;
             end
-                
+
 
             default: begin
                 result = 32'b0;
                 branch_taken = 1'b0;
             end
         endcase
+        
     end
 endmodule

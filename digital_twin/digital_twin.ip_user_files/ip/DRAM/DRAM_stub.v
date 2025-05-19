@@ -1,11 +1,11 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-// Date        : Sun May 18 00:07:40 2025
-// Host        : mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx running 64-bit Ubuntu 22.04.5 LTS
+// Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
+// Date        : Mon May 19 22:04:15 2025
+// Host        : YanX running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM_1/DRAM_stub.v
+//               c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM_1/DRAM_stub.v
 // Design      : DRAM
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7k325tffg900-2

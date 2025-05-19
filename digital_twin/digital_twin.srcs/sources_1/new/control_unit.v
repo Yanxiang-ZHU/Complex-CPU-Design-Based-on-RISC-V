@@ -18,13 +18,13 @@ module control_unit(
         output reg [4:0] rd,
         output reg [6:0] opcode
     );
-   // ID stage signals (RISC-V instruction format)
+    // ID stage signals (RISC-V instruction format)
     always @(*) begin
-        opcode <= instr[6:0];
+        opcode = instr[6:0];
     end
     wire [2:0] funct3 = instr[14:12];
     wire [6:0] funct7 = instr[31:25];
- 
+
 
     always @(*) begin
         reg_write  = 0;
@@ -72,7 +72,7 @@ module control_unit(
                 alu_src = 1;
                 imm_type = 3'b000;
                 rs1 = instr[19:15];
-                rs2 = 5'bz;
+                rs2 = 5'b0;
                 rd = instr[11:7];
                 case (funct3)
                     3'b000:
@@ -103,7 +103,7 @@ module control_unit(
                 alu_op = 5'b00010; // calculate address
                 imm_type = 3'b000;
                 rs1 = instr[19:15];
-                rs2 = 5'bz;
+                rs2 = 5'b0;
                 rd = instr[11:7];
                 case(funct3)
                     3'b000:
@@ -127,7 +127,7 @@ module control_unit(
                 imm_type = 3'b001;
                 rs1 = instr[19:15];
                 rs2 = instr[24:20];
-                rd = 5'bz;
+                rd = 5'b0;
                 case(funct3)
                     3'b000:
                         mem_size = 3'b000; // SB
@@ -145,7 +145,7 @@ module control_unit(
                 imm_type = 3'b010;
                 rs1 = instr[19:15];
                 rs2 = instr[24:20];
-                rd = 5'bz;
+                rd = 5'b0;
                 case (funct3)
                     3'b000:
                         alu_op = 5'b01000; // BEQ
@@ -168,8 +168,8 @@ module control_unit(
                 jump = 1;
                 imm_type = 3'b100;
                 alu_op = 5'b10001;
-                rs1 = 5'bz;
-                rs2 = 5'bz;
+                rs1 = 5'b0;
+                rs2 = 5'b0;
                 rd = instr[11:7];
             end
 
@@ -181,7 +181,7 @@ module control_unit(
                 imm_type = 3'b000;
                 alu_op = 5'b10001;
                 rs1 = instr[19:15];
-                rs2 = 5'bz;
+                rs2 = 5'b0;
                 rd = instr[11:7];
             end
 
@@ -191,8 +191,8 @@ module control_unit(
                 alu_src = 1;
                 imm_type = 3'b011;
                 alu_op = 5'b01110;
-                rs1 = 5'bz;
-                rs2 = 5'bz;
+                rs1 = 5'b0;
+                rs2 = 5'b0;
                 rd = instr[11:7];
             end
 
@@ -202,8 +202,8 @@ module control_unit(
                 alu_src = 1;
                 imm_type = 3'b011;
                 alu_op = 5'b01111;
-                rs1 = 5'bz;
-                rs2 = 5'bz;
+                rs1 = 5'b0;
+                rs2 = 5'b0;
                 rd = instr[11:7];
             end
 

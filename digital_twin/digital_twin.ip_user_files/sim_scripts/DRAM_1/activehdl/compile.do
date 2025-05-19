@@ -12,18 +12,18 @@ vmap xpm activehdl/xpm
 vmap dist_mem_gen_v8_0_14 activehdl/dist_mem_gen_v8_0_14
 vmap xil_defaultlib activehdl/xil_defaultlib
 
-vlog -work xpm  -sv2k12 "+incdir+../../../../digital_twin.gen/sources_1/ip/ILA_DRAM/hdl/verilog" -l xpm -l dist_mem_gen_v8_0_14 -l xil_defaultlib \
-"/home/mingzhenjia/Xilinx/Vivado/2023.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-"/home/mingzhenjia/Xilinx/Vivado/2023.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+vlog -work xpm  -sv2k12 -l xpm -l dist_mem_gen_v8_0_14 -l xil_defaultlib \
+"D:/Xilinx/Vivado/2023.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
 
-vcom -work xpm -  \
-"/home/mingzhenjia/Xilinx/Vivado/2023.2/data/ip/xpm/xpm_VCOMP.vhd" \
+vcom -work xpm -93  \
+"D:/Xilinx/Vivado/2023.2/data/ip/xpm/xpm_VCOMP.vhd" \
 
-vlog -work dist_mem_gen_v8_0_14  -v2k5 "+incdir+../../../../digital_twin.gen/sources_1/ip/ILA_DRAM/hdl/verilog" -l xpm -l dist_mem_gen_v8_0_14 -l xil_defaultlib \
+vlog -work dist_mem_gen_v8_0_14  -v2k5 -l xpm -l dist_mem_gen_v8_0_14 -l xil_defaultlib \
 "../../../ipstatic/simulation/dist_mem_gen_v8_0.v" \
 
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../digital_twin.gen/sources_1/ip/ILA_DRAM/hdl/verilog" -l xpm -l dist_mem_gen_v8_0_14 -l xil_defaultlib \
+vlog -work xil_defaultlib  -v2k5 -l xpm -l dist_mem_gen_v8_0_14 -l xil_defaultlib \
 "../../../../digital_twin.gen/sources_1/ip/DRAM_1/sim/DRAM.v" \
+
 
 vlog -work xil_defaultlib \
 "glbl.v"

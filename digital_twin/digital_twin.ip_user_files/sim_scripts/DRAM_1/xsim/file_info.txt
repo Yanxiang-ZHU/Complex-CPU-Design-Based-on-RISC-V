@@ -1,2 +1,2 @@
-DRAM.v,verilog,xil_defaultlib,../../../../digital_twin.gen/sources_1/ip/DRAM_1/sim/DRAM.v,incdir="../../../../digital_twin.gen/sources_1/ip/ILA_DRAM/hdl/verilog"
+DRAM.v,verilog,xil_defaultlib,../../../../digital_twin.gen/sources_1/ip/DRAM_1/sim/DRAM.v,
 glbl.v,Verilog,xil_defaultlib,glbl.v
