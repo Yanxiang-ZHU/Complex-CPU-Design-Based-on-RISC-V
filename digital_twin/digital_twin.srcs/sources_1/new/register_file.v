@@ -2,6 +2,7 @@
 
 module register_file(
         input clk,
+        input rst,
         input we,
         input [4:0] rs1, rs2, rd,
         input [31:0] wd,
@@ -13,17 +14,23 @@ module register_file(
     reg [31:0] registers [0:31];
 
     integer i = 0;
-    initial begin
-        for (i = 0; i < 32; i = i + 1) begin
-            registers[i] = 32'b0;
+//    initial begin
+//        for (i = 0; i < 32; i = i + 1) begin
+//            registers[i] = 32'b0;
+//        end
+//    end
+    always @(*) begin
+        if (rst) begin
+            for (i = 0; i < 32; i = i + 1) begin
+                registers[i] <= 32'b0;
+            end
         end
+        
+        if (we && rd != 5'b0)
+            registers[rd] = wd;
     end
 
     assign rd1 = (rs1 == 5'b0) ? 32'b0 : registers[rs1];
     assign rd2 = (rs2 == 5'b0) ? 32'b0 : registers[rs2];
 
-    always @(*) begin
-        if (we && rd != 5'b0)
-            registers[rd] = wd;
-    end
 endmodule

@@ -3,34 +3,73 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_riscv_behav.wdb" id="1">
+      <db_ref path="tb_top_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="tb_riscv" />
+            <top_module name="tb_top" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="202.801 ns"></ZoomEndTime>
-      <Cursor1Time time="25.000 ns"></Cursor1Time>
+      <ZoomStartTime time="1,033.167 ns"></ZoomStartTime>
+      <ZoomEndTime time="2,006.168 ns"></ZoomEndTime>
+      <Cursor1Time time="1,597.500 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="398"></NameColumnWidth>
-      <ValueColumnWidth column_width="227"></ValueColumnWidth>
+      <NameColumnWidth column_width="218"></NameColumnWidth>
+      <ValueColumnWidth column_width="159"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="3" />
-   <wvobject type="logic" fp_name="/tb_riscv/uut/clk">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/tb_top/uut/student_top_inst/virtual_key" type="array">
+      <obj_property name="ElementShortName">virtual_key[7:0]</obj_property>
+      <obj_property name="ObjectShortName">virtual_key[7:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_riscv/uut/rst">
-      <obj_property name="ElementShortName">rst</obj_property>
-      <obj_property name="ObjectShortName">rst</obj_property>
+   <wvobject fp_name="/tb_top/uut/student_top_inst/virtual_sw" type="array">
+      <obj_property name="ElementShortName">virtual_sw[63:0]</obj_property>
+      <obj_property name="ObjectShortName">virtual_sw[63:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_riscv/uut/RF/registers">
-      <obj_property name="ElementShortName">registers[0:31][31:0]</obj_property>
-      <obj_property name="ObjectShortName">registers[0:31][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject fp_name="/tb_top/uut/student_top_inst/virtual_led" type="array">
+      <obj_property name="ElementShortName">virtual_led[31:0]</obj_property>
+      <obj_property name="ObjectShortName">virtual_led[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/student_top_inst/virtual_seg" type="array">
+      <obj_property name="ElementShortName">virtual_seg[39:0]</obj_property>
+      <obj_property name="ObjectShortName">virtual_seg[39:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/student_top_inst/Core_cpu/irom_addr" type="array">
+      <obj_property name="ElementShortName">irom_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">irom_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/student_top_inst/Core_cpu/irom_data" type="array">
+      <obj_property name="ElementShortName">irom_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">irom_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/student_top_inst/Core_cpu/perip_addr" type="array">
+      <obj_property name="ElementShortName">perip_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">perip_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/student_top_inst/Core_cpu/perip_wen" type="logic">
+      <obj_property name="ElementShortName">perip_wen</obj_property>
+      <obj_property name="ObjectShortName">perip_wen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/student_top_inst/Core_cpu/perip_mask" type="array">
+      <obj_property name="ElementShortName">perip_mask[2:0]</obj_property>
+      <obj_property name="ObjectShortName">perip_mask[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/student_top_inst/Core_cpu/perip_wdata" type="array">
+      <obj_property name="ElementShortName">perip_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">perip_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/student_top_inst/Core_cpu/perip_rdata" type="array">
+      <obj_property name="ElementShortName">perip_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">perip_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/student_top_inst/Core_cpu/pc" type="array">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_top/uut/student_top_inst/Core_cpu/pc" type="array">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
    </wvobject>
 </wave_config>

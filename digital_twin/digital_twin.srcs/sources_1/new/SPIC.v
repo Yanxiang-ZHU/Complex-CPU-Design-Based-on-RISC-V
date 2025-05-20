@@ -1,4 +1,4 @@
-module SPIC_Pipeline (
+module myCPU (
         input clk,
         input rst,
 //        output debug_wb_have_inst, // 当前时钟周期是否有指令写�? (对单周期CPU，可在复位后恒置1)
@@ -16,7 +16,7 @@ module SPIC_Pipeline (
     );
 
     // pc register
-    wire [31:0] pc;
+    reg [31:0] pc;
 
 
     // Pipeline registers
@@ -47,6 +47,7 @@ module SPIC_Pipeline (
 
     // Data paths -- restore the next pc (normal or branch or jump)
     wire signed [31:0] imm;
+    wire [31:0] mem_data;
     wire [31:0] alu_result;
     wire branch_taken;
     reg [31:0] pc_plus_4;
@@ -56,10 +57,9 @@ module SPIC_Pipeline (
     wire [1:0] forward_a, forward_b;
     wire [1:0] forward_mem;
     wire [1:0] forward_jalr;
-    wire [31:0] jump_target = (opcode==7'b1100111)?($signed(imm)+(forward_jalr==2'b01 ? alu_result : (forward_jalr == 2'b10 ? EX_MEM_ALU_RESULT : (forward_jalr == 2'b11 ? MEM_WB_ALU_RESULT : reg_rs1)))):(IF_ID_PC + imm);
+    wire [31:0] jump_target = (opcode==7'b1100111)?($signed(imm)+(forward_jalr==2'b01 ? (EX_MEM_MEM_TO_REG ? mem_data : alu_result) : (forward_jalr == 2'b10 ? (EX_MEM_MEM_TO_REG ? mem_data : EX_MEM_ALU_RESULT) : (forward_jalr == 2'b11 ? (MEM_WB_MEM_TO_REG ? MEM_WB_MEM_DATA : MEM_WB_ALU_RESULT) : reg_rs1)))):(IF_ID_PC + imm);
     wire jump;
     wire [4:0] rs1, rs2, rd;
-
 
     // Instruction memory interface
     wire [31:0] instr;
@@ -69,7 +69,15 @@ module SPIC_Pipeline (
     assign irom_addr = pc;
     assign instr = irom_data;
     
-    assign pc = (branch_taken) ? branch_target : (jump) ? jump_target :pc_plus_4;
+    always @(*) begin
+        if (rst) begin
+            pc <= 32'h8000_0000;
+        end
+        else begin
+            pc <= (branch_taken) ? branch_target : (jump ? jump_target : pc_plus_4);
+        end
+    end
+    
     assign instr_new=(flush) ? 32'h00000013 : IF_ID_INSTR;
 
 
@@ -107,6 +115,7 @@ module SPIC_Pipeline (
     // Register file
     register_file RF(
                       .clk(clk),
+                      .rst(rst),
                       .we(MEM_WB_REG_WRITE),
                       .rs1(rs1),
                       .rs2(rs2),
@@ -167,8 +176,6 @@ module SPIC_Pipeline (
             .branch_taken(branch_taken)
         );
 
-
-    wire [31:0] mem_data;
     assign perip_addr = EX_MEM_ALU_RESULT;
     assign perip_wen = EX_MEM_MEM_WRITE;
     assign perip_mask = EX_MEM_MEM_SIZE;
@@ -180,11 +187,11 @@ module SPIC_Pipeline (
         if (rst) begin
             pc_plus_4 <= 32'h8000_0000;
             // Reset all pipeline registers
-            IF_ID_PC <= 32'b0;
+            IF_ID_PC <= 32'h8000_0000;
             IF_ID_INSTR<=32'b0;
             IF_ID_RST <= 1'b1;
 
-            ID_EX_PC <= 32'b0;
+            ID_EX_PC <= 32'h8000_0000;
             ID_EX_RS1 <= 32'b0;
             ID_EX_RS2 <= 32'b0;
             ID_EX_IMM <= 32'b0;
@@ -203,7 +210,7 @@ module SPIC_Pipeline (
             ID_EX_MEM_SIZE <= 3'b0;
             ID_EX_RST <= 1'b1;
 
-            EX_MEM_PC <= 32'b0;
+            EX_MEM_PC <= 32'h8000_0000;
             EX_MEM_ALU_RESULT <= 32'b0;
             EX_MEM_RS2 <= 32'b0;
             EX_MEM_RD <= 5'b0;
@@ -219,7 +226,7 @@ module SPIC_Pipeline (
             EX_MEM_STALL <= 1'b0;
             EX_MEM_RST <= 1'b1;
 
-            MEM_WB_PC <= 32'b0;
+            MEM_WB_PC <= 32'h8000_0000;
             MEM_WB_ALU_RESULT <= 32'b0;
             MEM_WB_MEM_DATA <= 32'b0;
             MEM_WB_RD <= 5'b0;

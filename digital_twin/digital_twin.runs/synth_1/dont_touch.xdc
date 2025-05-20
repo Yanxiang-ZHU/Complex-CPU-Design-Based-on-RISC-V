@@ -3,5 +3,8 @@
 
 # XDC: new/digital_twin.xdc
 
+# IP: ip/DRAM_1/DRAM.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==DRAM || ORIG_REF_NAME==DRAM} -quiet] -quiet
+
 # IP: ip/IROM_1/IROM.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==IROM || ORIG_REF_NAME==IROM} -quiet] -quiet

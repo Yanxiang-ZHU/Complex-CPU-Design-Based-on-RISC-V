@@ -1,0 +1,1 @@
+--incr --debug typical --relax --mt 2  -L dist_mem_gen_v8_0_14 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot IROM xil_defaultlib.IROM xil_defaultlib.glbl -log elaborate.log

@@ -92,7 +92,7 @@ module dram_driver(
             2'b01: begin           // sh
                 case (offset[1])
                     1'b0: dram_data = {dram_rdata_raw[31:16], perip_wdata[15:0]};
-                    1'b1: dram_data = {perip_wdata[15:0], dram_rdata_raw[15:0]};
+                    1'b1: dram_data = {perip_wdata[15:0] ,dram_rdata_raw[15:0]};
                 endcase
             end
             2'b00: begin           // sb

@@ -2,10 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Mon May 19 22:04:15 2025
+// Date        : Mon May 19 22:03:58 2025
 // Host        : YanX running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM_1/DRAM_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top DRAM -prefix
+//               DRAM_ DRAM_stub.v
 // Design      : DRAM
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7k325tffg900-2

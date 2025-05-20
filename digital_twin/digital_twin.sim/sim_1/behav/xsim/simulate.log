@@ -4,4 +4,3 @@ WARNING: This core is supplied with a behavioral model. To model cycle-accurate 
 ==== send 0x00 to uart_rx ====
 WARNING in tb_top.uut.student_top_inst.bridge_inst.dram_driver_inst.Mem_DRAM.inst at time              1237500 ns: 
 Reading from out-of-range address. Max address in tb_top.uut.student_top_inst.bridge_inst.dram_driver_inst.Mem_DRAM.inst is       65535
-INFO: xsimkernel Simulation Memory Usage: 20028 KB (Peak: 20028 KB), Simulation CPU Usage: 14827 ms

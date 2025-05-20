@@ -121,9 +121,9 @@ module tb_top;
         end
 
         if(rx_data[5][0] !== 1'b1 || rx_data[6][0] != 1'b1 || rx_data[9][7] != 1'b1)
-            $display("ERROR: SW[0] KEY[0] SW[31] data error");
+            $display("ERROR: SW[0] KEY[0] SW[31] data right");
         else
-            $display("PASS: SW[0] KEY[0] SW[31] data right");
+            $display("PASS: SW[0] KEY[0] SW[31] data error");
            
         $finish;
     end

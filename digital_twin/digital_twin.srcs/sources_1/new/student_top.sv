@@ -50,7 +50,7 @@ module student_top#(
 //    assign inst_addr = pc[13:2];
     assign inst_addr = pc[13:2];
 
-    SPIC_Pipeline Core_cpu (
+    myCPU Core_cpu (
         .rst            (w_clk_rst),
         .clk            (w_cpu_clk),
 

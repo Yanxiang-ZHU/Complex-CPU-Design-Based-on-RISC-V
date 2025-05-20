@@ -22,7 +22,7 @@ Compiling module xil_defaultlib.register_file
 Compiling module xil_defaultlib.hazard_detection_unit
 Compiling module xil_defaultlib.forwarding_unit
 Compiling module xil_defaultlib.alu
-Compiling module xil_defaultlib.SPIC_Pipeline
+Compiling module xil_defaultlib.myCPU
 Compiling module dist_mem_gen_v8_0_14.dist_mem_gen_v8_0_14(C_FAMILY="k...
 Compiling module xil_defaultlib.IROM
 Compiling module xil_defaultlib.seg7
