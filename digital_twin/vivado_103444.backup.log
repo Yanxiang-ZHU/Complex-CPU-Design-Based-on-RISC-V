@@ -1,0 +1,476 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Tue May 20 08:24:16 2025
+# Process ID: 103444
+# Current directory: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin
+# Command line: vivado
+# Log file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/vivado.log
+# Journal file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/vivado.jou
+# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 799.801 MHz, CPU Physical cores: 14, Host memory: 16445 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.xpr
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.1 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.1/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.0 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.1 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.1/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.1 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /home/mingzhenjia/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+INFO: [Project 1-313] Project file moved from 'C:/Users/39551/Desktop/College/Contest/JinyedaCup/Complex-CPU-Design-Based-on-RISC-V/digital_twin' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/mingzhenjia/Xilinx/Vivado/2023.2/data/ip'.
+open_project: Time (s): cpu = 00:00:52 ; elapsed = 00:00:24 . Memory (MB): peak = 7987.578 ; gain = 490.484 ; free physical = 233 ; free virtual = 22126
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/mingzhenjia/Xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/home/mingzhenjia/Xilinx/Vivado/2023.2/data/xsim/xsim.ini' copied to run dir:'/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_top' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/DRAM.mif'
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/dram.coe'
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/IROM.mif'
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/irom.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_top_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM_1/sim/DRAM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DRAM
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/IROM_1/sim/IROM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IROM
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pll_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pll
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SPIC_Pipeline
+WARNING: [VRFC 10-3380] identifier 'stall' is used before its declaration [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:72]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/forwarding_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module forwarding_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/hazard_detectioin_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hazard_detection_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/immediate_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module immediate_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/register_file.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module register_file
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/counter.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module counter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/display_seg.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module display_seg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/dram_driver.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dram_driver
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/perip_bridge.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module perip_bridge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/seg7.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module seg7
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/student_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module student_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/twin_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module twin_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/uart.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sim_1/new/tb_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L dist_mem_gen_v8_0_14 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/mingzhenjia/Xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L dist_mem_gen_v8_0_14 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUFDS
+Compiling module unisims_ver.PLLE2_ADV(CLKFBOUT_MULT=17,CLKIN...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.pll_clk_wiz
+Compiling module xil_defaultlib.pll
+Compiling module xil_defaultlib.uart(BAUD_RATE=9600)
+Compiling module xil_defaultlib.twin_controller
+Compiling module xil_defaultlib.control_unit
+Compiling module xil_defaultlib.immediate_gen
+Compiling module xil_defaultlib.register_file
+Compiling module xil_defaultlib.hazard_detection_unit
+Compiling module xil_defaultlib.forwarding_unit
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.SPIC_Pipeline
+Compiling module dist_mem_gen_v8_0_14.dist_mem_gen_v8_0_14(C_FAMILY="k...
+Compiling module xil_defaultlib.IROM
+Compiling module xil_defaultlib.seg7
+Compiling module xil_defaultlib.display_seg
+Compiling module dist_mem_gen_v8_0_14.dist_mem_gen_v8_0_14(C_FAMILY="k...
+Compiling module xil_defaultlib.DRAM
+Compiling module xil_defaultlib.dram_driver
+Compiling module xil_defaultlib.counter
+Compiling module xil_defaultlib.perip_bridge
+Compiling module xil_defaultlib.student_top
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.tb_top
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_top_behav
+execute_script: Time (s): cpu = 00:00:15 ; elapsed = 00:00:09 . Memory (MB): peak = 8235.785 ; gain = 0.000 ; free physical = 334 ; free virtual = 22013
+INFO: [USF-XSim-69] 'elaborate' step finished in '10' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_top_behav -key {Behavioral:sim_1:Functional:tb_top} -tclbatch {tb_top.tcl} -view {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg} -view {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg
+WARNING: Simulation object /tb_uart/clk was not found in the design.
+WARNING: Simulation object /tb_uart/rst_n was not found in the design.
+WARNING: Simulation object /tb_uart/rx was not found in the design.
+WARNING: Simulation object /tb_uart/rx_ready was not found in the design.
+WARNING: Simulation object /tb_uart/rx_data was not found in the design.
+WARNING: Simulation object /tb_uart/tx was not found in the design.
+WARNING: Simulation object /tb_uart/tx_start was not found in the design.
+WARNING: Simulation object /tb_uart/tx_data was not found in the design.
+WARNING: Simulation object /tb_uart/tx_busy was not found in the design.
+WARNING: Simulation object /tb_uart/BIT_PERIOD was not found in the design.
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg
+WARNING: Simulation object /tb_riscv/uut/clk was not found in the design.
+WARNING: Simulation object /tb_riscv/uut/rst was not found in the design.
+WARNING: Simulation object /tb_riscv/uut/RF/registers was not found in the design.
+source tb_top.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
+# run 1000ns
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+==== send 0x00 to uart_rx ====
+xsim: Time (s): cpu = 00:00:13 ; elapsed = 00:00:06 . Memory (MB): peak = 8277.016 ; gain = 41.230 ; free physical = 212 ; free virtual = 21925
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_top_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:39 ; elapsed = 00:00:21 . Memory (MB): peak = 8277.016 ; gain = 41.230 ; free physical = 212 ; free virtual = 21925
+current_wave_config {tb_top_behav.wcfg}
+tb_top_behav.wcfg
+add_wave {{/tb_top/uut/student_top_inst/w_cpu_clk}} {{/tb_top/uut/student_top_inst/w_clk_50Mhz}} {{/tb_top/uut/student_top_inst/w_clk_rst}} {{/tb_top/uut/student_top_inst/virtual_key}} {{/tb_top/uut/student_top_inst/virtual_sw}} {{/tb_top/uut/student_top_inst/virtual_led}} {{/tb_top/uut/student_top_inst/virtual_seg}} 
+run all
+WARNING in tb_top.uut.student_top_inst.bridge_inst.dram_driver_inst.Mem_DRAM.inst at time              1237500 ns: 
+Reading from out-of-range address. Max address in tb_top.uut.student_top_inst.bridge_inst.dram_driver_inst.Mem_DRAM.inst is       65535
+run: Time (s): cpu = 00:00:45 ; elapsed = 00:00:30 . Memory (MB): peak = 8401.086 ; gain = 0.000 ; free physical = 216 ; free virtual = 21722
+current_wave_config {tb_top_behav.wcfg}
+tb_top_behav.wcfg
+add_wave {{/tb_top/uut/student_top_inst/pc}} 
+close_sim
+INFO: xsimkernel Simulation Memory Usage: 112196 KB (Peak: 164976 KB), Simulation CPU Usage: 29880 ms
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/mingzhenjia/Xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/home/mingzhenjia/Xilinx/Vivado/2023.2/data/xsim/xsim.ini' copied to run dir:'/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_top' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/DRAM.mif'
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/dram.coe'
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/IROM.mif'
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/irom.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_top_vlog.prj
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L dist_mem_gen_v8_0_14 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/mingzhenjia/Xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L dist_mem_gen_v8_0_14 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_top_behav -key {Behavioral:sim_1:Functional:tb_top} -tclbatch {tb_top.tcl} -view {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg} -view {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg
+WARNING: Simulation object /tb_uart/clk was not found in the design.
+WARNING: Simulation object /tb_uart/rst_n was not found in the design.
+WARNING: Simulation object /tb_uart/rx was not found in the design.
+WARNING: Simulation object /tb_uart/rx_ready was not found in the design.
+WARNING: Simulation object /tb_uart/rx_data was not found in the design.
+WARNING: Simulation object /tb_uart/tx was not found in the design.
+WARNING: Simulation object /tb_uart/tx_start was not found in the design.
+WARNING: Simulation object /tb_uart/tx_data was not found in the design.
+WARNING: Simulation object /tb_uart/tx_busy was not found in the design.
+WARNING: Simulation object /tb_uart/BIT_PERIOD was not found in the design.
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg
+WARNING: Simulation object /tb_riscv/uut/clk was not found in the design.
+WARNING: Simulation object /tb_riscv/uut/rst was not found in the design.
+WARNING: Simulation object /tb_riscv/uut/RF/registers was not found in the design.
+source tb_top.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
+# run 1000ns
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+==== send 0x00 to uart_rx ====
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_top_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:12 ; elapsed = 00:00:08 . Memory (MB): peak = 8409.953 ; gain = 0.000 ; free physical = 1639 ; free virtual = 23033
+current_wave_config {}
+WARNING: [Wavedata 42-16] Error Unable to get wave configuration ''.
+tb_top_behav.wcfg
+add_wave {{/tb_top/uut/student_top_inst/w_cpu_clk}} {{/tb_top/uut/student_top_inst/w_clk_50Mhz}} {{/tb_top/uut/student_top_inst/w_clk_rst}} {{/tb_top/uut/student_top_inst/virtual_key}} {{/tb_top/uut/student_top_inst/virtual_sw}} {{/tb_top/uut/student_top_inst/virtual_led}} {{/tb_top/uut/student_top_inst/virtual_seg}} {{/tb_top/uut/student_top_inst/pc}} 
+run all
+WARNING in tb_top.uut.student_top_inst.bridge_inst.dram_driver_inst.Mem_DRAM.inst at time              1237500 ns: 
+Reading from out-of-range address. Max address in tb_top.uut.student_top_inst.bridge_inst.dram_driver_inst.Mem_DRAM.inst is       65535
+PASS: 0x00 instruction
+==== send 0x81 SW[0]=1 ====
+==== send 0xa0 SW[31]=1 ====
+run: Time (s): cpu = 00:00:55 ; elapsed = 00:00:52 . Memory (MB): peak = 8420.309 ; gain = 0.000 ; free physical = 1621 ; free virtual = 23157
+close_sim
+INFO: xsimkernel Simulation Memory Usage: 112196 KB (Peak: 164976 KB), Simulation CPU Usage: 52210 ms
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/mingzhenjia/Xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/home/mingzhenjia/Xilinx/Vivado/2023.2/data/xsim/xsim.ini' copied to run dir:'/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_top' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/DRAM.mif'
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/dram.coe'
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/IROM.mif'
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/irom.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_top_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM_1/sim/DRAM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DRAM
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/IROM_1/sim/IROM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IROM
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pll_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pll
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SPIC_Pipeline
+ERROR: [VRFC 10-4982] syntax error near ':' [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:72]
+ERROR: [VRFC 10-8530] module 'SPIC_Pipeline' is ignored due to previous errors [/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v:1]
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/xvlog.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/xvlog.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/home/mingzhenjia/Xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/home/mingzhenjia/Xilinx/Vivado/2023.2/data/xsim/xsim.ini' copied to run dir:'/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_top' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/DRAM.mif'
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/dram.coe'
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/IROM.mif'
+INFO: [SIM-utils-43] Exported '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim/irom.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj tb_top_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/DRAM_1/sim/DRAM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DRAM
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/IROM_1/sim/IROM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IROM
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pll_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.gen/sources_1/ip/pll_1/pll.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pll
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/SPIC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SPIC_Pipeline
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/control_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/forwarding_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module forwarding_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/hazard_detectioin_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hazard_detection_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/immediate_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module immediate_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.srcs/sources_1/new/register_file.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module register_file
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L dist_mem_gen_v8_0_14 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /home/mingzhenjia/Xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L dist_mem_gen_v8_0_14 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUFDS
+Compiling module unisims_ver.PLLE2_ADV(CLKFBOUT_MULT=17,CLKIN...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.pll_clk_wiz
+Compiling module xil_defaultlib.pll
+Compiling module xil_defaultlib.uart(BAUD_RATE=9600)
+Compiling module xil_defaultlib.twin_controller
+Compiling module xil_defaultlib.control_unit
+Compiling module xil_defaultlib.immediate_gen
+Compiling module xil_defaultlib.register_file
+Compiling module xil_defaultlib.hazard_detection_unit
+Compiling module xil_defaultlib.forwarding_unit
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.SPIC_Pipeline
+Compiling module dist_mem_gen_v8_0_14.dist_mem_gen_v8_0_14(C_FAMILY="k...
+Compiling module xil_defaultlib.IROM
+Compiling module xil_defaultlib.seg7
+Compiling module xil_defaultlib.display_seg
+Compiling module dist_mem_gen_v8_0_14.dist_mem_gen_v8_0_14(C_FAMILY="k...
+Compiling module xil_defaultlib.DRAM
+Compiling module xil_defaultlib.dram_driver
+Compiling module xil_defaultlib.counter
+Compiling module xil_defaultlib.perip_bridge
+Compiling module xil_defaultlib.student_top
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.tb_top
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_top_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_top_behav -key {Behavioral:sim_1:Functional:tb_top} -tclbatch {tb_top.tcl} -view {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg} -view {/home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg
+WARNING: Simulation object /tb_uart/clk was not found in the design.
+WARNING: Simulation object /tb_uart/rst_n was not found in the design.
+WARNING: Simulation object /tb_uart/rx was not found in the design.
+WARNING: Simulation object /tb_uart/rx_ready was not found in the design.
+WARNING: Simulation object /tb_uart/rx_data was not found in the design.
+WARNING: Simulation object /tb_uart/tx was not found in the design.
+WARNING: Simulation object /tb_uart/tx_start was not found in the design.
+WARNING: Simulation object /tb_uart/tx_data was not found in the design.
+WARNING: Simulation object /tb_uart/tx_busy was not found in the design.
+WARNING: Simulation object /tb_uart/BIT_PERIOD was not found in the design.
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg
+WARNING: Simulation object /tb_riscv/uut/clk was not found in the design.
+WARNING: Simulation object /tb_riscv/uut/rst was not found in the design.
+WARNING: Simulation object /tb_riscv/uut/RF/registers was not found in the design.
+source tb_top.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
+# run 1000ns
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+==== send 0x00 to uart_rx ====
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_top_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:12 ; elapsed = 00:00:10 . Memory (MB): peak = 8420.309 ; gain = 0.000 ; free physical = 1549 ; free virtual = 23279
+current_wave_config {tb_top_behav.wcfg}
+tb_top_behav.wcfg
+add_wave {{/tb_top/uut/student_top_inst/w_cpu_clk}} {{/tb_top/uut/student_top_inst/w_clk_50Mhz}} {{/tb_top/uut/student_top_inst/w_clk_rst}} {{/tb_top/uut/student_top_inst/virtual_key}} {{/tb_top/uut/student_top_inst/virtual_sw}} {{/tb_top/uut/student_top_inst/virtual_led}} {{/tb_top/uut/student_top_inst/virtual_seg}} {{/tb_top/uut/student_top_inst/pc}} 
+run all
+WARNING in tb_top.uut.student_top_inst.bridge_inst.dram_driver_inst.Mem_DRAM.inst at time              1237500 ns: 
+Reading from out-of-range address. Max address in tb_top.uut.student_top_inst.bridge_inst.dram_driver_inst.Mem_DRAM.inst is       65535
+run: Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 8496.316 ; gain = 0.000 ; free physical = 1541 ; free virtual = 23338
+current_wave_config {tb_top_behav.wcfg}
+tb_top_behav.wcfg
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/instr_new}} 
+current_wave_config {tb_top_behav.wcfg}
+tb_top_behav.wcfg
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/instr_new}} 
+close_sim
+INFO: xsimkernel Simulation Memory Usage: 112196 KB (Peak: 164976 KB), Simulation CPU Usage: 20830 ms
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue May 20 10:17:26 2025...
