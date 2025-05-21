@@ -1,7 +1,7 @@
 # Complex-CPU-Design-Based-on-RISC-V
 The repository is built for Jingyeda Cup by Cai Xinyu, Cheng Renlong and Zhu Yanxiang, implementing a high-performance CPU based on RISC-V structure. 
 
-![CPU Architecture Diagram]()![image](https://github.com/user-attachments/assets/0ae41818-eb57-48dc-92f5-cbb5fb49dd50)
+![CPU Architecture Diagram](https://github.com/user-attachments/assets/0ae41818-eb57-48dc-92f5-cbb5fb49dd50)
 
 
 ## Overview
@@ -28,17 +28,43 @@ The CPU follows a classic five-stage pipeline architecture (Fetch, Decode, Execu
 │   │   │   ├── alu.v
 │   │   │   ├── hazard_detection.v
 │   │   │   ├── forward_unit.v
-│   │   │   └── ...
+│   │   │   └── ......
 │   ├── coe/
 │   │   ├── irom.coe        # Instruction BRAM
 │   │   └── dram.coe        # Data BRAM
 │   ├── constrs/            # Timing and pin constraints
 │   ├── sims/               # Testbenches and simulation files
-│   └── ...
+│   └── ......
 └── cdp_tests/              # CDP trace test framework
-    ├── test_cases/         # Test vectors and expected outcomes
-    ├── runner.py           # Test execution script
-    └── results/            # Test result logs
+    ├── bin                 # test case
+    │   ├── add.bin    
+    │   ├── .......
+    │   ├── xor.bin
+    │   └── xori.bin
+    ├── asm                 # Disassembly file of the instruction test case, for debugging
+    │   ├── add.dump
+    │   ├── .......
+    │   ├── xor.dump
+    │   └── xori.dump
+    ├── csrc
+    │   ├── dut.h
+    │   └── test.cpp
+    ├── golden_model
+    │   ├── emu.c
+    │   ├── include/...
+    │   └── stage/...
+    ├── waveform            # Waveform file generated after running the test, for debugging
+    │   ├── add.vcd
+    │   ├── ........
+    │   └── xori.vcd
+    ├── mySoC               #  Verilog code of the implemented SoC
+    |   ├── defines.vh
+    │   ├── miniRV_SoC.v（or miniLA_SoC.v）
+    |   ├── myCPU.v
+    |   ├── Bridge.v
+    │   └── ......
+    ├── Makefile
+    └──  ......
 ```
 
 ## Features
@@ -96,3 +122,10 @@ cd cdp_trace
 make
 python run_all tests.py
 ```
+
+### Results
+
+![Trace Result](https://github.com/user-attachments/assets/5d12887e-4442-43ad-a2c6-c0368bd3d217)
+
+![Remote FPGA Result](https://github.com/user-attachments/assets/553bdf01-3e88-4af2-b460-f14d4d5cafd6)
+
