@@ -1,0 +1,47 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Tue May 20 08:24:16 2025
+# Process ID: 103444
+# Current directory: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin
+# Command line: vivado
+# Log file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/vivado.log
+# Journal file: /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/vivado.jou
+# Running On: mingzhenjia-OMEN-by-HP-Gaming-Laptop-16-wf0xxx, OS: Linux, CPU Frequency: 799.801 MHz, CPU Physical cores: 14, Host memory: 16445 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/digital_twin.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/w_cpu_clk}} {{/tb_top/uut/student_top_inst/w_clk_50Mhz}} {{/tb_top/uut/student_top_inst/w_clk_rst}} {{/tb_top/uut/student_top_inst/virtual_key}} {{/tb_top/uut/student_top_inst/virtual_sw}} {{/tb_top/uut/student_top_inst/virtual_led}} {{/tb_top/uut/student_top_inst/virtual_seg}} 
+run all
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/pc}} 
+close_sim
+launch_simulation
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+current_wave_config {}
+add_wave {{/tb_top/uut/student_top_inst/w_cpu_clk}} {{/tb_top/uut/student_top_inst/w_clk_50Mhz}} {{/tb_top/uut/student_top_inst/w_clk_rst}} {{/tb_top/uut/student_top_inst/virtual_key}} {{/tb_top/uut/student_top_inst/virtual_sw}} {{/tb_top/uut/student_top_inst/virtual_led}} {{/tb_top/uut/student_top_inst/virtual_seg}} {{/tb_top/uut/student_top_inst/pc}} 
+run all
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_uart_behav.wcfg
+open_wave_config /home/mingzhenjia/Complex-CPU-Design-Based-on-RISC-V/digital_twin/tb_top_behav.wcfg
+source tb_top.tcl
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/w_cpu_clk}} {{/tb_top/uut/student_top_inst/w_clk_50Mhz}} {{/tb_top/uut/student_top_inst/w_clk_rst}} {{/tb_top/uut/student_top_inst/virtual_key}} {{/tb_top/uut/student_top_inst/virtual_sw}} {{/tb_top/uut/student_top_inst/virtual_led}} {{/tb_top/uut/student_top_inst/virtual_seg}} {{/tb_top/uut/student_top_inst/pc}} 
+run all
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/instr_new}} 
+current_wave_config {tb_top_behav.wcfg}
+add_wave {{/tb_top/uut/student_top_inst/Core_cpu/instr_new}} 
+close_sim
